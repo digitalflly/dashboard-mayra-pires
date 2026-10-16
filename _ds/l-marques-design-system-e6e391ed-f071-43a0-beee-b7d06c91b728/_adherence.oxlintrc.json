@@ -1,0 +1,324 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**",
+              "components/forms/**",
+              "ui_kits/atelier-site/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:PP Editorial New|Neue Montreal))/i]",
+        "message": "Font not provided by the design system. Available: PP Editorial New, Neue Montreal."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Avatar'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|src|size|square|key|ref|className|style|children)$/]",
+        "message": "<Avatar> doesn't accept that prop. Declared props: name, src, size, square."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|key|ref|className|style|children)$/]",
+        "message": "<Badge> doesn't accept that prop. Declared props: children, variant."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:neutral|solid|outline)$/]",
+        "message": "<Badge> variant must be one of 'neutral' | 'solid' | 'outline'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|size|fullWidth|disabled|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, variant, size, fullWidth, disabled."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|interactive|inverse|padding|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: children, interactive, inverse, padding."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|checked|style|key|ref|className|style|children)$/]",
+        "message": "<Checkbox> doesn't accept that prop. Declared props: label, checked, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Divider'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|align|inverse|key|ref|className|style|children)$/]",
+        "message": "<Divider> doesn't accept that prop. Declared props: label, align, inverse."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Divider'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:start|center)$/]",
+        "message": "<Divider> align must be one of 'start' | 'center'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|hint|invalid|style|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: label, hint, invalid, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Select'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|children|style|key|ref|className|style|children)$/]",
+        "message": "<Select> doesn't accept that prop. Declared props: label, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Switch'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|checked|style|key|ref|className|style|children)$/]",
+        "message": "<Switch> doesn't accept that prop. Declared props: label, checked, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|selected|onRemove|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: children, selected, onRemove."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Avatar": {
+        "replaces": []
+      },
+      "Badge": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "Checkbox": {
+        "replaces": []
+      },
+      "Divider": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "Select": {
+        "replaces": []
+      },
+      "Switch": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-text-on",
+      "--bone",
+      "--bone-08",
+      "--bone-15",
+      "--bone-35",
+      "--bone-60",
+      "--bone-80",
+      "--border-hair",
+      "--border-rule",
+      "--container",
+      "--container-wide",
+      "--dur-base",
+      "--dur-fast",
+      "--dur-slow",
+      "--ease-editorial",
+      "--ease-out",
+      "--font-display",
+      "--font-text",
+      "--forest",
+      "--forest-06",
+      "--forest-12",
+      "--forest-25",
+      "--forest-45",
+      "--forest-70",
+      "--forest-90",
+      "--gutter",
+      "--ink",
+      "--ink-15",
+      "--ink-45",
+      "--ink-70",
+      "--lh-body",
+      "--lh-display",
+      "--lh-snug",
+      "--lh-tight",
+      "--line-contrast",
+      "--line-hairline",
+      "--line-strong",
+      "--measure",
+      "--radius-md",
+      "--radius-none",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xs",
+      "--shadow-lg",
+      "--shadow-md",
+      "--shadow-sm",
+      "--space-0",
+      "--space-1",
+      "--space-10",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-inverse",
+      "--surface-page",
+      "--surface-raised",
+      "--surface-sunken",
+      "--t-body",
+      "--t-body-lg",
+      "--t-body-sm",
+      "--t-caption",
+      "--t-display-2xl",
+      "--t-display-lg",
+      "--t-display-md",
+      "--t-display-sm",
+      "--t-display-xl",
+      "--t-overline",
+      "--text-body",
+      "--text-faint",
+      "--text-muted",
+      "--text-on-dark",
+      "--text-strong",
+      "--track-display",
+      "--track-mono",
+      "--track-overline",
+      "--track-text",
+      "--w-bold",
+      "--w-medium",
+      "--w-regular",
+      "--w-ultrabold",
+      "--w-ultralight"
+    ],
+    "tokenKinds": {
+      "--forest": "color",
+      "--ink": "color",
+      "--bone": "color",
+      "--forest-90": "color",
+      "--forest-70": "color",
+      "--forest-45": "color",
+      "--forest-25": "color",
+      "--forest-12": "color",
+      "--forest-06": "color",
+      "--ink-70": "color",
+      "--ink-45": "color",
+      "--ink-15": "color",
+      "--bone-80": "color",
+      "--bone-60": "color",
+      "--bone-35": "color",
+      "--bone-15": "color",
+      "--bone-08": "color",
+      "--surface-page": "color",
+      "--surface-raised": "color",
+      "--surface-sunken": "color",
+      "--surface-inverse": "color",
+      "--text-strong": "font",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-faint": "font",
+      "--text-on-dark": "font",
+      "--line-hairline": "color",
+      "--line-strong": "color",
+      "--line-contrast": "color",
+      "--accent": "color",
+      "--accent-text-on": "font",
+      "--font-display": "font",
+      "--font-text": "font",
+      "--w-ultralight": "font",
+      "--w-regular": "font",
+      "--w-medium": "font",
+      "--w-bold": "font",
+      "--w-ultrabold": "font",
+      "--track-display": "spacing",
+      "--track-text": "font",
+      "--track-mono": "spacing",
+      "--t-display-2xl": "spacing",
+      "--t-display-xl": "spacing",
+      "--t-display-lg": "spacing",
+      "--t-display-md": "spacing",
+      "--t-display-sm": "spacing",
+      "--t-body-lg": "spacing",
+      "--t-body": "spacing",
+      "--t-body-sm": "spacing",
+      "--t-caption": "spacing",
+      "--t-overline": "spacing",
+      "--lh-display": "font",
+      "--lh-tight": "font",
+      "--lh-snug": "font",
+      "--lh-body": "font",
+      "--track-overline": "spacing",
+      "--space-0": "spacing",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--space-10": "spacing",
+      "--measure": "spacing",
+      "--container": "spacing",
+      "--container-wide": "spacing",
+      "--gutter": "color",
+      "--radius-none": "radius",
+      "--radius-xs": "radius",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-pill": "radius",
+      "--border-hair": "color",
+      "--border-rule": "color",
+      "--shadow-sm": "shadow",
+      "--shadow-md": "shadow",
+      "--shadow-lg": "shadow",
+      "--ease-editorial": "other",
+      "--ease-out": "other",
+      "--dur-fast": "other",
+      "--dur-base": "other",
+      "--dur-slow": "other"
+    },
+    "fontFamilies": [
+      "Neue Montreal",
+      "PP Editorial New"
+    ]
+  }
+}

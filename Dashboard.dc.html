@@ -3,29 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mayra Pires - Análise de Conteúdo</title>
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/tokens/fonts.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/tokens/colors.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/tokens/typography.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/tokens/spacing.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/tokens/radii.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/tokens/shadows.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/tokens/motion.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/tokens/base.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/components/core/components.css">
-  <link rel="stylesheet" href="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/styles.css">
-  <script src="_ds/digital-flly-design-system-7ee255ef-2237-4e8b-a0d1-0098589d81e7/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/styles.css">
+  <script src="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/_ds_bundle.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     *{ box-sizing:border-box; }
     body{ margin:0; }
     ::-webkit-scrollbar{ width:10px; height:10px; }
-    ::-webkit-scrollbar-thumb{ background:var(--paper-400); border-radius:999px; border:3px solid var(--paper-200); }
+    ::-webkit-scrollbar-thumb{ background:var(--forest-25); border-radius:999px; border:3px solid var(--forest-06); }
     .dash, .dash *:not([data-keepcase]){ text-transform: lowercase !important; }
     .dash [data-keepcase]{ text-transform: none !important; }
   </style>
@@ -33,62 +27,63 @@
 
 <template id="__bundler_thumbnail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-    <rect width="100" height="100" fill="#5a3e28"></rect>
-    <rect x="30" y="54" width="9" height="16" rx="1.5" fill="#ede9e7"></rect>
-    <rect x="45.5" y="44" width="9" height="26" rx="1.5" fill="#b5832a"></rect>
-    <rect x="61" y="34" width="9" height="36" rx="1.5" fill="#ede9e7"></rect>
-    <path d="M30 40 L45 36 L61 28 L70 24" fill="none" stroke="#e9d8c8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+    <rect width="100" height="100" fill="#172219"></rect>
+    <rect x="30" y="54" width="9" height="16" rx="1.5" fill="#fffdf7"></rect>
+    <rect x="45.5" y="44" width="9" height="26" rx="1.5" fill="#fffdf7" fill-opacity="0.55"></rect>
+    <rect x="61" y="34" width="9" height="36" rx="1.5" fill="#fffdf7"></rect>
+    <path d="M30 40 L45 36 L61 28 L70 24" fill="none" stroke="#fffdf7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
   </svg>
 </template>
 
-<div class="dash" style="min-height:100vh; background:var(--paper-200); font-family:var(--font-sans); color:var(--text); padding-bottom:64px;">
+<div class="dash" style="min-height:100vh; background:#f1f1ec; font-family:var(--font-text); color:var(--text-body); padding-bottom:64px;">
 
   <!-- ===== HEADER ===== -->
-  <header style="background:var(--paper-50); border-bottom:1px solid var(--border-subtle); position:sticky; top:0; z-index:20;">
+  <header style="background:var(--bone); border-bottom:1px solid var(--line-hairline); position:sticky; top:0; z-index:20;">
     <div style="max-width:1280px; margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
       <div style="display:flex; align-items:center; gap:14px;">
-        <div class="b-avatar b-avatar--lg" style="background:var(--clay-500); color:var(--paper-50); font-family:var(--font-display); font-size:24px;">{{ brand.initial }}</div>
+        <div style="width:48px; height:48px; flex:none; border-radius:999px; display:flex; align-items:center; justify-content:center; overflow:hidden; background:var(--forest) center/128% no-repeat url('assets/mayra-pires.png'); box-shadow:0 0 0 2px var(--bone), 0 0 0 3px var(--line-hairline); overflow:hidden;" role="img" aria-label="Foto de Mayra Pires"></div>
         <div>
-          <div style="font-family:var(--font-display); font-size:26px; line-height:1; color:var(--text-strong); letter-spacing:-0.01em;">{{ brand.name }}</div>
-          <div style="font-size:13px; color:var(--text-muted); margin-top:3px;">@{{ brand.handle }} · análise de conteúdo</div>
+          <div style="font-family:var(--font-display); font-weight:200; font-size:26px; line-height:1; color:var(--text-strong); letter-spacing:var(--track-display);">{{ brand.name }}</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:3px;">@{{ brand.handle }} · marketing</div>
         </div>
       </div>
       <div style="display:flex; align-items:center; gap:16px;">
         <div style="text-align:right; line-height:1.3;">
-          <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Atualizado</div>
-          <div style="font-size:13px; font-weight:600; color:var(--text-strong); white-space:nowrap;">{{ lastSync }}</div>
+          <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Atualizado</div>
+          <div style="font-size:13px; font-weight:500; color:var(--text-strong); white-space:nowrap;">{{ lastSync }}</div>
           <div style="display:flex; align-items:center; gap:5px; justify-content:flex-end; margin-top:3px;">
             <span style="width:7px; height:7px; border-radius:999px; background:{{ sourceColor }};"></span>
             <span style="font-size:10.5px; color:{{ sourceColor }};">{{ sourceLabel }}</span>
           </div>
         </div>
-        <button class="b-btn b-btn--primary b-btn--md" onClick="{{ onRefresh }}" disabled="{{ refreshing }}" style="min-width:128px;">{{ refreshLabel }}</button>
+        <button style-hover="background:var(--forest-90);" style-active="transform:translateY(1px);" onClick="{{ onRefresh }}" disabled="{{ refreshing }}" style="font-family:var(--font-text); font-size:13px; font-weight:500; letter-spacing:var(--track-text); height:38px; padding:0 18px; border-radius:var(--radius-xs); cursor:pointer; transition:background var(--dur-fast) var(--ease-out); background:var(--forest); color:var(--bone); border:1px solid var(--forest); min-width:128px;">{{ refreshLabel }}</button>
       </div>
     </div>
 
-    <div style="max-width:1280px; margin:0 auto; padding:0 32px 14px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
-      <nav style="display:flex; gap:4px;">
-        <sc-for list="{{ pages }}" as="p" hint-placeholder-count="3">
+    <div style="max-width:1280px; margin:0 auto; padding:0 32px 12px; display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+      <nav style="display:flex; gap:4px; flex:none;">
+        <sc-for list="{{ pages }}" as="p" hint-placeholder-count="4">
           <button onClick="{{ p.onClick }}" style="{{ p.style }}">{{ p.label }}</button>
         </sc-for>
       </nav>
-      <div style="display:flex; align-items:flex-end; gap:12px;">
+      <div style="display:flex; align-items:flex-end; gap:8px; margin-left:auto; flex-wrap:nowrap;">
         <label style="display:flex; flex-direction:column; gap:4px;">
-          <span style="font-size:10px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Mês</span>
-          <select class="b-select" value="{{ month }}" onChange="{{ onMonth }}" style="height:38px; padding:0 12px; min-width:150px;">
+          <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Mês</span>
+          <select style-focus="border-color:var(--forest);" value="{{ month }}" onChange="{{ onMonth }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:122px;">
             <sc-for list="{{ monthOptions }}" as="o" hint-placeholder-count="3">
               <option value="{{ o.value }}">{{ o.label }}</option>
             </sc-for>
           </select>
         </label>
         <label style="display:flex; flex-direction:column; gap:4px;">
-          <span style="font-size:10px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Semana</span>
-          <select class="b-select" value="{{ week }}" onChange="{{ onWeek }}" style="height:38px; padding:0 12px; min-width:230px;">
-            <sc-for list="{{ weekOptions }}" as="o" hint-placeholder-count="5">
-              <option value="{{ o.value }}">{{ o.label }}</option>
-            </sc-for>
-          </select>
+          <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Data inicial</span>
+          <input style-focus="border-color:var(--forest);" type="date" value="{{ dateFrom }}" min="{{ dateMin }}" max="{{ dateMax }}" onChange="{{ onDateFrom }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; padding:0 6px; width:118px;"></input>
         </label>
+        <label style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Data final</span>
+          <input style-focus="border-color:var(--forest);" type="date" value="{{ dateTo }}" min="{{ dateMin }}" max="{{ dateMax }}" onChange="{{ onDateTo }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; padding:0 6px; width:118px;"></input>
+        </label>
+        <button style-hover="background:var(--forest-06); border-color:var(--forest);" style-active="transform:translateY(1px);" onClick="{{ onClearDates }}" style="font-family:var(--font-text); font-size:13px; font-weight:500; letter-spacing:var(--track-text); height:38px; padding:0 18px; border-radius:var(--radius-xs); cursor:pointer; transition:background var(--dur-fast) var(--ease-out); background:transparent; color:var(--text-muted); border:1px solid var(--line-strong); height:32px; padding:0 12px; font-size:12px;">Limpar</button>
       </div>
     </div>
   </header>
@@ -96,29 +91,33 @@
   <main style="max-width:1280px; margin:0 auto; padding:28px 32px 0;">
 
     <!-- page title strip -->
-    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:22px;">
-      <h1 style="font-family:var(--font-display); font-size:34px; line-height:1; margin:0; color:var(--text-strong); letter-spacing:-0.01em;">{{ pageTitle }}</h1>
+    <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:22px;">
+      <h1 style="font-family:var(--font-display); font-weight:200; font-size:34px; line-height:1; margin:0; color:var(--text-strong); letter-spacing:var(--track-display);">{{ pageTitle }}</h1>
+      <sc-if value="{{ isAcomp }}" hint-placeholder-val="{{ false }}">
+        <div data-keepcase="1" style="font-size:13px; color:var(--text-muted); line-height:1.4;">Link do dashboard de tráfego oficial: <span style="color:var(--text-strong); font-weight:500;">[adicionar aqui após o envio pelo gestor]</span></div>
+        <div data-keepcase="1" style="font-size:13px; color:var(--text-muted); line-height:1.4;">Link do Trello oficial: <a data-keepcase="1" href="https://trello.com/b/g2bCSpU1/2026-black-pac" target="_blank" rel="noopener noreferrer" style="color:var(--text-strong); font-weight:500; text-decoration:underline; text-underline-offset:2px;" style-hover="color:var(--forest-70);">https://trello.com/b/g2bCSpU1/2026-black-pac</a></div>
+      </sc-if>
     </div>
 
     <!-- ============ PAGE: CONTA ============ -->
     <sc-if value="{{ isConta }}" hint-placeholder-val="{{ true }}">
     <div>
       <sc-if value="{{ partialLive }}" hint-placeholder-val="{{ false }}">
-        <div class="b-card" style="padding:14px 18px; margin-bottom:16px; display:flex; gap:11px; align-items:flex-start; background:var(--warning-bg); border-color:transparent;">
-          <span style="flex:none; width:8px; height:8px; border-radius:999px; background:var(--warning); margin-top:6px;"></span>
-          <span data-keepcase="1" style="font-size:13px; color:var(--clay-700); line-height:1.55;">{{ syncNotice }}</span>
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px 18px; margin-bottom:16px; display:flex; gap:11px; align-items:flex-start; background:var(--forest-06); border-color:transparent;">
+          <span style="flex:none; width:8px; height:8px; border-radius:999px; background:var(--forest); margin-top:6px;"></span>
+          <span data-keepcase="1" style="font-size:13px; color:var(--text-strong); line-height:1.55;">{{ syncNotice }}</span>
         </div>
       </sc-if>
       <!-- KPI grid -->
-      <div style="display:grid; grid-template-columns:repeat(8, 1fr); gap:10px; margin-bottom:18px;">
-        <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="8">
-          <div class="b-card" style="padding:12px 12px; min-height:104px; display:flex; flex-direction:column; justify-content:space-between; border-top:3px solid {{ k.accent }};">
+      <div style="display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:10px; margin-bottom:18px;">
+        <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="7">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:12px 12px; min-height:104px; display:flex; flex-direction:column; justify-content:space-between; border-top:3px solid {{ k.accent }};">
             <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); line-height:1.25;">{{ k.label }}</div>
             <div>
-              <div style="font-size:21px; font-weight:600; color:var(--text-strong); line-height:1.05; letter-spacing:-0.02em;">{{ k.value }}</div>
+              <div style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em;">{{ k.value }}</div>
               <div style="display:flex; align-items:baseline; gap:6px; margin-top:4px; min-height:16px; flex-wrap:wrap;">
-                <span style="font-size:11px; font-weight:600; color:{{ k.deltaColor }};">{{ k.deltaText }}</span>
-                <span style="font-size:11px; color:var(--text-subtle);">{{ k.sub }}</span>
+                <span style="font-size:11px; font-weight:500; color:{{ k.deltaColor }};">{{ k.deltaText }}</span>
+                <span style="font-size:11px; color:var(--text-muted);">{{ k.sub }}</span>
               </div>
             </div>
           </div>
@@ -127,45 +126,31 @@
 
       <!-- charts 1 & 2 -->
       <sc-if value="{{ fullLive }}" hint-placeholder-val="{{ true }}">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
-        <div class="b-card" style="padding:20px 22px;">
-          <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Crescimento</div>
-          <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Seguidores no período</div>
-          <div style="height:230px; position:relative;"><canvas id="chart-followers"></canvas></div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px;">
+          <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Crescimento</div>
+          <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Seguidores no período</div>
+          <div style="height:300px; position:relative;"><canvas id="chart-followers"></canvas></div>
         </div>
-        <div class="b-card" style="padding:20px 22px;">
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px;">
           <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:12px; gap:12px; flex-wrap:wrap;">
             <div>
-              <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Por dia da semana</div>
-              <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1;">Métrica por semana</div>
+              <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Por dia</div>
+              <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1;">Métrica por dia</div>
             </div>
-            <select class="b-select" value="{{ metric2 }}" onChange="{{ onMetric2 }}" style="height:34px; padding:0 10px; min-width:180px;">
+            <select style-focus="border-bottom-color:var(--forest);" value="{{ metric2 }}" onChange="{{ onMetric2 }}" style="font-family:var(--font-text); font-size:14px; letter-spacing:var(--track-text); color:var(--forest); background:transparent; border:0; border-bottom:1px solid var(--line-strong); border-radius:0; outline:none; cursor:pointer; height:38px; padding:0 12px; min-width:200px;">
               <sc-for list="{{ metric2Options }}" as="o" hint-placeholder-count="5">
                 <option value="{{ o.value }}">{{ o.label }}</option>
               </sc-for>
             </select>
           </div>
-          <div style="height:230px; position:relative;"><canvas id="chart-metric2"></canvas></div>
-        </div>
-      </div>
-
-      <!-- charts 3 & 4: engagement per week -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-        <div class="b-card" style="padding:20px 22px;">
-          <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Por dia da semana</div>
-          <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">% engajamento seguidores</div>
-          <div style="height:230px; position:relative;"><canvas id="chart-engfollowers"></canvas></div>
-        </div>
-        <div class="b-card" style="padding:20px 22px;">
-          <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Por dia da semana</div>
-          <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">% engajamento geral</div>
-          <div style="height:230px; position:relative;"><canvas id="chart-enggeneral"></canvas></div>
+          <div style="height:300px; position:relative;"><canvas id="chart-metric2"></canvas></div>
         </div>
       </div>
       </sc-if>
       <sc-if value="{{ partialLive }}" hint-placeholder-val="{{ false }}">
-        <div class="b-card b-card--bare" style="text-align:center; padding:44px; color:var(--text-muted);">
-          <div style="font-family:var(--font-sans); font-weight:600; font-size:16px; color:var(--text-strong); margin-bottom:6px;">Gráficos diários em sincronização</div>
+        <div style="background:transparent; border:1px dashed var(--line-strong); border-radius:var(--radius-md); text-align:center; padding:44px; color:var(--text-muted);">
+          <div style="font-family:var(--font-text); font-weight:500; font-size:16px; color:var(--text-strong); margin-bottom:6px;">Gráficos diários em sincronização</div>
           <div data-keepcase="1" style="font-size:13px; line-height:1.5; max-width:520px; margin:0 auto;">A série diária de @{{ brand.handle }} (alcance, visualizações, engajamento por dia) ainda está sendo ingerida pelo Windsor. Os gráficos aparecem automaticamente assim que os dados chegarem.</div>
         </div>
       </sc-if>
@@ -176,43 +161,56 @@
     <sc-if value="{{ isConteudos }}" hint-placeholder-val="{{ true }}">
     <div>
       <sc-if value="{{ partialLive }}" hint-placeholder-val="{{ false }}">
-        <div class="b-card" style="padding:14px 18px; margin-bottom:18px; display:flex; gap:11px; align-items:flex-start; background:var(--warning-bg); border-color:transparent;">
-          <span style="flex:none; width:8px; height:8px; border-radius:999px; background:var(--warning); margin-top:6px;"></span>
-          <span data-keepcase="1" style="font-size:13px; color:var(--clay-700); line-height:1.55;">As publicações de @{{ brand.handle }} (desde abril/2026, com imagens e métricas por post) ainda estão sendo sincronizadas pelo Windsor. Aparecem aqui automaticamente assim que prontas — clique em atualizar para verificar.</span>
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px 18px; margin-bottom:18px; display:flex; gap:11px; align-items:flex-start; background:var(--forest-06); border-color:transparent;">
+          <span style="flex:none; width:8px; height:8px; border-radius:999px; background:var(--forest); margin-top:6px;"></span>
+          <span data-keepcase="1" style="font-size:13px; color:var(--text-strong); line-height:1.55;">As publicações de @{{ brand.handle }} (desde abril/2026, com imagens e métricas por post) ainda estão sendo sincronizadas pelo Windsor. Aparecem aqui automaticamente assim que prontas — clique em atualizar para verificar.</span>
         </div>
       </sc-if>
       <sc-if value="{{ noMetrics }}" hint-placeholder-val="{{ false }}">
-        <div class="b-card" style="padding:13px 16px; margin-bottom:18px; display:flex; gap:10px; align-items:flex-start; background:var(--warning-bg); border-color:transparent;">
-          <span style="flex:none; width:7px; height:7px; border-radius:999px; background:var(--warning); margin-top:6px;"></span>
-          <span data-keepcase="1" style="font-size:12px; color:var(--clay-700); line-height:1.5;">{{ metricsNote }}</span>
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:13px 16px; margin-bottom:18px; display:flex; gap:10px; align-items:flex-start; background:var(--forest-06); border-color:transparent;">
+          <span style="flex:none; width:7px; height:7px; border-radius:999px; background:var(--forest); margin-top:6px;"></span>
+          <span data-keepcase="1" style="font-size:12px; color:var(--text-strong); line-height:1.5;">{{ metricsNote }}</span>
         </div>
       </sc-if>
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-        <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong);">Conteúdos postados</div>
-        <span class="b-badge">{{ postedCount }}</span>
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong);">Conteúdos postados</div>
+          <span style="display:inline-flex; align-items:center; height:22px; padding:0 10px; border-radius:var(--radius-pill); border:1px solid var(--line-hairline); font-family:var(--font-text); font-size:11px; font-weight:500; color:var(--forest); background:var(--forest-06); ">{{ postedCount }}</span>
+        </div>
+        <div style="display:flex; align-items:flex-end; gap:8px;">
+          <label style="display:flex; flex-direction:column; gap:4px;">
+            <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Ordenar por</span>
+            <select style-focus="border-bottom-color:var(--forest);" value="{{ sortKey }}" onChange="{{ onSortKey }}" style="font-family:var(--font-text); font-size:14px; letter-spacing:var(--track-text); color:var(--forest); background:transparent; border:0; border-bottom:1px solid var(--line-strong); border-radius:0; outline:none; cursor:pointer; height:38px; padding:0 12px; min-width:190px;">
+              <sc-for list="{{ sortOptions }}" as="o" hint-placeholder-count="6">
+                <option value="{{ o.value }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+          </label>
+          <button style-hover="background:var(--forest-06); border-color:var(--forest);" style-active="transform:translateY(1px);" onClick="{{ onSortDir }}" style="font-family:var(--font-text); font-size:13px; font-weight:500; letter-spacing:var(--track-text); height:38px; padding:0 18px; border-radius:var(--radius-xs); cursor:pointer; transition:background var(--dur-fast) var(--ease-out); background:transparent; color:var(--forest); border:1px solid var(--line-strong); height:38px; min-width:128px;">{{ sortDirLabel }}</button>
+        </div>
       </div>
       <sc-if value="{{ hasPosted }}" hint-placeholder-val="{{ true }}">
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(248px, 1fr)); gap:18px; margin-bottom:34px;">
+        <div style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:16px; margin-bottom:34px;">
           <sc-for list="{{ posted }}" as="c" hint-placeholder-count="6">
-            <div class="b-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:0; overflow:hidden;">
               <div style="{{ c.coverStyle }}">
-                <span style="font-family:var(--font-display); font-size:80px; color:rgba(250,248,247,0.16); line-height:1; user-select:none;">{{ brand.initial }}</span>
-                <span class="b-badge" style="position:absolute; top:10px; left:10px; background:rgba(39,21,13,0.62); color:var(--paper-50); border:0; backdrop-filter:blur(2px);">{{ c.typeLabel }}</span>
-                <span style="position:absolute; bottom:10px; right:12px; font-size:12px; color:var(--paper-50); font-weight:500; text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ c.date }}</span>
+                <span style="font-family:var(--font-display); font-weight:200; font-size:80px; color:rgba(255,253,247,0.16); line-height:1; user-select:none;">{{ brand.initial }}</span>
+                <span style="display:inline-flex; align-items:center; height:22px; padding:0 10px; border-radius:var(--radius-pill); border:1px solid var(--line-hairline); font-family:var(--font-text); font-size:11px; font-weight:500; color:var(--forest); background:var(--forest-06); position:absolute; top:10px; left:10px; background:rgba(23,34,25,0.62); color:var(--bone); border:0; backdrop-filter:blur(2px);">{{ c.typeLabel }}</span>
+                <span style="position:absolute; bottom:10px; right:12px; font-size:12px; color:var(--bone); font-weight:500; text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ c.date }}</span>
               </div>
-              <div style="padding:14px 16px;">
-                <div data-keepcase="1" style="font-size:13px; color:var(--text-strong); font-weight:500; line-height:1.35; height:36px; overflow:hidden;">{{ c.caption }}</div>
-                <div style="display:flex; gap:14px; margin:11px 0 12px; font-size:12px; color:var(--text);">
+              <div style="padding:12px 12px; min-width:0;">
+                <div data-keepcase="1" style="font-size:12.5px; color:var(--text-strong); font-weight:500; line-height:1.35; height:34px; overflow:hidden;">{{ c.caption }}</div>
+                <div style="display:flex; gap:10px; margin:10px 0 10px; font-size:11.5px; color:var(--text-body); white-space:nowrap;">
                   <span>♥ {{ c.likes }}</span>
                   <span>◷ {{ c.comments }}</span>
                   <span>↗ {{ c.shares }}</span>
                   <span>⤓ {{ c.saves }}</span>
                 </div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 14px; border-top:1px solid var(--border-subtle); padding-top:11px;">
+                <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:7px 12px; border-top:1px solid var(--line-hairline); padding-top:10px;">
                   <sc-for list="{{ c.metrics }}" as="m" hint-placeholder-count="8">
-                    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:8px;">
-                      <span style="font-size:11px; color:var(--text-muted);">{{ m.label }}</span>
-                      <span style="font-size:12px; font-weight:600; color:var(--text-strong);">{{ m.value }}</span>
+                    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:4px; min-width:0;">
+                      <span style="font-size:10.5px; color:var(--text-muted); line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0;">{{ m.label }}</span>
+                      <span style="font-size:11.5px; font-weight:500; color:var(--text-strong); white-space:nowrap; flex:none;">{{ m.value }}</span>
                     </div>
                   </sc-for>
                 </div>
@@ -224,165 +222,315 @@
 
       <sc-if value="{{ contentEmpty }}" hint-placeholder-val="{{ false }}">
         <sc-if value="{{ fullLive }}" hint-placeholder-val="{{ true }}">
-          <div class="b-card b-card--bare" style="text-align:center; padding:48px; color:var(--text-muted);">Nenhum conteúdo publicado neste período.</div>
+          <div style="background:transparent; border:1px dashed var(--line-strong); border-radius:var(--radius-md); text-align:center; padding:48px; color:var(--text-muted);">Nenhum conteúdo publicado neste período.</div>
         </sc-if>
       </sc-if>
     </div>
     </sc-if>
 
-    <!-- ============ PAGE: INSIGHTS ============ -->
-    <sc-if value="{{ isInsights }}" hint-placeholder-val="{{ true }}">
+    <!-- ============ PAGE: ACOMPANHAMENTO ============ -->
+    <sc-if value="{{ isAcomp }}" hint-placeholder-val="{{ true }}">
     <div>
-      <sc-if value="{{ partialLive }}" hint-placeholder-val="{{ false }}">
-        <div class="b-card" style="padding:14px 18px; margin-bottom:18px; display:flex; gap:11px; align-items:flex-start; background:var(--warning-bg); border-color:transparent;">
-          <span style="flex:none; width:8px; height:8px; border-radius:999px; background:var(--warning); margin-top:6px;"></span>
-          <span data-keepcase="1" style="font-size:13px; color:var(--clay-700); line-height:1.55;">Os insights de @{{ brand.handle }} serão calculados assim que a série diária e as publicações (desde abril/2026) terminarem de sincronizar no Windsor.</span>
-        </div>
-      </sc-if>
-      <sc-if value="{{ fullLive }}" hint-placeholder-val="{{ true }}">
-      <!-- média do período -->
-      <div class="b-card" style="padding:22px 24px; margin-bottom:18px;">
-        <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">{{ avgEyebrow }}</div>
-        <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:16px;">{{ avgTitle }}</div>
-        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;">
-          <sc-for list="{{ averages }}" as="a" hint-placeholder-count="8">
-            <div style="border-left:2px solid {{ accent }}; padding-left:12px;">
-              <div style="font-size:11px; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-muted);">{{ a.label }}</div>
-              <div style="font-size:22px; font-weight:600; color:var(--text-strong); margin-top:3px; letter-spacing:-0.02em;">{{ a.value }}</div>
-            </div>
-          </sc-for>
-        </div>
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:12px;">Informações gerais</div>
+      <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:18px;">
+        <sc-for list="{{ acompKpis }}" as="k" hint-placeholder-count="8">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px 14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px; border-top:3px solid {{ accent }};">
+            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-strong); font-weight:700; line-height:1.25;">{{ k.label }}</div>
+            <div data-keepcase="1" style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em; white-space:nowrap;">{{ k.value }}</div>
+          </div>
+        </sc-for>
       </div>
-
-      <sc-if value="{{ noMetrics }}" hint-placeholder-val="{{ false }}">
-        <div class="b-card" style="padding:18px 22px; display:flex; gap:11px; align-items:flex-start; background:var(--warning-bg); border-color:transparent;">
-          <span style="flex:none; width:8px; height:8px; border-radius:999px; background:var(--warning); margin-top:6px;"></span>
-          <span data-keepcase="1" style="font-size:13px; color:var(--clay-700); line-height:1.55;">{{ metricsNote }} Por isso o ranking Top 3 e os aprendizados por publicação ficam indisponíveis ao vivo — selecione o snapshot de demonstração para vê-los.</span>
-        </div>
-      </sc-if>
-
-      <!-- top 3 -->
-      <sc-if value="{{ metricsAvailable }}" hint-placeholder-val="{{ true }}">
-      <div class="b-card" style="padding:22px 24px; margin-bottom:18px;">
-        <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:16px;">
-          <div>
-            <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Ranking</div>
-            <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong);">Top 3 conteúdos</div>
-          </div>
-          <select class="b-select" value="{{ topMetric }}" onChange="{{ onTopMetric }}" style="height:36px; padding:0 12px; min-width:220px;">
-            <sc-for list="{{ topMetricOptions }}" as="o" hint-placeholder-count="6">
-              <option value="{{ o.value }}">{{ o.label }}</option>
-            </sc-for>
-          </select>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;">
-          <sc-for list="{{ top3 }}" as="t" hint-placeholder-count="3">
-            <div style="display:flex; gap:14px; align-items:center; border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:12px;">
-              <div style="{{ t.coverStyle }}">
-                <span style="font-family:var(--font-display); font-size:32px; color:rgba(250,248,247,0.25);">{{ t.rank }}</span>
-              </div>
-              <div style="min-width:0; flex:1;">
-                <div data-keepcase="1" style="font-size:12px; color:var(--text-strong); font-weight:500; line-height:1.3; overflow:hidden; max-height:32px;">{{ t.caption }}</div>
-                <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">{{ t.typeLabel }} · {{ t.date }}</div>
-                <div style="font-size:20px; font-weight:600; color:{{ accent }}; margin-top:6px; letter-spacing:-0.02em;">{{ t.metricValue }}</div>
-              </div>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-      </sc-if>
-
-      <!-- o que replicar / o que repensar -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-        <div class="b-card" style="padding:22px 24px;">
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
-            <span style="width:9px; height:9px; border-radius:999px; background:var(--success);"></span>
-            <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:19px; color:var(--text-strong);">O que replicar</div>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:14px;">
-            <sc-for list="{{ replicate }}" as="w" hint-placeholder-count="5">
-              <div style="border-left:2px solid var(--success); padding-left:12px;">
-                <div style="font-size:13px; font-weight:600; color:var(--text-strong); line-height:1.35;">{{ w.title }}</div>
-                <div data-keepcase="1" style="font-size:12.5px; color:var(--text); line-height:1.45; margin-top:3px;">{{ w.detail }}</div>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-        <div class="b-card" style="padding:22px 24px;">
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
-            <span style="width:9px; height:9px; border-radius:999px; background:var(--warning);"></span>
-            <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:19px; color:var(--text-strong);">O que repensar</div>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:14px;">
-            <sc-for list="{{ rethink }}" as="w" hint-placeholder-count="5">
-              <div style="border-left:2px solid var(--warning); padding-left:12px;">
-                <div style="font-size:13px; font-weight:600; color:var(--text-strong); line-height:1.35;">{{ w.title }}</div>
-                <div data-keepcase="1" style="font-size:12.5px; color:var(--text); line-height:1.45; margin-top:3px;">{{ w.detail }}</div>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </div>
-
-      <!-- desempenho por formato -->
-      <div class="b-card" style="padding:22px 24px; margin-top:18px;">
-        <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Por formato</div>
-        <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:16px;">Desempenho por formato</div>
-        <div style="display:flex; flex-direction:column; gap:14px;">
-          <sc-for list="{{ formatRows }}" as="f" hint-placeholder-count="3">
-            <div style="display:grid; grid-template-columns:120px 1fr; gap:16px; align-items:center;">
-              <div>
-                <div style="display:flex; align-items:center; gap:7px;">
-                  <span style="font-size:14px; font-weight:600; color:var(--text-strong);">{{ f.label }}</span>
-                  <sc-if value="{{ f.isBest }}" hint-placeholder-val="{{ false }}"><span class="b-badge b-badge--success">melhor</span></sc-if>
-                </div>
-                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">{{ f.countLabel }} posts</div>
-              </div>
-              <div>
-                <div style="height:26px; background:var(--paper-100); border-radius:var(--radius-sm); overflow:hidden;">
-                  <div style="height:100%; width:{{ f.barPct }}%; background:var(--clay-500); border-radius:var(--radius-sm); min-width:2px;"></div>
-                </div>
-                <div style="display:flex; gap:18px; margin-top:6px; font-size:12px; color:var(--text);">
-                  <span>alcance méd. <strong style="color:var(--text-strong);">{{ f.reachLabel }}</strong></span>
-                  <span>% eng. <strong style="color:var(--text-strong);">{{ f.rateLabel }}</strong></span>
-                  <span>salv. méd. <strong style="color:var(--text-strong);">{{ f.savesLabel }}</strong></span>
-                </div>
-              </div>
-            </div>
-          </sc-for>
-        </div>
-        <div data-keepcase="1" style="font-size:12.5px; color:var(--clay-700); line-height:1.5; margin-top:16px; padding:12px 14px; background:var(--paper-100); border-radius:var(--radius-md);">{{ formatVerdict }}</div>
-      </div>
-
-      <!-- melhor dia e horário -->
-      <div class="b-card" style="padding:22px 24px; margin-top:16px;">
-        <div style="font-size:11px; letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--text-muted);">Por dia e horário</div>
-        <div style="font-family:var(--font-sans); font-weight:600; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">Melhor dia e horário para postar</div>
-        <div style="font-size:12px; color:var(--text-muted); margin-bottom:16px;">alcance médio por publicação — quanto mais escuro, melhor</div>
-        <sc-if value="{{ hasTimed }}" hint-placeholder-val="{{ true }}">
-          <div style="overflow-x:auto;">
-            <div style="display:grid; grid-template-columns:96px repeat(7, 1fr); gap:6px; min-width:560px;">
-              <div></div>
-              <sc-for list="{{ heatDays }}" as="d" hint-placeholder-count="7">
-                <div style="text-align:center; font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;">{{ d }}</div>
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px;">
+        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted); margin-bottom:12px;">Indicadores por dia</div>
+        <div style="overflow-x:auto;">
+          <div style="min-width:860px;">
+            <div style="display:grid; grid-template-columns:70px repeat(9, minmax(0,1fr)); gap:8px; padding:0 0 10px; border-bottom:1px solid var(--line-strong);">
+              <sc-for list="{{ acompCols }}" as="h" hint-placeholder-count="10">
+                <div style="font-size:10.5px; font-weight:500; color:var(--text-muted); text-align:{{ h.align }};">{{ h.label }}</div>
               </sc-for>
-              <sc-for list="{{ heat }}" as="row" hint-placeholder-count="4">
-                <div style="display:flex; flex-direction:column; justify-content:center;">
-                  <span style="font-size:12px; font-weight:600; color:var(--text-strong);">{{ row.slot }}</span>
-                  <span style="font-size:10px; color:var(--text-muted);">{{ row.hint }}</span>
-                </div>
-                <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="7">
-                  <div style="height:46px; border-radius:var(--radius-sm); background: {{ c.bg }}; display:flex; align-items:center; justify-content:center;">
-                    <span style="font-size:11px; font-weight:600; color: {{ c.fg }};">{{ c.value }}</span>
-                  </div>
+            </div>
+            <sc-for list="{{ acompRows }}" as="r" hint-placeholder-count="4">
+              <div style="display:grid; grid-template-columns:70px repeat(9, minmax(0,1fr)); gap:8px; padding:9px 0; border-bottom:1px solid var(--line-hairline); align-items:center;">
+                <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="10">
+                  <div data-keepcase="1" style="font-size:12px; color:{{ c.color }}; font-weight:{{ c.weight }}; text-align:{{ c.align }}; white-space:nowrap;">{{ c.value }}</div>
                 </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <!-- cadastros por dia -->
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; margin-top:16px;">
+        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Por dia</div>
+        <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Cadastros por dia</div>
+        <div style="height:280px; position:relative;"><canvas id="chart-acomp"></canvas></div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(440px, 1fr)); gap:16px; margin-top:16px;">
+        <!-- funil -->
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px;">
+          <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ campaignName }}</div>
+          <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:16px;">Funil de captação</div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <sc-for list="{{ funnel }}" as="f" hint-placeholder-count="5">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div style="width:{{ f.width }}%; min-width:0; height:32px; background:{{ f.bg }}; border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:space-between; padding:0 12px; gap:8px;">
+                  <span style="font-size:12px; font-weight:500; color:var(--bone); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ f.label }}</span>
+                  <span style="font-size:13px; font-weight:500; color:var(--bone); white-space:nowrap;">{{ f.value }}</span>
+                </div>
+                <span data-keepcase="1" style="font-size:11.5px; font-weight:500; color:var(--text-body); white-space:nowrap;">{{ f.side }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- conjuntos -->
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; min-width:0;">
+          <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ campaignName }}</div>
+          <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Conjuntos de anúncio</div>
+          <div style="max-height:244px; overflow-y:auto; overflow-x:hidden; padding-right:12px;">
+            <div style="display:grid; grid-template-columns:minmax(0,2fr) repeat(5, minmax(0,1fr)); gap:6px; padding-bottom:8px; border-bottom:1px solid var(--line-strong); position:sticky; top:0; background:var(--bone);">
+              <sc-for list="{{ setCols }}" as="h" hint-placeholder-count="6">
+                <div style="font-size:10.5px; font-weight:500; color:var(--text-muted); text-align:{{ h.align }};">{{ h.label }}</div>
               </sc-for>
             </div>
+            <sc-for list="{{ adSets }}" as="s" hint-placeholder-count="5">
+              <div style="display:grid; grid-template-columns:minmax(0,2fr) repeat(5, minmax(0,1fr)); gap:6px; padding:9px 0; border-bottom:1px solid var(--line-hairline); align-items:center;">
+                <div data-keepcase="1" style="font-size:12px; color:var(--text-strong); line-height:1.35;">{{ s.name }}</div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ s.impr }}</div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ s.clicks }}</div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ s.lpv }}</div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ s.connect }}</div>
+                <div style="font-size:12px; font-weight:500; color:var(--forest); text-align:right;">{{ s.cad }}</div>
+              </div>
+            </sc-for>
           </div>
-          <div data-keepcase="1" style="font-size:12.5px; color:var(--clay-700); line-height:1.5; margin-top:16px; padding:12px 14px; background:var(--paper-100); border-radius:var(--radius-md);">{{ bestTimeVerdict }}</div>
+        </div>
+      </div>
+
+      <!-- anúncios -->
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; margin-top:16px;">
+        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ campaignName }}</div>
+        <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Anúncios</div>
+        <div style="overflow-x:auto;">
+          <div style="min-width:800px; padding-right:4px;">
+            <div style="display:grid; grid-template-columns:minmax(170px,2.4fr) repeat(8, minmax(0,1fr)); gap:8px; padding-bottom:8px; border-bottom:1px solid var(--line-strong);">
+              <sc-for list="{{ adCols }}" as="h" hint-placeholder-count="9">
+                <div style="font-size:10.5px; font-weight:500; color:var(--text-muted); text-align:{{ h.align }};">{{ h.label }}</div>
+              </sc-for>
+            </div>
+            <sc-for list="{{ ads }}" as="a" hint-placeholder-count="5">
+              <div style="display:grid; grid-template-columns:minmax(170px,2.4fr) repeat(8, minmax(0,1fr)); gap:8px; padding:10px 0; border-bottom:1px solid var(--line-hairline); align-items:center;">
+                <div style="display:flex; align-items:center; gap:10px; min-width:0;">
+                  <a href="{{ a.href }}" target="_blank" rel="noopener noreferrer" title="Abrir anúncio em nova aba" style="flex:none; width:40px; height:40px; border-radius:var(--radius-sm); background:{{ a.thumb }}; border:1px solid var(--line-hairline); display:block; cursor:pointer;" style-hover="box-shadow:0 0 0 2px var(--forest);"></a>
+                  <span data-keepcase="1" style="font-size:12px; color:var(--text-strong); line-height:1.35; min-width:0;">{{ a.name }}</span>
+                </div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.impr }}</div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.clicks }}</div>
+                <div data-keepcase="1" style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.cpc }}</div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.ctr }}</div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.lpv }}</div>
+                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.connect }}</div>
+                <div data-keepcase="1" style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.cpl }}</div>
+                <div style="font-size:12px; font-weight:500; color:var(--forest); text-align:right;">{{ a.cad }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </sc-if>
+
+    <!-- ============ PAGE: CRONOGRAMA ============ -->
+    <sc-if value="{{ isCrono }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <!-- cronograma trello -->
+      <div style="background:var(--ink); border:1px solid var(--ink); border-radius:var(--radius-md); padding:20px 22px; margin-bottom:16px;">
+        <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:16px; color:var(--bone);">Datas importantes</div>
+        <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; position:relative;">
+          <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="3">
+            <div style="display:flex; flex-direction:column; gap:8px; padding-right:16px;">
+              <div style="font-family:var(--font-display); font-weight:200; font-size:28px; line-height:1; color:var(--text-strong); letter-spacing:-0.03em; color:var(--bone);">{{ m.date }}</div>
+              <a data-keepcase="1" href="{{ m.url }}" target="_blank" rel="noopener noreferrer" style="font-size:13px; color:var(--bone); font-weight:500; text-decoration:none; line-height:1.35;" style-hover="text-decoration:underline;">{{ m.name }}</a>
+              <span style="font-size:12px; color:rgba(255,253,247,0.78);">{{ m.when }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:12px; margin-bottom:16px;">
+        <sc-for list="{{ trelloKpis }}" as="k" hint-placeholder-count="5">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px;">
+            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-strong); font-weight:700; line-height:1.25;">{{ k.label }}</div>
+            <div style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em; color:{{ k.color }};">{{ k.value }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+            <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1;">To-do</div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <button onClick="{{ todoPrev }}" style="width:28px; height:28px; border:1px solid var(--line-strong); border-radius:var(--radius-sm); background:transparent; color:var(--text-strong); cursor:pointer; font-size:14px; line-height:1;" style-hover="background:var(--forest-06);">‹</button>
+              <span style="font-size:12.5px; color:var(--text-strong); font-weight:500; min-width:150px; text-align:center;">{{ todoDayLabel }}</span>
+              <button onClick="{{ todoNext }}" style="width:28px; height:28px; border:1px solid var(--line-strong); border-radius:var(--radius-sm); background:transparent; color:var(--text-strong); cursor:pointer; font-size:14px; line-height:1;" style-hover="background:var(--forest-06);">›</button>
+              <sc-if value="{{ todoNotToday }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ todoToday }}" style="background:transparent; border:0; font-size:11.5px; color:var(--text-muted); cursor:pointer; text-decoration:underline; padding:0 4px;">{{ todoBackLabel }}</button>
+              </sc-if>
+            </div>
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <sc-for list="{{ todoWhoOpts }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.on }}" data-keepcase="1" style="height:28px; padding:0 12px; border-radius:var(--radius-pill); font-family:var(--font-text); font-size:11px; font-weight:500; cursor:pointer; border:1px solid var(--line-strong); background:{{ o.bg }}; color:{{ o.fg }}; border-color:{{ o.bd }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="overflow-x:auto; padding-bottom:4px;"><div style="display:grid; grid-template-columns:{{ todoGrid }}; gap:12px; align-items:start;">
+          <sc-for list="{{ todoCols }}" as="p" hint-placeholder-count="4">
+            <div style="border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px; display:flex; flex-direction:column; gap:12px; min-width:0;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="width:32px; height:32px; border-radius:50%; background:var(--forest); color:var(--bone); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:15px; flex-shrink:0;">{{ p.ini }}</span>
+                <div style="display:flex; flex-direction:column; gap:2px; min-width:0; flex:1;">
+                  <span data-keepcase="1" style="font-size:13px; font-weight:500; color:var(--text-strong);">{{ p.name }}</span>
+                  <span style="font-size:11px; color:var(--text-muted);">{{ p.count }}</span>
+                </div>
+              </div>
+              <div style="height:3px; background:var(--forest-06); border-radius:999px; overflow:hidden;"><div style="height:100%; width:{{ p.pct }}%; background:var(--forest);"></div></div>
+              <sc-if value="{{ p.empty }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:12px; color:var(--text-muted); padding:6px 0;">Nada para este dia.</div>
+              </sc-if>
+              <sc-for list="{{ p.groups }}" as="g" hint-placeholder-count="2">
+                <div style="display:flex; flex-direction:column; gap:2px;">
+                  <div style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; color:{{ g.color }}; margin-bottom:4px;">{{ g.title }}</div>
+                  <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="2">
+                    <div style="display:grid; grid-template-columns:18px minmax(0,1fr); gap:8px; align-items:start; padding:6px 0; border-bottom:1px solid var(--line-hairline);">
+                      <button onClick="{{ it.onToggle }}" title="{{ it.tip }}" style="width:16px; height:16px; margin-top:1px; border:1px solid {{ it.boxBd }}; border-radius:3px; background:{{ it.boxBg }}; color:var(--bone); padding:0; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:10px; line-height:1;" style-hover="border-color:var(--forest);">{{ it.tick }}</button>
+                      <div style="display:flex; flex-direction:column; gap:2px; min-width:0;">
+                        <a href="{{ it.url }}" target="_blank" rel="noopener noreferrer" style="font-size:12px; line-height:1.35; color:{{ it.fg }}; text-decoration:{{ it.deco }};" style-hover="text-decoration:underline;">{{ it.name }}</a>
+                        <span style="font-size:10.5px; color:var(--text-muted);">{{ it.meta }}</span>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div></div>
+        <div style="display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid var(--line-hairline);">
+          <button onClick="{{ onMsgToggle }}" style="white-space:nowrap; height:34px; padding:0 16px; border-radius:var(--radius-sm); font-family:var(--font-text); font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; background:{{ msgTeamBg }}; color:{{ msgTeamFg }}; border:1px solid var(--forest);" style-hover="opacity:0.88;">{{ msgBtnLabel }}</button>
+          <button onClick="{{ onMsgMayra }}" style="white-space:nowrap; height:34px; padding:0 16px; border-radius:var(--radius-sm); font-family:var(--font-text); font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; background:{{ msgMayraBg }}; color:{{ msgMayraFg }}; border:1px solid var(--forest);" style-hover="opacity:0.88;">{{ msgMayraLabel }}</button>
+        </div>
+        <sc-if value="{{ msgOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:12px; display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:16px; align-items:start; background:var(--forest-06); border-radius:var(--radius-md); padding:16px;">
+            <div style="display:flex; flex-direction:column; gap:10px; min-width:0;">
+            <sc-if value="{{ isMayra }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; flex-direction:column; gap:4px;">
+                <span style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; color:var(--text-muted);">Observações</span>
+                <textarea data-keepcase="1" value="{{ msgObs }}" onChange="{{ onMsgObs }}" rows="2" placeholder="Algo a mais para a Mayra? Entra no fim da mensagem." style="text-transform:none; width:100%; box-sizing:border-box; resize:vertical; font-family:var(--font-text); font-size:12.5px; line-height:1.5; color:var(--text-strong); background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-sm); padding:10px 12px; outline:none;"></textarea>
+              </div>
+            </sc-if>
+            <textarea data-keepcase="1" value="{{ msgText }}" onChange="{{ onMsgEdit }}" rows="14" style="text-transform:none; width:100%; box-sizing:border-box; resize:vertical; font-family:var(--font-text); font-size:12.5px; line-height:1.5; color:var(--text-strong); background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-sm); padding:12px 14px; outline:none;"></textarea>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+              <button onClick="{{ onMsgCopy }}" style="height:34px; padding:0 16px; border-radius:var(--radius-sm); font-family:var(--font-text); font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px; justify-content:center; background:var(--forest); color:var(--bone); border:1px solid var(--forest);" style-hover="background:var(--forest-90);">{{ msgCopyLabel }}</button>
+              
+              <button onClick="{{ onMsgReset }}" style="background:transparent; border:0; font-size:11.5px; color:var(--text-muted); cursor:pointer; text-decoration:underline; padding:4px 0; text-align:left;">restaurar texto original</button>
+              <span style="font-size:11px; color:var(--text-muted); line-height:1.4;">{{ msgHint }}</span>
+            </div>
+          </div>
         </sc-if>
       </div>
-      </sc-if>
+
+      <div>
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; min-width:0;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
+            <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1;">Atividades</div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span style="font-size:12px; color:var(--text-muted);">{{ trelloMsg }}</span>
+              <div style="display:flex; gap:6px;">
+                <button onClick="{{ viewCal }}" style="height:28px; padding:0 14px; border-radius:var(--radius-pill); font-family:var(--font-text); font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; border:1px solid var(--forest); background:{{ calBtnBg }}; color:{{ calBtnFg }};">Calendário</button>
+                <button onClick="{{ viewList }}" style="height:28px; padding:0 14px; border-radius:var(--radius-pill); font-family:var(--font-text); font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; border:1px solid var(--forest); background:{{ listBtnBg }}; color:{{ listBtnFg }};">Lista</button>
+              </div>
+            </div>
+          </div>
+          <sc-if value="{{ isCal }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button onClick="{{ calPrev }}" style="width:28px; height:28px; border:1px solid var(--line-strong); border-radius:var(--radius-sm); background:transparent; color:var(--text-strong); cursor:pointer; font-size:14px; line-height:1;" style-hover="background:var(--forest-06);">‹</button>
+                <button onClick="{{ calNext }}" style="width:28px; height:28px; border:1px solid var(--line-strong); border-radius:var(--radius-sm); background:transparent; color:var(--text-strong); cursor:pointer; font-size:14px; line-height:1;" style-hover="background:var(--forest-06);">›</button>
+                <div style="font-family:var(--font-display); font-weight:200; font-size:28px; letter-spacing:-0.03em; color:var(--text-strong); line-height:1; margin-left:6px;">{{ calTitle }}</div>
+              </div>
+              <div style="display:flex; gap:14px; font-size:11px; color:var(--text-muted); flex-wrap:wrap;">
+                <span style="display:flex; align-items:center; gap:5px;"><span style="width:8px; height:8px; border-radius:2px; background:var(--forest);"></span>data importante</span>
+                <span style="display:flex; align-items:center; gap:5px;"><span style="width:8px; height:8px; border-radius:2px; background:var(--forest-06); border:1px solid var(--line-hairline);"></span>a fazer</span>
+                <span style="display:flex; align-items:center; gap:5px;"><span style="width:8px; height:8px; border-radius:2px; background:rgba(140,47,47,0.14);"></span>atrasada</span>
+                <span style="display:flex; align-items:center; gap:5px;"><span style="width:8px; height:8px; border-radius:2px; border:1px solid var(--line-hairline);"></span>concluída</span>
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); border-top:1px solid var(--line-strong);">
+              <sc-for list="{{ calWeekdays }}" as="w" hint-placeholder-count="7">
+                <div style="font-size:10.5px; font-weight:500; color:var(--text-muted); padding:8px 8px 6px; text-transform:uppercase; letter-spacing:0.08em;">{{ w }}</div>
+              </sc-for>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); border-left:1px solid var(--line-hairline); border-top:1px solid var(--line-hairline);">
+              <sc-for list="{{ calCells }}" as="c" hint-placeholder-count="35">
+                <div style="min-height:112px; padding:6px; border-right:1px solid var(--line-hairline); border-bottom:1px solid var(--line-hairline); background:{{ c.bg }}; display:flex; flex-direction:column; gap:4px; min-width:0;">
+                  <div style="display:flex; justify-content:flex-end;">
+                    <span style="font-size:11.5px; min-width:22px; height:22px; padding:0 6px; border-radius:var(--radius-pill); display:inline-flex; align-items:center; justify-content:center; background:{{ c.numBg }}; color:{{ c.numFg }}; font-weight:{{ c.numW }};">{{ c.day }}</span>
+                  </div>
+                  <sc-for list="{{ c.items }}" as="it" hint-placeholder-count="0">
+                    <div onMouseEnter="{{ it.onEnter }}" onMouseLeave="{{ it.onLeave }}" style="position:relative; min-width:0;">
+                    <a href="{{ it.url }}" target="_blank" rel="noopener noreferrer" style="display:block; font-size:10.5px; line-height:1.3; padding:3px 6px; border-radius:3px; text-decoration:{{ it.deco }}; background:{{ it.bg }}; color:{{ it.fg }}; border:1px solid {{ it.bd }}; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" style-hover="opacity:0.8;">{{ it.name }}</a>
+                    <sc-if value="{{ it.hover }}" hint-placeholder-val="{{ false }}">
+                      <div style="position:absolute; z-index:30; top:calc(100% + 6px); {{ it.side }}:0; width:260px; background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-md); box-shadow:var(--shadow-md); padding:14px 16px; display:flex; flex-direction:column; gap:10px; pointer-events:none;">
+                        <div style="font-size:13px; font-weight:500; color:var(--text-strong); line-height:1.35; white-space:normal;">{{ it.full }}</div>
+                        <div style="display:grid; grid-template-columns:84px minmax(0,1fr); row-gap:6px; column-gap:10px; font-size:11.5px; line-height:1.35;">
+                          <span style="color:var(--text-muted);">Coluna</span><span style="color:var(--text-strong);">{{ it.list }}</span>
+                          <span style="color:var(--text-muted);">Responsável</span><span data-keepcase="1" style="color:var(--text-strong);">{{ it.owner }}</span>
+                          <span style="color:var(--text-muted);">Data</span><span style="color:var(--text-strong);">{{ it.dateFull }}</span>
+                          <span style="color:var(--text-muted);">Horário</span><span style="color:var(--text-strong);">{{ it.time }}</span>
+                          <span style="color:var(--text-muted);">Etiqueta</span><span style="color:var(--text-strong);">{{ it.labels }}</span>
+                          <span style="color:var(--text-muted);">Status</span><span style="color:var(--text-strong);">{{ it.status }}</span>
+                        </div>
+                      </div>
+                    </sc-if>
+                    </div>
+                  </sc-for>
+                  <sc-if value="{{ c.more }}" hint-placeholder-val="{{ false }}">
+                    <button onClick="{{ c.onMore }}" style="background:transparent; border:0; padding:0 2px; font-size:10.5px; color:var(--text-muted); text-align:left; cursor:pointer;" style-hover="color:var(--text-strong);">{{ c.moreLabel }}</button>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isList }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid; grid-template-columns:22px minmax(0,2.2fr) minmax(0,1.1fr) minmax(0,0.9fr) 112px 52px minmax(0,0.9fr) 84px; gap:8px; padding-right:10px; padding-bottom:8px; border-bottom:1px solid var(--line-strong);">
+            <sc-for list="{{ deadlineCols }}" as="h" hint-placeholder-count="8">
+              <div style="font-size:10.5px; font-weight:500; color:var(--text-muted); text-align:{{ h.align }};">{{ h.label }}</div>
+            </sc-for>
+          </div>
+          <div style="max-height:560px; overflow-y:auto; overflow-x:hidden; padding-right:10px; margin-right:-10px;">
+            <sc-for list="{{ deadlines }}" as="t" hint-placeholder-count="8">
+              <div style="display:grid; grid-template-columns:22px minmax(0,2.2fr) minmax(0,1.1fr) minmax(0,0.9fr) 112px 52px minmax(0,0.9fr) 84px; gap:8px; padding:9px 0; border-bottom:1px solid var(--line-hairline); align-items:center;">
+                <button title="Marcar como concluída" onClick="{{ t.onDone }}" style="width:16px; height:16px; border:1px solid var(--line-strong); border-radius:3px; background:transparent; padding:0; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:10px; color:transparent;" style-hover="border-color:var(--forest); color:var(--forest); background:var(--forest-06);">✓</button>
+                <a href="{{ t.url }}" target="_blank" rel="noopener noreferrer" style="font-size:12px; color:var(--text-strong); text-decoration:none; line-height:1.35;" style-hover="text-decoration:underline;">{{ t.name }}</a>
+                <select value="{{ t.listId }}" onChange="{{ t.onMove }}" style="font-family:var(--font-text); font-size:11.5px; color:var(--text-body); background:transparent; border:0; border-bottom:1px solid var(--line-hairline); border-radius:0; padding:3px 0; outline:none; min-width:0; width:100%; cursor:pointer;">
+                  <sc-for list="{{ listOptions }}" as="o" hint-placeholder-count="1"><option value="{{ o.id }}">{{ o.name }}</option></sc-for>
+                </select>
+                <span data-keepcase="1" style="font-size:11.5px; color:var(--text-body);">{{ t.owner }}</span>
+                <input type="date" value="{{ t.dueVal }}" onChange="{{ t.onDue }}" style="font-family:var(--font-text); font-size:11.5px; color:var(--text-body); background:transparent; border:0; border-bottom:1px solid var(--line-hairline); border-radius:0; padding:3px 0; outline:none; min-width:0; width:100%; cursor:pointer; color:var(--text-strong);">
+                <span style="font-size:11.5px; color:var(--text-body);">{{ t.time }}</span>
+                <span style="font-size:11px; color:var(--text-body); line-height:1.3;">{{ t.labels }}</span>
+                <span style="justify-self:end; display:inline-flex; align-items:center; height:22px; padding:0 9px; border-radius:var(--radius-pill); font-size:10.5px; font-weight:500; white-space:nowrap; background:{{ t.bg }}; color:{{ t.fg }};">{{ t.status }}</span>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+        </div>
+      </div>
     </div>
     </sc-if>
 
@@ -398,7 +546,8 @@ class Component extends DCLogic {
     this.state = {
       page: 'conta',
       month: 'all',
-      week: this.model.DEFAULT_WEEK.iso,
+      week: 'all',
+      ...this.defaultRange(),
       metric2: 'views',
       topMetric: 'views',
       refreshing: false,
@@ -407,10 +556,12 @@ class Component extends DCLogic {
       dataError: '',
       mediaLoading: false,
     };
-    this.PAGE_ACCENTS = { conta:'#5a3e28', conteudos:'#5a6a3a', insights:'#b5832a' };
-    this.WEEK_COLORS = ['#5a3e28','#866e56','#5a6a3a','#b5832a','#8c3a2a','#4a5c6a','#ae8966','#3a2618'];
-    this.COVER_BG = ['#5a3e28','#866e56','#5a6a3a','#b5832a','#8c3a2a','#4a5c6a','#3a2618','#ae8966'];
+    this.PAGE_ACCENTS = { conta:'#172219', conteudos:'rgba(23,34,25,0.55)', insights:'rgba(23,34,25,0.42)' };
+    this.WEEK_COLORS = ['#172219','rgba(23,34,25,0.7)','rgba(23,34,25,0.55)','rgba(23,34,25,0.42)','#1d1d1e','rgba(29,29,30,0.6)','rgba(23,34,25,0.3)','rgba(23,34,25,0.85)'];
+    this.COVER_BG = ['#172219','rgba(23,34,25,0.7)','rgba(23,34,25,0.55)','rgba(23,34,25,0.42)','#1d1d1e','rgba(29,29,30,0.6)','rgba(23,34,25,0.85)','rgba(23,34,25,0.3)'];
     // Windsor.ai — conexão ao vivo (chave do cliente; visível no fonte do arquivo)
+    this.TRELLO_KEY = 'ff1557bc1f73fd75c10fbb4dda109db3';
+    this.TRELLO_TOKEN = 'ATTA3911cfa2a182fe8717db3f5888082e1a726af20ccee0fecdd026f9e0313ddb7cFCBCC13C';
     this.WINDSOR_KEY = 'cc5920b6dff9cc53e32402809e467b617f83';
     this.HANDLE = 'fgamayrapires';
     this.postMetrics = true; // snapshot has full per-post metrics; live feed sets false
@@ -529,8 +680,18 @@ class Component extends DCLogic {
   }
 
   /* ============ WINDOW + AGG ============ */
+  defaultRange(){ const t=new Date(); const pm=new Date(t.getFullYear(), t.getMonth()-1, 1); const f=(d)=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); return { month:'all', dateFrom:f(pm), dateTo:f(t) }; }
+  monthBounds(ym){ const y=+ym.slice(0,4), m=+ym.slice(5,7); const last=new Date(Date.UTC(y,m,0)).getUTCDate(); return { from: ym+'-01', to: ym+'-'+String(last).padStart(2,'0') }; }
   windowOf(){
     const M=this.model;
+    const S=this.state;
+    if(S.dateFrom || S.dateTo){
+      let start=S.dateFrom||M.minDate, end=S.dateTo||M.maxDate;
+      if(start>end){ const t=start; start=end; end=t; }
+      const len=Math.round((this.parse(end)-this.parse(start))/86400000)+1;
+      const pEnd=this.addDays(start,-1), pStart=this.addDays(start,-len);
+      return { start, end, kind:'range', label:this.ddmm(start)+'–'+this.ddmm(end), prev:{start:pStart, end:pEnd} };
+    }
     if(this.state.week!=='all'){
       const w=M.weeks.find(x=>x.iso===this.state.week)||M.DEFAULT_WEEK;
       const idx=M.weeks.indexOf(w); const prev= idx>0? M.weeks[idx-1]:null;
@@ -560,11 +721,38 @@ class Component extends DCLogic {
   /* ============ FORMAT ============ */
   fmtNum(n){ if(n==null||isNaN(n)) return '—'; return new Intl.NumberFormat('pt-BR').format(Math.round(n)); }
   fmtPct(n){ if(n==null||isNaN(n)||!isFinite(n)) return '—'; return n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+'%'; }
-  delta(cur,prev){ if(prev==null||prev===0) return {text:'—', color:'var(--text-subtle)', sub:''}; const v=(cur-prev)/prev*100; const up=v>=0; return { text:(up?'▲ ':'▼ ')+this.fmtPct(Math.abs(v)), color: up?'var(--success)':'var(--danger)', sub:'' }; }
+  delta(cur,prev){ if(prev==null||prev===0) return {text:'—', color:'var(--text-muted)', sub:''}; const v=(cur-prev)/prev*100; const up=v>=0; return { text:(up?'▲ ':'▼ ')+this.fmtPct(Math.abs(v)), color: up?'#2f6b3a':'#8c2f2f', sub:'' }; }
 
   /* ============ HANDLERS ============ */
   setPage(p){ this.setState({page:p}); }
-  onRefresh(){ this.fetchLive(); }
+  onRefresh(){ this.fetchLive(); this.fetchTrello(); }
+  // Trello: com TRELLO_KEY + TRELLO_TOKEN preenchidos, busca ao vivo na API; senão, lê o snapshot do projeto.
+  async fetchTrello(){
+    const KEY=this.TRELLO_KEY||'', TOKEN=this.TRELLO_TOKEN||'', BOARD='g2bCSpU1';
+    try{
+      if(KEY && TOKEN){
+        const q='key='+encodeURIComponent(KEY)+'&token='+encodeURIComponent(TOKEN);
+        const [lists,cards,members]=await Promise.all([
+          fetch('https://api.trello.com/1/boards/'+BOARD+'/lists?filter=open&fields=name&'+q).then(r=>r.json()),
+          fetch('https://api.trello.com/1/boards/'+BOARD+'/cards?filter=open&fields=name,shortUrl,due,dueComplete,idList,idMembers,labels,dateLastActivity&'+q).then(r=>r.json()),
+          fetch('https://api.trello.com/1/boards/'+BOARD+'/members?fields=fullName&'+q).then(r=>r.json())]);
+        const mem={}; (members||[]).forEach(m=>mem[m.id]=m.fullName);
+        const MS=['ABERTURA DA CAPTAÇÃO ORGÂNICA + TRÁFEGO','ABERTURA DA OFERTA DA BLACK PAC PRA VENDA','FECHAMENTO DO CARRINHO DA BLACK PAC'];
+        const T={ lists:(lists||[]).map(l=>({ id:l.id, name:l.name, cards:(cards||[]).filter(c=>c.idList===l.id).map(c=>({ id:c.id, idList:l.id, last:c.dateLastActivity, name:c.name, url:c.shortUrl, due:c.due, done:!!c.dueComplete, labels:(c.labels||[]).map(x=>x.name), members:(c.idMembers||[]).map(id=>mem[id]).filter(Boolean), milestone: MS.includes(c.name) })) })) };
+        this.setState({trello:T}); return;
+      }
+      const t=await fetch('trello-black-pac.json',{cache:'no-store'}).then(r=>r.json());
+      this.setState({trello:t});
+    }catch(e){}
+  }
+  async trelloWrite(method, path, params){
+    const q=new URLSearchParams({key:this.TRELLO_KEY, token:this.TRELLO_TOKEN, ...(params||{})});
+    this.setState({trelloBusy:true, trelloMsg:''});
+    try{ const r=await fetch('https://api.trello.com/1/'+path+'?'+q.toString(),{method}); if(!r.ok) throw new Error(r.status); await this.fetchTrello(); this.setState({trelloMsg:'Salvo no Trello'}); }
+    catch(e){ this.setState({trelloMsg:'Não foi possível salvar no Trello'}); }
+    this.setState({trelloBusy:false}); setTimeout(()=>this.setState({trelloMsg:''}),2500);
+  }
+  dueISO(v){ if(!v) return ''; const [y,m,d]=v.split('-').map(Number); return new Date(y,m-1,d,22,0).toISOString(); }
   nowStamp(){ const now=new Date(); const MN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']; return now.getDate()+' '+MN[now.getMonth()]+' '+now.getFullYear()+' · '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0'); }
   async fetchLive(){
     if(this.state.refreshing) return;
@@ -597,7 +785,7 @@ class Component extends DCLogic {
       this.partialLive = daily.length < 2; // perfil real, mas série diária ainda não ingerida
       this._live = { profile, daily, follows };
       this.model=this.buildModel({ profile, daily, follows, media:[] });
-      this.setState({ live:true, dataError:'', lastSync:this.nowStamp(), month:'all', week:this.model.DEFAULT_WEEK.iso, mediaLoading:true });
+      this.setState({ live:true, dataError:'', lastSync:this.nowStamp(), mediaLoading:true });
 
       // ── Phase 2: publicações com imagens + métricas por post (julho/2025 → hoje) ──
       // Janela ampla é lenta no conector, então buscamos em blocos paralelos e juntamos.
@@ -620,7 +808,7 @@ class Component extends DCLogic {
   }
 
   /* ============ CHARTS ============ */
-  componentDidMount(){ this.drawCharts(); this.fetchLive(); }
+  componentDidMount(){ try{ const dd=JSON.parse(localStorage.getItem('mp_todo_daily')||'{}'); this.setState({dailyDone:dd}); }catch(e){} this.drawCharts(); this.fetchLive(); this.fetchTrello(); }
   componentDidUpdate(){ this.drawCharts(); }
   lineCfg(labels, datasets, opts){
     opts=opts||{};
@@ -630,22 +818,21 @@ class Component extends DCLogic {
       options:{
         responsive:true, maintainAspectRatio:false,
         interaction:{ mode:'index', intersect:false },
-        plugins:{ legend:{ display: datasets.length>1, position:'bottom', labels:{ boxWidth:10, boxHeight:10, usePointStyle:true, font:{ family:'Poppins', size:11 }, color:'#8c7c69' } },
-          tooltip:{ backgroundColor:'#27150d', titleColor:'#faf8f7', bodyColor:'#ede9e7', borderColor:'#5a4838', borderWidth:1, padding:10, cornerRadius:8, titleFont:{family:'Poppins',weight:'600'}, bodyFont:{family:'Poppins'},
+        plugins:{ legend:{ display: datasets.length>1, position:'bottom', labels:{ boxWidth:10, boxHeight:10, usePointStyle:true, font:{ family:'Neue Montreal', size:11 }, color:'rgba(23,34,25,0.5)' } },
+          tooltip:{ backgroundColor:'#172219', titleColor:'#fffdf7', bodyColor:'rgba(255,253,247,0.82)', borderColor:'#172219', borderWidth:1, padding:10, cornerRadius:8, titleFont:{family:'Neue Montreal',weight:'600'}, bodyFont:{family:'Neue Montreal'},
             callbacks: opts.pct? { label:(c)=> c.dataset.label+': '+this.fmtPct(c.parsed.y) } : { label:(c)=> c.dataset.label+': '+this.fmtNum(c.parsed.y) } } },
         scales:{
-          x:{ grid:{ display:false }, ticks:{ font:{family:'Poppins', size:10}, color:'#8c7c69', maxRotation:0, autoSkip:true, maxTicksLimit:12 } },
-          y:{ beginAtZero: !!opts.zero, grid:{ color:'rgba(90,62,40,0.08)' }, ticks:{ font:{family:'Poppins', size:10}, color:'#8c7c69', callback: opts.pct? (v)=>this.fmtPct(v) : (v)=> this.fmtNum(v) } }
+          x:{ grid:{ display:false }, ticks:{ font:{family:'Neue Montreal', size:10}, color:'rgba(23,34,25,0.5)', maxRotation:0, autoSkip:true, maxTicksLimit:12 } },
+          y:{ beginAtZero: !!opts.zero, grid:{ color:'rgba(23,34,25,0.08)' }, ticks:{ font:{family:'Neue Montreal', size:10}, color:'rgba(23,34,25,0.5)', callback: opts.pct? (v)=>this.fmtPct(v) : (v)=> this.fmtNum(v) } }
         }
       }
     };
   }
   drawCharts(){
     if(!window.Chart){ if(!this._cw){ this._cw=setInterval(()=>{ if(window.Chart){ clearInterval(this._cw); this._cw=null; this.drawCharts(); } },120);} return; }
-    if(window.Chart.defaults){ window.Chart.defaults.font.family='Poppins'; }
+    if(window.Chart.defaults){ window.Chart.defaults.font.family='Neue Montreal'; }
     Object.values(this.charts).forEach(c=>{ try{c.destroy();}catch(e){} }); this.charts={};
-    if(this.state.page!=='conta') return;
-    const cfgs=this._chartCfgs; if(!cfgs) return;
+    const cfgs=Object.assign({}, this.state.page==='conta'?this._chartCfgs:{}, this.state.page==='acomp'?{'chart-acomp':this._acompChart}:{}); if(!cfgs) return;
     Object.keys(cfgs).forEach(id=>{ const el=document.getElementById(id); if(!el) return; this.charts[id]=new window.Chart(el.getContext('2d'), cfgs[id]); });
   }
 
@@ -657,29 +844,33 @@ class Component extends DCLogic {
   /* ============ RENDER ============ */
   renderVals(){
     const M=this.model, S=this.state, win=this.windowOf();
-    const accent='#5a3e28';
+    const accent='#172219';
     const followers=M.followers;
 
     // selectors
     const monthOptions=[{value:'all',label:'Todos os meses'}].concat(M.months);
     const weekOptions=[{value:'all',label:'Todas as semanas'}].concat(M.weeks.map(w=>({value:w.iso,label:w.label})));
-    const pages=[{key:'conta',label:'Dados da Conta'},{key:'conteudos',label:'Dados dos Conteúdos'},{key:'insights',label:'Insights'}].map(p=>({
+    const pages=[{key:'conta',label:'Dados da Conta'},{key:'conteudos',label:'Dados dos Conteúdos'},{key:'acomp',label:'Dados da campanha'},{key:'crono',label:'Área de gestão'}].map(p=>({
       label:p.label,
       onClick:()=>this.setPage(p.key),
-      style:`font-family:var(--font-sans); font-size:13px; font-weight:${S.page===p.key?'600':'500'}; cursor:pointer; padding:8px 16px; border-radius:var(--radius-md) var(--radius-md) 0 0; border:1px solid ${S.page===p.key?'var(--border-subtle)':'transparent'}; border-bottom:2px solid ${S.page===p.key?accent:'transparent'}; background:${S.page===p.key?'var(--paper-200)':'transparent'}; color:${S.page===p.key?'var(--text-strong)':'var(--text-muted)'};`
+      style:`font-family:var(--font-text); font-size:13px; font-weight:${S.page===p.key?'600':'500'}; cursor:pointer; padding:8px 16px; border-radius:var(--radius-md) var(--radius-md) 0 0; border:1px solid ${S.page===p.key?'var(--line-hairline)':'transparent'}; border-bottom:2px solid ${S.page===p.key?accent:'transparent'}; background:${S.page===p.key?'var(--forest-06)':'transparent'}; color:${S.page===p.key?'var(--text-strong)':'var(--text-muted)'};`
     }));
 
     const base={
       brand:M.profile, lastSync:S.lastSync, refreshing:S.refreshing, refreshLabel: S.refreshing?'Atualizando…':'Atualizar',
       onRefresh:()=>this.onRefresh(),
       sourceLabel: S.dataError? ('erro: '+S.dataError).slice(0,58) : (S.mediaLoading? ('ao vivo · @'+M.profile.handle+' · carregando publicações…') : (S.refreshing? 'buscando dados ao vivo…' : (S.live? ('ao vivo · @'+M.profile.handle) : 'snapshot de demonstração'))),
-      sourceColor: S.dataError? 'var(--danger)' : (S.mediaLoading? 'var(--warning)' : (S.live? 'var(--success)' : 'var(--text-subtle)')),
+      sourceColor: S.dataError? 'var(--forest-45)' : (S.mediaLoading? 'var(--forest)' : (S.live? 'var(--forest)' : 'var(--text-muted)')),
       pages, month:S.month, week:S.week, monthOptions, weekOptions,
-      onMonth:(e)=>this.setState({month:e.target.value, week:'all'}),
+      onMonth:(e)=>{ const v=e.target.value; if(v==='all') this.setState({month:'all', week:'all', dateFrom:'', dateTo:''}); else { const b=this.monthBounds(v); this.setState({month:v, week:'all', dateFrom:b.from, dateTo:b.to}); } },
       onWeek:(e)=>this.setState({week:e.target.value}),
+      dateFrom:S.dateFrom||'', dateTo:S.dateTo||'', dateMin:M.minDate, dateMax:M.maxDate,
+      onDateFrom:(e)=>this.setState({dateFrom:e.target.value, month:'all', week:'all'}),
+      onDateTo:(e)=>this.setState({dateTo:e.target.value, month:'all', week:'all'}),
+      onClearDates:()=>this.setState({dateFrom:'', dateTo:'', month:'all', week:'all'}),
       accent, periodLabel: win.label,
-      isConta:S.page==='conta', isConteudos:S.page==='conteudos', isInsights:S.page==='insights',
-      pageTitle: S.page==='conta'?'Dados da Conta': S.page==='conteudos'?'Dados dos Conteúdos':'Insights',
+      isConta:S.page==='conta', isConteudos:S.page==='conteudos', isAcomp:S.page==='acomp', isCrono:S.page==='crono',
+      pageTitle: S.page==='conta'?'Dados da Conta': S.page==='conteudos'?'Dados dos Conteúdos': S.page==='crono'?'Área de gestão':'Dados da campanha',
     };
 
     // CONTA
@@ -700,7 +891,6 @@ class Component extends DCLogic {
       { label:'Salvamentos', value:this.fmtNum(cur.saves), accent, ...this.delta(cur.saves, prev?prev.saves:null) },
       { label:'Conteúdos', value:String(cur.postCount), accent, ...this.delta(cur.postCount, prev?prev.postCount:null) },
       { label:'% engajamento geral', value:this.fmtPct(engG), accent, ...this.delta(engG, pEngG) },
-      { label:'% engajamento seguidores', value:this.fmtPct(engF), accent, ...this.delta(engF, pEngF) },
     ].map(k=>({ label:k.label, value:k.value, accent:k.accent, deltaText:k.text, deltaColor:k.color, sub:k.sub||'' }));
 
     // Estado parcial ao vivo: perfil real chegou, mas série diária/publicações ainda em ingestão.
@@ -710,7 +900,7 @@ class Component extends DCLogic {
         if(k.label==='Seguidores') k.value=this.fmtNum(M.followers);
         else if(k.label==='Conteúdos') k.value=this.fmtNum(M.profile.mediaCount);
         else k.value='—';
-        k.deltaText=''; k.deltaColor='var(--text-subtle)'; k.sub='';
+        k.deltaText=''; k.deltaColor='var(--text-muted)'; k.sub='';
       });
     }
 
@@ -720,12 +910,10 @@ class Component extends DCLogic {
     const metric2Pct = (S.metric2!=='views' && S.metric2!=='reach');
     const wdLabels=['seg','ter','qua','qui','sex','sáb','dom'];
     this._chartCfgs={
-      'chart-followers': this.lineCfg(flWin.map(t=>this.ddmm(t.date)), [{label:'seguidores', data:flWin.map(t=>t.value), color:accent, fill:true, fillColor:'rgba(90,62,40,0.07)'}], {zero:false}),
-      'chart-metric2': this.lineCfg(wdLabels, this.weekdayDatasets(win, metricFns[S.metric2]), {pct:metric2Pct, zero:metric2Pct}),
-      'chart-engfollowers': this.lineCfg(wdLabels, this.weekdayDatasets(win, r=> followers? r.interactions/followers*100 : null), {pct:true, zero:true}),
-      'chart-enggeneral': this.lineCfg(wdLabels, this.weekdayDatasets(win, r=> r.reach? r.interactions/r.reach*100 : null), {pct:true, zero:true}),
+      'chart-followers': this.lineCfg(flWin.map(t=>this.ddmm(t.date)), [{label:'seguidores', data:flWin.map(t=>t.value), color:accent, fill:true, fillColor:'rgba(23,34,25,0.07)'}], {zero:false}),
+      'chart-metric2': (()=>{ const rows=M.daily.filter(r=>r.date>=win.start && r.date<=win.end); const lbl=({views:'visualizações',reach:'alcance',interactionRate:'taxa de interação',saveRate:'taxa de salvamento',shareRate:'taxa de compartilhamento'})[S.metric2]||''; return this.lineCfg(rows.map(r=>this.ddmm(r.date)), [{label:lbl, data:rows.map(metricFns[S.metric2]), color:accent, fill:true, fillColor:'rgba(23,34,25,0.07)'}], {pct:metric2Pct, zero:true}); })(),
     };
-    const metric2Options=[{value:'views',label:'Visualizações'},{value:'reach',label:'Alcance'},{value:'interactionRate',label:'Taxa de Interação'},{value:'saveRate',label:'Taxa de Salvamento'},{value:'shareRate',label:'Taxa de Compartilhamento'}];
+    var metric2Options=[{value:'views',label:'Visualizações'},{value:'reach',label:'Alcance'},{value:'interactionRate',label:'Taxa de Interação'},{value:'saveRate',label:'Taxa de Salvamento'},{value:'shareRate',label:'Taxa de Compartilhamento'}];
 
     // CONTEUDOS
     const PM = this.postMetrics !== false; // per-post numeric metrics available?
@@ -738,22 +926,25 @@ class Component extends DCLogic {
       const taps = dayRow? dayRow.taps : null;
       const baseBg=this.COVER_BG[p.coverIdx%this.COVER_BG.length];
       const coverStyle = p.cover
-        ? `position:relative; height:150px; display:flex; align-items:center; justify-content:center; background:linear-gradient(rgba(39,21,13,0.12), rgba(39,21,13,0.40)), center/cover no-repeat url("${p.cover}"), ${baseBg};`
+        ? `position:relative; height:150px; display:flex; align-items:center; justify-content:center; background:linear-gradient(rgba(23,34,25,0.12), rgba(23,34,25,0.40)), center/cover no-repeat url("${p.cover}"), ${baseBg};`
         : `position:relative; height:150px; display:flex; align-items:center; justify-content:center; background:${baseBg}; background-image:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.10), transparent 60%);`;
       return { typeLabel:typeLabel(p.type), date:this.ddmm(p.ts), caption:p.caption,
         likes: PM?this.fmtNum(p.likes):'—', comments: PM?this.fmtNum(p.comments):'—', shares: PM?this.fmtNum(p.shares):'—', saves: PM?this.fmtNum(p.saves):'—',
         coverStyle,
         metrics:[
-          {label:'Visualizações', value: PM?this.fmtNum(p.views):'—'},
+          {label:'Views', value: PM?this.fmtNum(p.views):'—'},
           {label:'Alcance', value: PM?this.fmtNum(p.reach):'—'},
-          {label:'Interações', value: PM?this.fmtNum(p.eng):'—'},
-          {label:'% Eng. geral', value: PM?this.fmtPct(p.reach?p.eng/p.reach*100:null):'—'},
-          {label:'% Eng. seguidor', value: PM?this.fmtPct(p.eng/followers*100):'—'},
-          {label:'Tx. salvamento', value: PM?this.fmtPct(p.reach?p.saves/p.reach*100:null):'—'},
-          {label:'Tx. compart.', value: PM?this.fmtPct(p.reach?p.shares/p.reach*100:null):'—'},
+          {label:'Interaç.', value: PM?this.fmtNum(p.eng):'—'},
+          {label:'Eng.', value: PM?this.fmtPct(p.reach?p.eng/p.reach*100:null):'—'},
+          {label:'Eng. seg.', value: PM?this.fmtPct(p.eng/followers*100):'—'},
+          {label:'Salv.', value: PM?this.fmtPct(p.reach?p.saves/p.reach*100:null):'—'},
+          {label:'Comp.', value: PM?this.fmtPct(p.reach?p.shares/p.reach*100:null):'—'},
         ] };
     };
-    const posted=contentMedia.filter(p=>!isTest(p)).map(cardOf);
+    const sortFns={ date:p=>p.ts, views:p=>p.views||0, reach:p=>p.reach||0, eng:p=>p.eng||0, engRate:p=>p.reach?p.eng/p.reach:0, likes:p=>p.likes||0, saves:p=>p.saves||0, shares:p=>p.shares||0 };
+    const sk=sortFns[S.sortKey||'date']?(S.sortKey||'date'):'date'; const dir=(S.sortDir||'desc')==='desc'?-1:1;
+    const sortedMedia=contentMedia.filter(p=>!isTest(p)).slice().sort((a,b)=>{ const va=sortFns[sk](a), vb=sortFns[sk](b); return va<vb? -dir : va>vb? dir : 0; });
+    const posted=sortedMedia.map(cardOf);
     const tests=contentMedia.filter(isTest).map(cardOf);
 
     // INSIGHTS
@@ -821,16 +1012,20 @@ class Component extends DCLogic {
     const heat = SLOTS.map(s=>({ slot:s.label, hint:s.hint,
       cells:[1,2,3,4,5,6,0].map(d=>{ const c=cell[d+'|'+s.key]; const avg=c?c.avg:null; const intensity= (avg!=null&&maxCellReach)? avg/maxCellReach : 0;
         return { has: avg!=null, value: avg!=null?this.fmtNum(avg):'', count: c?c.c:0,
-          bg: avg!=null? 'color-mix(in srgb, var(--clay-500) '+Math.round(18+intensity*72)+'%, var(--paper-50))' : 'var(--paper-100)',
-          fg: intensity>0.55? 'var(--paper-50)':'var(--text)' }; }) }));
+          bg: avg!=null? 'color-mix(in srgb, var(--forest) '+Math.round(18+intensity*72)+'%, var(--bone))' : 'var(--forest-06)',
+          fg: intensity>0.55? 'var(--bone)':'var(--text-body)' }; }) }));
     const heatDays=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
     let bestTimeVerdict='Sem horários suficientes para recomendar.';
     if(bestCell){ const sl=SLOTS.find(s=>s.key===bestCell.slot); bestTimeVerdict='Melhor janela: '+DOW[bestCell.dow]+' à '+sl.label.toLowerCase()+' ('+sl.hint+') — alcance médio de '+this.fmtNum(bestCell.avg)+' contas. Priorize esse horário.'; }
     const hasTimed = timed.length>0;
 
-    return { ...base,
+    return { ...base, ...this.acompVals(win),
       kpis, metric2:S.metric2, metric2Options, onMetric2:(e)=>this.setState({metric2:e.target.value}),
       posted, tests, postedCount:String(posted.length), testCount:String(tests.length),
+      sortKey:S.sortKey||'date', sortOptions:[{value:'date',label:'Data de publicação'},{value:'views',label:'Visualizações'},{value:'reach',label:'Alcance'},{value:'eng',label:'Interações'},{value:'engRate',label:'% engajamento geral'},{value:'likes',label:'Curtidas'},{value:'saves',label:'Salvamentos'},{value:'shares',label:'Compartilhamentos'}],
+      onSortKey:(e)=>this.setState({sortKey:e.target.value}),
+      sortDirLabel:(S.sortDir||'desc')==='desc'?'↓ Decrescente':'↑ Crescente',
+      onSortDir:()=>this.setState(s=>({sortDir:(s.sortDir||'desc')==='desc'?'asc':'desc'})),
       hasPosted:posted.length>0, hasTest:tests.length>0, contentEmpty: posted.length===0 && tests.length===0,
       averages, top3, topMetric:S.topMetric, topMetricOptions, onTopMetric:(e)=>this.setState({topMetric:e.target.value}),
       replicate, rethink, hasReplicate: replicate.length>0, hasRethink: rethink.length>0,
@@ -842,6 +1037,195 @@ class Component extends DCLogic {
       partialLive: partial, fullLive: !partial,
       syncNotice: 'Conta @'+M.profile.handle+' conectada. Seguidores ('+this.fmtNum(M.followers)+') e total de publicações ('+this.fmtNum(M.profile.mediaCount)+') já são reais. A série diária e as publicações (desde abril/2026) ainda estão sendo sincronizadas pelo Windsor e aparecem automaticamente assim que prontas — clique em atualizar para verificar.',
     };
+  }
+
+  /* ============ ACOMPANHAMENTO (dados fictícios até receber as campanhas) ============ */
+  acompVals(win){
+    const brl=(n)=>'R$ '+n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+    const brl0=(n)=>'R$ '+n.toLocaleString('pt-BR',{maximumFractionDigits:0});
+    const pct=(n)=>n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+'%';
+    const days=[]; let d=win.end; while(d>=win.start && days.length<120){ days.push(d); d=this.addDays(d,-1); }
+    const rows=days.map(date=>this.campDay(date));
+    return this.acompRest(win, rows, brl, brl0, pct);
+  }
+  campDay(date){
+      const seed=date.split('-').reduce((a,x)=>a*31+(+x),7); const r=this.rng(seed);
+      const ads=Math.round(1+r()*6), org=Math.round(r()*r()*5), cad=ads+org;
+      const invest=140+r()*720;
+      const cpm=22+r()*16, impr=invest/cpm*1000;
+      const cpc=2.6+r()*2.4, clicks=invest/cpc;
+      const connect=60+r()*25, lpv=clicks*connect/100;
+      return { date, invest, cad, impr, clicks, lpv, cpm, cpc, connect, ritmo:cad, custo: cad?invest/cad:0, ads, org };
+  }
+  acompRest(win, rows, brl, brl0, pct){
+    const sum=(k)=>rows.reduce((a,x)=>a+x[k],0);
+    const tInv=sum('invest'), tCad=sum('cad'), tImpr=sum('impr'), tClk=sum('clicks'), tLpv=sum('lpv'), tAds=sum('ads'), tOrg=sum('org'), n=rows.length||1;
+    const acompKpis=[
+      {label:'Investimento', value:brl0(tInv)},
+      {label:'CPM', value:brl(tImpr? tInv/tImpr*1000:0)},
+      {label:'Custo por lead', value:brl(tCad? tInv/tCad:0)},
+      {label:'Connect rate', value:pct(tClk? tLpv/tClk*100:0)},
+      {label:'Ritmo médio', value:(tCad/n).toLocaleString('pt-BR',{maximumFractionDigits:1})+' /dia'},
+      {label:'Cadastros', value:this.fmtNum(tCad)},
+      {label:'Cadastros [ads]', value:this.fmtNum(tAds)},
+      {label:'Cadastros [org]', value:this.fmtNum(tOrg)},
+    ];
+    const cols=['Dia','Investimento','Ritmo médio','Cadastros','CPM','Custo por lead','Connect rate','Conversão da página','Cadastros [ads]','Cadastros [org]'];
+    const acompCols=cols.map((l,i)=>({label:l, align:i===0?'left':'right'}));
+    const plain='var(--text-body)';
+    const acompRows=rows.slice(0,4).map(x=>({ cells:[
+      {value:this.ddmm(x.date), align:'left', color:'var(--text-strong)', weight:'500'},
+      {value:brl(x.invest), align:'right', color:plain, weight:'400'},
+      {value:String(x.ritmo), align:'right', color:plain, weight:'400'},
+      {value:String(x.cad), align:'right', color:plain, weight:'400'},
+      {value:brl(x.cpm), align:'right', color:plain, weight:'400'},
+      {value:brl(x.cad? x.invest/x.cad:0), align:'right', color:plain, weight:'400'},
+      {value:pct(x.connect), align:'right', color:plain, weight:'400'},
+      {value:pct(x.lpv? x.cad/x.lpv*100:0), align:'right', color:plain, weight:'400'},
+      {value:String(x.ads), align:'right', color:plain, weight:'400'},
+      {value:String(x.org), align:'right', color:'var(--forest)', weight:'600'},
+    ]}));
+    // gráfico cadastros/dia + custo por lead
+    const asc=rows.slice().reverse();
+    this._acompChart={ type:'bar', data:{ labels:asc.map(x=>this.ddmm(x.date)), datasets:[
+      { type:'line', label:'custo por lead', data:asc.map(x=>x.cad? +(x.invest/x.cad).toFixed(2):null), borderColor:'rgba(23,34,25,0.42)', backgroundColor:'rgba(23,34,25,0.42)', yAxisID:'y1', tension:0.35, borderWidth:2, pointRadius:asc.length>40?0:2.5, order:0 },
+      { type:'bar', label:'cadastros', data:asc.map(x=>x.cad), backgroundColor:getComputedStyle(document.documentElement).getPropertyValue('--forest').trim()||'#172219', borderRadius:4, yAxisID:'y', order:1, maxBarThickness:28 } ]},
+      options:{ responsive:true, maintainAspectRatio:false, interaction:{mode:'index', intersect:false},
+        plugins:{ legend:{ position:'top', align:'end', labels:{ boxWidth:10, boxHeight:10, usePointStyle:true, font:{family:'Neue Montreal', size:11}, color:'rgba(23,34,25,0.5)' } },
+          tooltip:{ backgroundColor:'#172219', titleColor:'#fffdf7', bodyColor:'rgba(255,253,247,0.82)', padding:10, cornerRadius:8, callbacks:{ label:(c)=> c.dataset.yAxisID==='y1'? (c.dataset.label+': '+brl(c.parsed.y||0)) : (c.dataset.label+': '+c.parsed.y) } } },
+        scales:{ x:{ grid:{display:false}, ticks:{ font:{family:'Neue Montreal', size:10}, color:'rgba(23,34,25,0.5)', maxRotation:0, autoSkip:true, maxTicksLimit:16 } },
+          y:{ beginAtZero:true, position:'left', grid:{ color:'rgba(23,34,25,0.08)' }, ticks:{ font:{family:'Neue Montreal', size:10}, color:'rgba(23,34,25,0.5)', precision:0 } },
+          y1:{ beginAtZero:true, position:'right', grid:{ display:false }, ticks:{ font:{family:'Neue Montreal', size:10}, color:'rgba(23,34,25,0.42)', callback:(v)=>'R$ '+v } } } } };
+    // funil
+    const tReach=Math.round(tImpr/1.31);
+    const f=(v)=>this.fmtNum(v);
+    const funnel=[
+      {label:'Alcance', value:f(tReach), side:'', width:100, bg:'var(--forest)'},
+      {label:'Impressões', value:f(tImpr), side:'freq. '+(tImpr/Math.max(1,tReach)).toLocaleString('pt-BR',{maximumFractionDigits:2}), width:90, bg:'var(--forest)'},
+      {label:'Cliques no link', value:f(tClk), side:'CTR '+pct(tImpr?tClk/tImpr*100:0)+' · '+brl(tClk?tInv/tClk:0), width:78, bg:'var(--forest)'},
+      {label:'Visualizações da página', value:f(tLpv), side:'connect '+pct(tClk?tLpv/tClk*100:0), width:66, bg:'var(--forest)'},
+      {label:'Cadastros', value:f(tCad), side:'conv. '+pct(tLpv?tCad/tLpv*100:0)+' · '+brl(tCad?tInv/tCad:0), width:54, bg:'var(--forest)'},
+    ];
+    // conjuntos e anúncios (fictícios, distribuídos do total)
+    const split=(names, seed)=>{ const r=this.rng(seed); const w=names.map(()=>0.4+r()); const sw=w.reduce((a,b)=>a+b,0); return names.map((n,i)=>{ const k=w[i]/sw; const impr=tImpr*k, clk=tClk*k*(0.7+r()*0.6), lpv=clk*(0.62+r()*0.25), cad=Math.round(tCad*k*(0.6+r()*0.8)), inv=tInv*k; return {n, impr, clk, lpv, cad, inv}; }).sort((a,b)=>b.cad-a.cad); };
+    const setNames=['00 - advantage+ [aberto]','01 - [q] interesses fonoaudiologia','01 - [q] lookalike 1% cadastros','02 - [r] engajou 30d','02 - [r] visitou página 14d','03 - [q] público amplo'];
+    const adSets=split(setNames, 4242).map(s=>({ name:s.n, impr:f(s.impr), clicks:f(s.clk), lpv:f(s.lpv), connect:pct(s.clk?s.lpv/s.clk*100:0), cad:String(s.cad) }));
+    const setCols=[{label:'Conjunto',align:'left'},{label:'Impr.',align:'right'},{label:'Cliques',align:'right'},{label:'Visu. pág.',align:'right'},{label:'Connect',align:'right'},{label:'Cadastros',align:'right'}];
+    const adNames=['ads 01 - [vídeo] aula gratuita','ads 02 - [imagem] depoimento','ads 03 - [carrossel] 5 erros','ads 04 - [vídeo] bastidores','ads 05 - [imagem] convite direto','ads 06 - [reels] perguntas'];
+    const covers=(this.model.media||[]).filter(p=>p.cover).slice(-12).reverse();
+    const ads=split(adNames, 9191).map((a,i)=>{ const cv=covers[i%Math.max(1,covers.length)]; const img=(a.img)||(cv&&cv.cover)||''; const href=(a.href)||img||'#'; return { name:a.n, href, thumb: img? ('center/cover no-repeat url("'+img+'"), var(--forest-06)') : this.COVER_BG[i%this.COVER_BG.length], impr:f(a.impr), clicks:f(a.clk), ctr:pct(a.impr?a.clk/a.impr*100:0), lpv:f(a.lpv), connect:pct(a.clk?a.lpv/a.clk*100:0), cpc:brl(a.clk?a.inv/a.clk:0), cpl:brl(a.cad?a.inv/a.cad:0), cad:String(a.cad) }; });
+    const adCols=[{label:'Anúncio',align:'left'},{label:'Impressões',align:'right'},{label:'Cliques no link',align:'right'},{label:'Custo / clique',align:'right'},{label:'CTR',align:'right'},{label:'Visu. da página',align:'right'},{label:'Connect rate',align:'right'},{label:'Custo / lead',align:'right'},{label:'Cadastros',align:'right'}];
+    return { ...this.trelloVals(), acompKpis, acompCols, acompRows, funnel, adSets, setCols, ads, adCols, campaignName:'Black PAC' };
+  }
+
+  trelloVals(){
+    const T=this.state.trello; const MN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    const base={ todoCols:[], todoWhoOpts:[], todoDayLabel:'Hoje', todoNotToday:false, isCal:true, isList:false, calCells:[], calWeekdays:['dom','seg','ter','qua','qui','sex','sáb'], calTitle:'', listOptions:[], canEdit:false, trelloMsg:'', newTaskName:'', newTaskDue:'', newTaskList:'', trelloBoard:'[2026] Black PAC', trelloSynced:'carregando…', trelloKpis:[], milestones:[], deadlines:[], deadlineCount:'0', areas:[], deadlineCols:[{label:'',align:'left'},{label:'Tarefa',align:'left'},{label:'Área',align:'left'},{label:'Responsável',align:'left'},{label:'Prazo',align:'left'},{label:'Horário',align:'left'},{label:'Etiqueta',align:'left'},{label:'Status',align:'right'}] };
+    if(!T) return base;
+    const today=new Date(); today.setHours(0,0,0,0);
+    const loc=(iso)=>{ const x=new Date(iso); return new Date(x.getFullYear(),x.getMonth(),x.getDate()); };
+    const dd=(x)=>String(x.getDate()).padStart(2,'0')+'/'+String(x.getMonth()+1).padStart(2,'0');
+    const diff=(x)=>Math.round((x-today)/86400000);
+    const skip=['[2024] BLACK PAC HISTÓRICO'];
+    const tasks=[]; T.lists.filter(l=>!skip.includes(l.name)).forEach(l=>l.cards.forEach(c=>{ if(c.milestone) return; if((c.labels||[]).includes('DIÁRIO')) return; tasks.push({...c, list:l.name}); }));
+    const st=(t)=>{ if(t.done) return 'done'; if(!t.due) return 'nodate'; const n=diff(loc(t.due)); return n<0?'late':(n<=7?'soon':'later'); };
+    tasks.forEach(t=>t.st=st(t));
+    const cnt=(s)=>tasks.filter(t=>t.st===s).length;
+    const late=cnt('late');
+    const trelloKpis=[
+      {label:'Tarefas', value:String(tasks.length), color:'var(--text-strong)'},
+      {label:'Concluídas', value:String(cnt('done')), color:'var(--text-strong)'},
+      {label:'Atrasadas', value:String(late), color: late? '#8c2f2f':'var(--text-strong)'},
+      {label:'Vencem em 7 dias', value:String(cnt('soon')), color:'var(--text-strong)'},
+      {label:'Sem prazo', value:String(cnt('nodate')), color:'var(--text-muted)'} ];
+    const ms=[]; T.lists.forEach(l=>l.cards.forEach(c=>{ if(c.milestone) ms.push(c); }));
+    const milestones=ms.sort((a,b)=>a.due<b.due?-1:1).map(c=>{ const x=loc(c.due); const n=diff(x); return { name:c.name, url:c.url, date:x.getDate()+' '+MN[x.getMonth()], when: n<0? ('há '+(-n)+' dias') : n===0? 'hoje' : ('em '+n+' dias'), line: n<0? 'var(--forest)':'var(--line-strong)' }; });
+    const stl={ late:{status:'atrasada', bg:'rgba(140,47,47,0.10)', fg:'#8c2f2f'}, soon:{status:'', bg:'var(--forest)', fg:'var(--bone)'}, later:{status:'', bg:'var(--forest-06)', fg:'var(--text-strong)'} };
+    const dl=tasks.filter(t=>t.due && !t.done).sort((a,b)=>a.due<b.due?-1:1);
+    const deadlines=dl.map(t=>{ const x=loc(t.due); const n=diff(x); const s=stl[t.st]; const label= t.st==='late'? ('atrasada '+(-n)+'d') : n===0? 'hoje' : n===1? 'amanhã' : ('em '+n+' dias'); const dx=new Date(t.due); return { time:String(dx.getHours()).padStart(2,'0')+':'+String(dx.getMinutes()).padStart(2,'0'), labels:(t.labels&&t.labels.length)? t.labels.join(', ').toLowerCase() : '—', id:t.id, listId:t.idList, dueVal:(()=>{ const z=x; return z.getFullYear()+'-'+String(z.getMonth()+1).padStart(2,'0')+'-'+String(z.getDate()).padStart(2,'0'); })(), onDone:()=>t.id&&this.trelloWrite('PUT','cards/'+t.id,{dueComplete:'true'}), onMove:(e)=>t.id&&this.trelloWrite('PUT','cards/'+t.id,{idList:e.target.value}), onDue:(e)=>t.id&&e.target.value&&this.trelloWrite('PUT','cards/'+t.id,{due:this.dueISO(e.target.value)}), name:t.name, url:t.url, list:t.list.replace('FASE: ',''), owner:(t.members&&t.members.length)? t.members.join(', ') : '—', date:dd(x), status:label, bg:s.bg, fg:s.fg }; });
+    const areas=T.lists.filter(l=>!skip.includes(l.name) && l.cards.length).map(l=>{ const ts=tasks.filter(t=>t.list===l.name); const n=ts.length||1; const d=ts.filter(t=>t.st==='done').length, la=ts.filter(t=>t.st==='late').length; return { name:l.name.replace('FASE: ','fase '), label: d+'/'+ts.length+(la? (' · '+la+' atras.'):''), donePct:Math.round(d/n*100), latePct:Math.round(la/n*100), total:ts.length }; }).filter(a=>a.total>0);
+    const S0=this.state; const view=S0.actView||'cal';
+    const now0=new Date(); const cm=S0.calM!=null? S0.calM : now0.getFullYear()*12+now0.getMonth();
+    const cy=Math.floor(cm/12), cmo=cm%12; const MF=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+    const evs=[]; T.lists.filter(l=>!skip.includes(l.name)).forEach(l=>l.cards.forEach(c=>{ if(!c.due) return; if((c.labels||[]).includes('DIÁRIO')) return; const x=loc(c.due); const late=!c.done && !c.milestone && x<today; let bg='var(--forest-06)', fg='var(--text-strong)', bd='transparent', deco='none'; if(c.milestone){ bg='var(--forest)'; fg='var(--bone)'; } else if(c.done){ bg='transparent'; fg='var(--text-muted)'; bd='var(--line-hairline)'; deco='line-through'; } else if(late){ bg='rgba(140,47,47,0.12)'; fg='#8c2f2f'; } const dx=new Date(c.due); const hid=c.url; const wd=x.getDay(); evs.push({ k:x.getFullYear()+'-'+x.getMonth()+'-'+x.getDate(), ms:!!c.milestone, full:c.name, list:l.name.replace('FASE: ','Fase '), owner:(c.members&&c.members.length)? c.members.join(', ') : '—', dateFull:dd(x)+'/'+x.getFullYear(), time:String(dx.getHours()).padStart(2,'0')+':'+String(dx.getMinutes()).padStart(2,'0'), labels:(c.labels&&c.labels.length)? c.labels.join(', ') : '—', status: c.milestone? 'Data importante' : c.done? 'Concluída' : late? 'Atrasada' : 'A fazer', side: wd>=4? 'right':'left', hover:S0.calHover===hid, onEnter:()=>this.setState({calHover:hid}), onLeave:()=>this.setState(s=>s.calHover===hid?{calHover:null}:null), name:c.name.charAt(0)+c.name.slice(1).toLowerCase(), title:c.name+' · '+l.name+((c.members&&c.members[0])?' · '+c.members[0]:''), url:c.url, bg, fg, bd, deco }); }));
+    const first=new Date(cy,cmo,1); const startOff=first.getDay(); const dim=new Date(cy,cmo+1,0).getDate(); const nCells=Math.ceil((startOff+dim)/7)*7;
+    const exp=S0.calExp||{}; const calCells=[];
+    for(let i=0;i<nCells;i++){ const d=new Date(cy,cmo,1-startOff+i); const k=d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate(); const inM=d.getMonth()===cmo; const isT=d.getTime()===today.getTime(); const items=evs.filter(e=>e.k===k).sort((a,b)=>(b.ms?1:0)-(a.ms?1:0)); const open=!!exp[k]; const LIM=3; const shown=open? items : items.slice(0,LIM);
+      calCells.push({ day:String(d.getDate()), bg: inM? 'var(--bone)':'var(--forest-06)', numBg: isT? 'var(--forest)':'transparent', numFg: isT? 'var(--bone)' : (inM? 'var(--text-strong)':'var(--text-faint)'), numW: isT? '500':'400', items:shown, more: items.length>LIM, moreLabel: open? 'mostrar menos' : ('+'+(items.length-LIM)+' mais'), onMore:()=>this.setState(s=>({calExp:{...(s.calExp||{}), [k]:!open}})) }); }
+    const off=S0.todoOff||0; const wk=(S0.todoMode||'day')==='week'; const tday=new Date(today.getTime()); tday.setDate(tday.getDate()+off*(wk?7:1)); const isToday=off===0;
+    const wStart=new Date(tday.getTime()); wStart.setDate(wStart.getDate()-wStart.getDay()); const wEnd=new Date(wStart.getTime()); wEnd.setDate(wEnd.getDate()+6);
+    const WDs=['dom','seg','ter','qua','qui','sex','sáb'];
+    const WD=['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+    const cap=(s)=>s.charAt(0)+s.slice(1).toLowerCase();
+    const all=[]; T.lists.filter(l=>!skip.includes(l.name)).forEach(l=>l.cards.forEach(c=>{ if(!c.milestone) all.push({...c, list:l.name}); }));
+    const dref=(wk&&isToday)? today : tday; const dkey=dref.getFullYear()+'-'+(dref.getMonth()+1)+'-'+dref.getDate(); const dmap=(S0.dailyDone||{})[dkey]||{};
+    const mk=(c0,kind)=>{ const c= kind==='daily'? {...c0, done:!!dmap[c0.id||c0.url]} : c0; const dx=c.due? new Date(c.due):null; const tm=dx? String(dx.getHours()).padStart(2,'0')+':'+String(dx.getMinutes()).padStart(2,'0') : ''; const lateBy=(kind==='late'&&dx)? Math.round((today-loc(c.due))/86400000) : 0; return { name:cap(c.name), url:c.url, done:!!c.done, meta: c.list.replace('FASE: ','Fase ').toLowerCase()+(kind==='late'? ' · venceu '+dd(loc(c.due))+' ('+lateBy+'d)' : (kind==='today'? (wk&&dx? ' · '+WDs[dx.getDay()]+' '+dd(loc(c.due))+(tm?' '+tm:'') : (tm?' · '+tm:'')) : '')), fg: c.done? 'var(--text-muted)' : (kind==='late'? '#8c2f2f':'var(--text-strong)'), deco: c.done? 'line-through':'none', boxBg: c.done? 'var(--forest)':'transparent', boxBd: c.done? 'var(--forest)' : (kind==='late'? '#8c2f2f':'var(--line-strong)'), tick: c.done? '✓':'', tip: kind==='daily'? 'Marcar só para este dia (não altera o Trello)' : (c.done? 'Reabrir no Trello':'Concluir no Trello'), onToggle:()=>{ if(kind==='daily'){ const k=c0.id||c0.url; this.setState(s=>{ const all=JSON.parse(JSON.stringify(s.dailyDone||{})); all[dkey]=all[dkey]||{}; if(all[dkey][k]) delete all[dkey][k]; else all[dkey][k]=true; try{ localStorage.setItem('mp_todo_daily', JSON.stringify(all)); }catch(e){} return {dailyDone:all}; }); return; } c.id&&this.trelloWrite('PUT','cards/'+c.id,{dueComplete: c.done? 'false':'true'}); } }; };
+    const sameDay=(c)=>{ if(!c.due) return false; const x=loc(c.due).getTime(); return wk? (x>=wStart.getTime() && x<=wEnd.getTime()) : x===tday.getTime(); };
+    const PEOPLE=['Letícia Marques','Luisa Vidal','Victor Luporini','Mayra Pires'];
+    
+    const buildCol=(name, pick)=>{ const mine=all.filter(pick); const daily=mine.filter(c=>(c.labels||[]).includes('DIÁRIO')); const rest=mine.filter(c=>!(c.labels||[]).includes('DIÁRIO'));
+      const late= isToday? rest.filter(c=>c.due && !c.done && loc(c.due)<(wk? wStart : tday)) : [];
+      const todayT=rest.filter(sameDay);
+      const groups=[]; if(late.length) groups.push({title:'Atrasadas · '+late.length, color:'#8c2f2f', items:late.sort((a,b)=>a.due<b.due?-1:1).map(c=>mk(c,'late'))});
+      if(todayT.length) groups.push({title:(wk? (isToday?'Esta semana':'Nesta semana') : (isToday?'Hoje':'Neste dia'))+' · '+todayT.length, color:'var(--text-strong)', items:todayT.sort((a,b)=>a.due<b.due?-1:1).map(c=>mk(c,'today'))});
+      if(daily.length) groups.push({title:(wk?'Rotina diária · hoje · ':'Rotina diária · ')+daily.length, color:'var(--text-muted)', items:daily.map(c=>mk(c,'daily'))});
+      const ln=[]; const fmtT=(c)=>{ const dx=new Date(c.due); const tm=String(dx.getHours()).padStart(2,'0')+':'+String(dx.getMinutes()).padStart(2,'0'); return wk? (WDs[dx.getDay()]+' '+dd(loc(c.due))) : tm; };
+      const pend=(arr)=>arr.filter(c=>!c.done);
+      if(pend(late).length){ ln.push('_Atrasadas_'); pend(late).sort((a,b)=>a.due<b.due?-1:1).forEach(c=>ln.push('• '+cap(c.name)+' (venceu '+dd(loc(c.due))+')')); }
+      if(pend(todayT).length){ if(wk) ln.push('_Esta semana_'); pend(todayT).sort((a,b)=>a.due<b.due?-1:1).forEach(c=>ln.push('• '+cap(c.name)+' — '+fmtT(c))); }
+      const dp=daily.filter(c=>!dmap[c.id||c.url]); if(dp.length){ ln.push('_Rotina diária_'); dp.forEach(c=>ln.push('• '+cap(c.name))); }
+      const okL=[]; const dRef=wk? null : tday.getTime(); const doneOn=(c)=>{ if(!c.done) return false; const t=c.last? loc(c.last).getTime() : (c.due? loc(c.due).getTime():null); if(t==null) return false; return wk? (t>=wStart.getTime() && t<=wEnd.getTime()) : t===dRef; };
+      rest.filter(doneOn).forEach(c=>okL.push('• '+cap(c.name)));
+      daily.filter(c=>dmap[c.id||c.url]).forEach(c=>okL.push('• '+cap(c.name)+' (rotina)'));
+      const pendTasks=[...late,...todayT].filter(c=>!c.done).map(c=>cap(c.name)); const pendNames=pendTasks.concat(daily.filter(c=>!dmap[c.id||c.url]).map(c=>cap(c.name)));
+      const dItems=daily.map(c=>({done:!!dmap[c.id||c.url]})); const items=[...late,...todayT,...dItems]; const dn=items.filter(c=>c.done).length;
+      return { name, ini:name==='Sem responsável'?'—':name.split(' ').map(w=>w[0]).slice(0,2).join(''), count: items.length? (dn+' de '+items.length+' feitas') : 'sem tarefas', pct: items.length? Math.round(dn/items.length*100):0, groups, empty:!items.length, n:items.length, msgLines:ln, doneLines:okL, pendNames, pendTasks, nTasks:late.length+todayT.length }; };
+    let todoCols=PEOPLE.map(p=>buildCol(p.split(' ')[0]==='Letícia'?'Letícia Marques':p, c=>(c.members||[]).includes(p)));
+    const none=buildCol('Sem responsável', c=>!(c.members||[]).length); if(none.n) todoCols.push(none);
+            const head='*To-do '+(wk? ('da semana · '+dd(wStart)+' a '+dd(wEnd)) : ('de '+WD[tday.getDay()]+', '+dd(tday)))+'*';
+    const body=todoCols.filter(c=>c.msgLines.length && c.name!=='Letícia Marques').map(c=>'*'+c.name+'*\n'+c.msgLines.join('\n')).join('\n\n');
+    const autoMsg=(wk? 'Oioi time, bom dia! Segue as atividades e entregas desta semana ('+dd(wStart)+' a '+dd(wEnd)+'):' : 'Oioi time, bom dia! Segue as atividades e entregas de hoje ('+dd(tday)+'):')+'\n\n'+(body||'Nada pendente por aqui.')+'\n\nQualquer dúvida ou bloqueio mandem direto aqui!';
+    const ymdL=(x)=>x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');
+    const agg=(start,n)=>{ const o={invest:0,cad:0,ads:0,org:0,clicks:0,lpv:0}; for(let i=0;i<n;i++){ const x=new Date(start.getTime()); x.setDate(x.getDate()+i); const r=this.campDay(ymdL(x)); for(const k in o) o[k]+=r[k]; } o.cpl=o.ads? o.invest/o.ads:0; o.connect=o.clicks? o.lpv/o.clicks*100:0; o.conv=o.lpv? o.cad/o.lpv*100:0; return o; };
+    const cur= wk? agg(wStart,7) : agg(tday,1);
+    const prevStart=new Date((wk?wStart:tday).getTime()); prevStart.setDate(prevStart.getDate()-(wk?7:1)); const prv= agg(prevStart, wk?7:1);
+    const vs= wk? 'vs semana anterior' : 'vs ontem';
+    const nf=(n,dg)=>n.toLocaleString('pt-BR',{minimumFractionDigits:dg||0,maximumFractionDigits:dg||0});
+    const brlM=(n)=>'R$ '+nf(n,2);
+    const dPct=(c,p)=>{ if(!p) return c? ' [+'+nf(c)+' '+vs+']' : ' [igual '+vs+']'; const v=(c-p)/p*100; return ' ['+(v>=0?'+':'')+nf(v,0)+'% '+vs+']'; };
+    const dPP=(c,p)=>{ const v=c-p; return ' ['+(v>=0?'+':'')+nf(v,1)+' p.p. '+vs+']'; };
+    const capt=['*Captação*',
+      '• Cadastros no total: '+nf(cur.cad)+dPct(cur.cad,prv.cad),
+      '• Cadastros de tráfego: '+nf(cur.ads)+(cur.cad? ' ('+nf(cur.ads/cur.cad*100)+'%)':'')+dPct(cur.ads,prv.ads),
+      '• Cadastros orgânicos: '+nf(cur.org)+dPct(cur.org,prv.org),
+      '• Investimento: '+brlM(cur.invest)+dPct(cur.invest,prv.invest),
+      '• Custo por lead (tráfego): '+brlM(cur.cpl)+dPct(cur.cpl,prv.cpl),
+      '• Connect rate: '+nf(cur.connect,1)+'%'+dPP(cur.connect,prv.connect),
+      '• Conversão da página: '+nf(cur.conv,1)+'%'+dPP(cur.conv,prv.conv)].join('\n');
+    const team=todoCols.filter(c=>c.name!=='Mayra Pires' && (c.name==='Letícia Marques'? c.nTasks>0 : c.n>0)).map(c=>({...c, pendNames: c.name==='Letícia Marques'? c.pendTasks : c.pendNames})).map(c=> c.pendNames.length? ('*'+c.name+'*: falta concluir\n'+c.pendNames.map(x=>'• '+x).join('\n')) : ('*'+c.name+'*: tudo concluído')).join('\n\n');
+    const obs=(S0.msgObs||'').trim();
+    const mayraMsg='Oi Mayra, tudo bem? Segue o resultado '+(wk? ('da semana ('+dd(wStart)+' a '+dd(wEnd)+')') : ('de hoje ('+dd(tday)+')'))+':\n\n'+capt+'\n\n*Entregas do time*\n'+(team||'Sem tarefas no período.')+(obs? '\n\n*Observações*\n'+obs : '')+'\n\nQualquer dúvida, estou por aqui!';
+    const kind=S0.msgKind||'team';
+    const msgText=S0.msgDraft!=null? S0.msgDraft : (kind==='mayra'? mayraMsg : autoMsg);
+    const todo={ msgOpen:!!S0.msgOpen, msgText, msgCopied:!!S0.msgCopied, msgBtnLabel: wk?'Mensagem da semana para o time':'Mensagem do dia para o time', msgCopyLabel: S0.msgCopied?'Copiada':'Copiar mensagem',
+      onMsgToggle:()=>this.setState(s=>({msgOpen: !(s.msgOpen && (s.msgKind||'team')==='team'), msgKind:'team', msgDraft:null, msgCopied:false})),
+      onMsgMayra:()=>this.setState(s=>({msgOpen: !(s.msgOpen && s.msgKind==='mayra'), msgKind:'mayra', msgDraft:null, msgCopied:false})),
+      msgTeamBg: (S0.msgOpen&&kind==='team')||!S0.msgOpen? 'var(--forest)':'transparent', msgTeamFg: (S0.msgOpen&&kind==='team')||!S0.msgOpen? 'var(--bone)':'var(--text-strong)',
+      msgMayraBg: S0.msgOpen&&kind==='mayra'? 'var(--forest)':'transparent', msgMayraFg: S0.msgOpen&&kind==='mayra'? 'var(--bone)':'var(--text-strong)',
+      isMayra: kind==='mayra', msgObs:S0.msgObs||'', onMsgObs:(e)=>this.setState({msgObs:e.target.value, msgDraft:null}),
+      msgMayraLabel: wk?'Resultado da semana para Mayra':'Resultado do dia para Mayra',
+      msgHint: kind==='mayra'? 'Captação com os mesmos dados da aba dados da campanha. Para o time, mostra quem concluiu tudo e o que ainda falta.' : 'Só entram as tarefas ainda não concluídas. Você pode editar o texto antes de enviar.',
+      onMsgEdit:(e)=>this.setState({msgDraft:e.target.value, msgCopied:false}),
+      onMsgReset:()=>this.setState({msgDraft:null, msgCopied:false}),
+      onMsgCopy:()=>{ const done=()=>{ this.setState({msgCopied:true}); setTimeout(()=>this.setState({msgCopied:false}),2000); }; try{ navigator.clipboard.writeText(msgText).then(done,()=>{ const ta=document.createElement('textarea'); ta.value=msgText; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }); }catch(e){} },
+      msgWaUrl:'https://wa.me/?text='+encodeURIComponent(msgText),
+      todoBackLabel: wk?'voltar para esta semana':'voltar para hoje', todoGrid:'repeat('+Math.max(todoCols.length,1)+', minmax(220px, 1fr))', todoCols, todoDayLabel: wk? ((isToday?'Esta semana · ':'Semana · ')+dd(wStart)+' – '+dd(wEnd)) : ((isToday?'Hoje · ':off===1?'Amanhã · ':off===-1?'Ontem · ':'')+WD[tday.getDay()]+', '+dd(tday)), todoNotToday:!isToday, todoPrev:()=>this.setState({todoOff:off-1, msgDraft:null}), todoNext:()=>this.setState({todoOff:off+1, msgDraft:null}), todoToday:()=>this.setState({todoOff:0, msgDraft:null}),
+      todoWhoOpts: [['day','Dia'],['week','Semana']].map(([k,label])=>{ const on=(S0.todoMode||'day')===k; return { label, bg: on?'var(--forest)':'transparent', fg: on?'var(--bone)':'var(--text-strong)', bd: on?'var(--forest)':'var(--line-strong)', on:()=>this.setState({todoMode:k, todoOff:0, msgDraft:null}) }; }) };
+    const cal={ isCal:view==='cal', isList:view==='list', viewCal:()=>this.setState({actView:'cal'}), viewList:()=>this.setState({actView:'list'}), calBtnBg: view==='cal'?'var(--forest)':'transparent', calBtnFg: view==='cal'?'var(--bone)':'var(--text-strong)', listBtnBg: view==='list'?'var(--forest)':'transparent', listBtnFg: view==='list'?'var(--bone)':'var(--text-strong)', calTitle: MF[cmo]+' '+cy, calWeekdays:['dom','seg','ter','qua','qui','sex','sáb'], calCells, calPrev:()=>this.setState({calM:cm-1}), calNext:()=>this.setState({calM:cm+1}) };
+    const listOptions=T.lists.filter(l=>l.id && !skip.includes(l.name)).map(l=>({id:l.id, name:l.name.replace('FASE: ','Fase ')}));
+    const S=this.state;
+    const nt={ newTaskName:S.ntName||'', newTaskList:S.ntList||(listOptions[0]&&listOptions[0].id)||'', newTaskDue:S.ntDue||'', onNtName:(e)=>this.setState({ntName:e.target.value}), onNtList:(e)=>this.setState({ntList:e.target.value}), onNtDue:(e)=>this.setState({ntDue:e.target.value}), onNtCreate:()=>{ const name=(S.ntName||'').trim(); const idList=S.ntList||(listOptions[0]&&listOptions[0].id); if(!name||!idList) return; const p={idList, name}; if(S.ntDue) p.due=this.dueISO(S.ntDue); this.setState({ntName:'',ntDue:''}); this.trelloWrite('POST','cards',p); } };
+    return { ...base, ...nt, ...cal, ...todo, listOptions, canEdit:listOptions.length>0, trelloMsg:S.trelloMsg||'', trelloBusy:!!S.trelloBusy, trelloSynced:'sincronizado em '+(T.syncedAt? T.syncedAt.split('-').reverse().slice(0,2).join('/'):''), trelloKpis, milestones, deadlines, deadlineCount:String(dl.length), areas };
   }
 
   learnings(valid, followers){
