@@ -343,6 +343,92 @@
     </div>
     </sc-if>
 
+    <!-- ============ PAGE: CAPTACAO ============ -->
+    <sc-if value="{{ isCapt }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <sc-if value="{{ capNote }}" hint-placeholder-val="{{ false }}">
+        <div data-keepcase="1" style="font-size:12px; color:var(--text-muted); margin:-8px 0 16px; line-height:1.45;">{{ capNoteText }}</div>
+      </sc-if>
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:12px;">Visão geral</div>
+      <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:18px;">
+        <sc-for list="{{ capKpis }}" as="k" hint-placeholder-count="8">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px; border-top:3px solid var(--forest);">
+            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-strong); font-weight:700; line-height:1.25;">{{ k.label }}</div>
+            <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+              <div data-keepcase="1" style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em; white-space:nowrap;">{{ k.value }}</div>
+              <span style="font-size:11.5px; color:var(--text-muted);">{{ k.sub }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px;">
+        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Qualificação dos leads</div>
+        <div style="font-size:12px; color:var(--text-muted); margin-bottom:14px;">{{ capTierNote }}</div>
+        <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px;">
+          <sc-for list="{{ capTiers }}" as="t" hint-placeholder-count="3">
+            <div style="border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px 16px; display:flex; flex-direction:column; gap:8px; background:{{ t.bg }};">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;">
+                <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; font-weight:700; color:{{ t.fg }};">{{ t.label }}</span>
+                <span style="font-size:12px; color:{{ t.fg }};">{{ t.pct }}</span>
+              </div>
+              <div style="font-family:var(--font-display); font-size:30px; font-weight:200; line-height:1; letter-spacing:-0.04em; color:{{ t.fg }};">{{ t.n }}</div>
+              <div style="font-size:11.5px; line-height:1.4; color:{{ t.fg }};">{{ t.rule }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">Perfil dos leads</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">{{ capProfileNote }}</div>
+      <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; margin-bottom:18px;">
+        <sc-for list="{{ capProfile }}" as="g" hint-placeholder-count="2">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; min-width:0;">
+            <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted); margin-bottom:14px;">{{ g.title }}</div>
+            <div style="display:flex; flex-direction:column; gap:11px;">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
+                <div style="display:flex; flex-direction:column; gap:5px;">
+                  <div style="display:flex; justify-content:space-between; gap:10px; font-size:12px;">
+                    <span data-keepcase="1" style="color:var(--text-strong); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ r.label }}</span>
+                    <span style="color:var(--text-muted); white-space:nowrap;"><span style="color:var(--text-strong); font-weight:500;">{{ r.n }}</span> · {{ r.pct }}</span>
+                  </div>
+                  <div style="height:6px; background:var(--forest-06); border-radius:999px; overflow:hidden;">
+                    <div style="height:100%; width:{{ r.w }}%; background:var(--forest); border-radius:999px;"></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px; min-width:0;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ crossTitle }}</div>
+            <div style="font-size:12px; color:var(--text-muted);">Quanto mais escuro, mais leads na combinação.</div>
+          </div>
+          <div style="display:flex; gap:4px; flex-wrap:wrap;">
+            <sc-for list="{{ crossOpts }}" as="o" hint-placeholder-count="4">
+              <button onClick="{{ o.onClick }}" style="font-family:var(--font-text); font-size:12px; height:30px; padding:0 12px; border-radius:var(--radius-xs); cursor:pointer; border:1px solid var(--line-strong); background:{{ o.bg }}; color:{{ o.fg }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <div style="display:grid; grid-template-columns:{{ crossCols }}; gap:4px; min-width:520px;">
+            <sc-for list="{{ crossHead }}" as="c" hint-placeholder-count="6">
+              <div style="font-size:10px; font-weight:500; color:var(--text-muted); text-align:{{ c.align }}; line-height:1.25; padding-bottom:4px; align-self:end;">{{ c.label }}</div>
+            </sc-for>
+            <sc-for list="{{ crossCells }}" as="c" hint-placeholder-count="24">
+              <div data-keepcase="1" style="font-size:12px; height:34px; display:flex; align-items:center; justify-content:{{ c.justify }}; padding:0 8px; border-radius:var(--radius-xs); background:{{ c.bg }}; color:{{ c.fg }}; font-weight:{{ c.weight }};">{{ c.v }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </sc-if>
+
     <!-- ============ PAGE: CRONOGRAMA ============ -->
     <sc-if value="{{ isCrono }}" hint-placeholder-val="{{ false }}">
     <div>
@@ -725,7 +811,7 @@ class Component extends DCLogic {
 
   /* ============ HANDLERS ============ */
   setPage(p){ this.setState({page:p}); }
-  onRefresh(){ this.fetchLive(); this.fetchTrello(); }
+  onRefresh(){ this.fetchLive(); this.fetchTrello(); this.fetchLeads(); }
   // Trello: com TRELLO_KEY + TRELLO_TOKEN preenchidos, busca ao vivo na API; senão, lê o snapshot do projeto.
   async fetchTrello(){
     const KEY=this.TRELLO_KEY||'', TOKEN=this.TRELLO_TOKEN||'', BOARD='g2bCSpU1';
@@ -808,7 +894,7 @@ class Component extends DCLogic {
   }
 
   /* ============ CHARTS ============ */
-  componentDidMount(){ try{ const dd=JSON.parse(localStorage.getItem('mp_todo_daily')||'{}'); this.setState({dailyDone:dd}); }catch(e){} this.drawCharts(); this.fetchLive(); this.fetchTrello(); }
+  componentDidMount(){ try{ const dd=JSON.parse(localStorage.getItem('mp_todo_daily')||'{}'); this.setState({dailyDone:dd}); }catch(e){} this.drawCharts(); this.fetchLive(); this.fetchTrello(); this.fetchLeads(); }
   componentDidUpdate(){ this.drawCharts(); }
   lineCfg(labels, datasets, opts){
     opts=opts||{};
@@ -850,7 +936,7 @@ class Component extends DCLogic {
     // selectors
     const monthOptions=[{value:'all',label:'Todos os meses'}].concat(M.months);
     const weekOptions=[{value:'all',label:'Todas as semanas'}].concat(M.weeks.map(w=>({value:w.iso,label:w.label})));
-    const pages=[{key:'conta',label:'Dados da Conta'},{key:'conteudos',label:'Dados dos Conteúdos'},{key:'acomp',label:'Dados da campanha'},{key:'crono',label:'Área de gestão'}].map(p=>({
+    const pages=[{key:'conta',label:'Dados da Conta'},{key:'conteudos',label:'Dados dos Conteúdos'},{key:'acomp',label:'Dados da campanha'},{key:'capt',label:'Dados da captação'},{key:'crono',label:'Área de gestão'}].map(p=>({
       label:p.label,
       onClick:()=>this.setPage(p.key),
       style:`font-family:var(--font-text); font-size:13px; font-weight:${S.page===p.key?'600':'500'}; cursor:pointer; padding:8px 16px; border-radius:var(--radius-md) var(--radius-md) 0 0; border:1px solid ${S.page===p.key?'var(--line-hairline)':'transparent'}; border-bottom:2px solid ${S.page===p.key?accent:'transparent'}; background:${S.page===p.key?'var(--forest-06)':'transparent'}; color:${S.page===p.key?'var(--text-strong)':'var(--text-muted)'};`
@@ -869,8 +955,8 @@ class Component extends DCLogic {
       onDateTo:(e)=>this.setState({dateTo:e.target.value, month:'all', week:'all'}),
       onClearDates:()=>this.setState({dateFrom:'', dateTo:'', month:'all', week:'all'}),
       accent, periodLabel: win.label,
-      isConta:S.page==='conta', isConteudos:S.page==='conteudos', isAcomp:S.page==='acomp', isCrono:S.page==='crono',
-      pageTitle: S.page==='conta'?'Dados da Conta': S.page==='conteudos'?'Dados dos Conteúdos': S.page==='crono'?'Área de gestão':'Dados da campanha',
+      isConta:S.page==='conta', isConteudos:S.page==='conteudos', isAcomp:S.page==='acomp', isCrono:S.page==='crono', isCapt:S.page==='capt', ...this.capVals(S),
+      pageTitle: S.page==='conta'?'Dados da Conta': S.page==='conteudos'?'Dados dos Conteúdos': S.page==='crono'?'Área de gestão': S.page==='capt'?'Dados da captação':'Dados da campanha',
     };
 
     // CONTA
@@ -1118,6 +1204,107 @@ class Component extends DCLogic {
     return { ...this.trelloVals(), acompKpis, acompCols, acompRows, funnel, adSets, setCols, ads, adCols, campaignName:'Black PAC' };
   }
 
+  // Leads: lê a planilha ao vivo (precisa estar compartilhada como "qualquer pessoa com o link"); senão usa o snapshot do projeto.
+  async fetchLeads(){
+    const ID='1q6tdEFLUQSojdlvmqVu_5UnPNSHnzp4w7kwm2QlK6co';
+    const parse=(t)=>{ const rows=[]; let r=[], f='', q=false; for(let i=0;i<t.length;i++){ const ch=t[i]; if(q){ if(ch==='"'){ if(t[i+1]==='"'){ f+='"'; i++; } else q=false; } else f+=ch; } else if(ch==='"') q=true; else if(ch===','){ r.push(f); f=''; } else if(ch==='\n'){ r.push(f); rows.push(r); r=[]; f=''; } else if(ch!=='\r') f+=ch; } if(f||r.length){ r.push(f); rows.push(r); } return rows; };
+    try{
+      const res=await fetch('https://docs.google.com/spreadsheets/d/'+ID+'/gviz/tq?tqx=out:csv&gid=0'); if(!res.ok) throw 0;
+      const t=await res.text(); if(t.trim().startsWith('<')) throw 0;
+      const rows=parse(t); const hd=rows[0].map(x=>x.trim().toLowerCase());
+      const ix=(n)=>hd.findIndex(x=>x===n.toLowerCase());
+      const map={dt:'Data/hora',email:'E-mail',area:'Área de atuação na fono',trab:'Como trabalha hoje',renda:'Renda atual',int:'Interesse na oferta',dif:'Maior dificuldade em PAC no autismo',src:'utm_source',med:'utm_medium',camp:'utm_campaign',cont:'utm_content',term:'utm_term'};
+      const I=Object.fromEntries(Object.entries(map).map(([k,v])=>[k,ix(v)]));
+      if(I.dt<0) throw 0;
+      const leads=rows.slice(1).filter(r=>r[I.dt]).map(r=>Object.fromEntries(Object.keys(map).map(k=>[k, I[k]>=0? (r[I[k]]||'').trim() : ''])));
+      this.setState({leads:{rows:leads, live:true}});
+    }catch(e){
+      try{ const j=await (await fetch('leads-black-pac.json')).json(); this.setState({leads:{rows:j.rows, live:false, partial:j.partial}}); }catch(_){}
+    }
+  }
+  capVals(S){
+    const L=S.leads; const pctf=(a,b)=>b? (Math.round(a/b*1000)/10).toString().replace('.',',')+'%' : '0%';
+    const empty={ crossTitle:'', crossHead:[], crossCells:[], crossCols:'1fr', crossOpts:[], capTiers:[], capCross:[], capThemes:[], capTierNote:'', capKpis:[], capHours:[], capOrigin:[], capProfile:[], capAds:[], capDifs:[], capPeak:'', capDifCount:'', capProfileNote:'', capNote:false, capNoteText:'', capAdCols:[] };
+    if(!L) return empty;
+    const pd=(s)=>{ const m=(s||'').match(/(\d{1,2})\/(\d{1,2})\/(\d{4})\s*(\d{1,2})?:?(\d{2})?/); return m? new Date(+m[3],+m[2]-1,+m[1],+(m[4]||0),+(m[5]||0)) : null; };
+    const iso=(d)=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    const nz=(v)=>typeof v==='string'? v.replace(/[\s\u00a0]+/g,' ').trim() : v; let rows=L.rows.map(r0=>{ const r=Object.fromEntries(Object.entries(r0).map(([k,v])=>[k,nz(v)])); return {...r, d:pd(r.dt)}; }).filter(r=>r.d);
+    if(S.dateFrom) rows=rows.filter(r=>iso(r.d)>=S.dateFrom);
+    if(S.dateTo) rows=rows.filter(r=>iso(r.d)<=S.dateTo);
+    if(S.month && /^\d{4}-\d{2}$/.test(S.month)) rows=rows.filter(r=>iso(r.d).slice(0,7)===S.month);
+    const answered=(r)=>!!(r.area && r.trab);
+    const byEmail={}; rows.forEach(r=>{ const k=(r.email||'').toLowerCase()||('_'+r.dt); const cur=byEmail[k]; if(!cur || (!answered(cur) && answered(r))) byEmail[k]=r; });
+    const uniq=Object.values(byEmail); const nU=uniq.length, nR=rows.length;
+    const paid=(r)=>/^\d{10,}$/.test(r.term||'') || /SDM_/i.test(r.camp||'');
+    const temp=(r)=> /QUENTE/i.test(r.camp)? 'Quente' : /FRIO/i.test(r.camp)? 'Frio' : '—';
+    const fmt=(r)=> /_VDO/i.test(r.camp)? 'Vídeo' : /_IMG/i.test(r.camp)? 'Estático' : '—';
+    const nPaid=uniq.filter(paid).length, nAns=uniq.filter(answered).length;
+    const nHot=uniq.filter(r=>temp(r)==='Quente').length, nCold=uniq.filter(r=>temp(r)==='Frio').length;
+    const hiInt=uniq.filter(r=>/muito interesse|com certeza/i.test(r.int||'')).length;
+    const days=new Set(uniq.map(r=>iso(r.d))).size||1;
+    const nf=(n)=>n.toLocaleString('pt-BR');
+    const capKpis=[
+      {label:'Leads únicos', value:nf(nU), sub:''},
+      {label:'Cadastros na planilha', value:nf(nR), sub: (nR-nU)? (nf(nR-nU)+' duplicados') : 'sem duplicados'},
+      {label:'Média por dia', value:(Math.round(nU/days*10)/10).toString().replace('.',','), sub: days+(days>1?' dias':' dia')},
+      {label:'Responderam a pesquisa', value:pctf(nAns,nU), sub:nf(nAns)+' leads'},
+      {label:'Vindos do tráfego pago', value:pctf(nPaid,nU), sub:nf(nPaid)+' leads'},
+      {label:'Orgânico e outros', value:pctf(nU-nPaid,nU), sub:nf(nU-nPaid)+' leads'},
+      {label:'Público quente · frio', value:pctf(nHot,nPaid||1).replace('%','')+' · '+pctf(nCold,nPaid||1), sub:'do pago'},
+      {label:'Alto interesse na oferta', value:pctf(hiInt,nAns), sub:'de quem respondeu'} ];
+    const hc=Array(24).fill(0); uniq.forEach(r=>hc[r.d.getHours()]++); const hm=Math.max(1,...hc);
+    const capHours=hc.map((n,i)=>({ n: n||'', h: Math.round(n/hm*100), label: i%3===0? String(i).padStart(2,'0')+'h' : '', tip: String(i).padStart(2,'0')+'h · '+n+' leads' }));
+    const pk=hc.indexOf(Math.max(...hc)); const capPeak= nU? ('pico às '+String(pk).padStart(2,'0')+'h · '+hc[pk]+' leads') : '';
+    const group=(title, list, key, order)=>{ const c={}; list.forEach(r=>{ const k=key(r); if(!k) return; c[k]=(c[k]||0)+1; }); let e=Object.entries(c); e= order? e.sort((a,b)=>order.indexOf(a[0])-order.indexOf(b[0])) : e.sort((a,b)=>b[1]-a[1]); const tot=e.reduce((s,x)=>s+x[1],0); const mx=Math.max(1,...e.map(x=>x[1])); return { title, rows:e.map(([label,n])=>({label, n:nf(n), pct:pctf(n,tot), w:Math.round(n/mx*100)})) }; };
+    const srcName=(r)=>{ const s=(r.src||'').toLowerCase(); if(!s) return 'Direto / sem UTM'; return (r.src||'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); };
+    const pub=(r)=> /ADVANTAGE/i.test(r.med)? 'Advantage+' : /ENVOLVIMENTO/i.test(r.med)? 'Envolvimento IG 365D' : (r.med||'—');
+    const capOrigin=[
+      group('Pago x orgânico', uniq, r=>paid(r)?'Tráfego pago':'Orgânico e outros'),
+      group('Temperatura · formato (pago)', uniq.filter(paid), r=>temp(r)+' · '+fmt(r)),
+      group('Posicionamento', uniq, srcName),
+      group('Público (pago)', uniq.filter(paid), pub) ];
+    const ac={}; uniq.forEach(r=>{ const k=(r.cont||'—')+'|'+(paid(r)? temp(r)+'|'+fmt(r) : 'org'); ac[k]=ac[k]||{n:0,hi:0,ans:0,r}; ac[k].n++; if(answered(r)){ ac[k].ans++; if(/muito interesse|com certeza/i.test(r.int||'')) ac[k].hi++; } });
+    const capAds=Object.entries(ac).sort((a,b)=>b[1].n-a[1].n).map(([key,v])=>({ name:key.split('|')[0], temp: paid(v.r)? temp(v.r):'Orgânico', fmt: paid(v.r)? fmt(v.r) : (v.r.src||'—'), n:nf(v.n), pct:pctf(v.n,nU), hot: v.ans? pctf(v.hi,v.ans):'—' }));
+    const capAdCols=[{label:'Criativo (utm_content)',align:'left'},{label:'Temperatura',align:'left'},{label:'Formato',align:'left'},{label:'Leads',align:'right'},{label:'% total',align:'right'},{label:'Alto interesse',align:'right'}];
+    const A=uniq.filter(answered);
+    const capProfile=[
+      group('Área de atuação', A, r=>r.area),
+      group('Como trabalha hoje', A, r=>(r.trab||'').replace(/^Sou /,'').replace(/^./,c=>c.toUpperCase())),
+      group('Renda atual', A, r=>r.renda, ['Até R$ 3.000','Entre R$ 3.001 e R$ 5.000','Entre R$ 5.001 e R$ 10.000','Entre R$ 10.001 e R$ 15.000','Entre R$ 15.001 e R$ 20.000','Acima de R$ 15.000','Acima de R$ 20.000']),
+      group('Interesse na oferta', A, r=>r.int, ['Vou aproveitar com certeza','Tenho muito interesse','Tenho interesse','Só quero conhecer','Tenho pouco interesse','Não tenho interesse']) ];
+    const WDs=['dom','seg','ter','qua','qui','sex','sáb'];
+    const difs=A.filter(r=>r.dif).sort((a,b)=>b.d-a.d);
+    const capDifs=difs.map(r=>({ text: r.dif.charAt(0).toUpperCase()+r.dif.slice(1), meta: [(r.trab||'').replace(/^Sou /,''), r.area, WDs[r.d.getDay()]+' '+String(r.d.getDate()).padStart(2,'0')+'/'+String(r.d.getMonth()+1).padStart(2,'0')].filter(Boolean).join(' · ') }));
+    const RO=['Até R$ 3.000','Entre R$ 3.001 e R$ 5.000','Entre R$ 5.001 e R$ 10.000','Entre R$ 10.001 e R$ 15.000','Entre R$ 15.001 e R$ 20.000','Acima de R$ 15.000','Acima de R$ 20.000'];
+    const IO=['Vou aproveitar com certeza','Tenho muito interesse','Tenho interesse','Só quero conhecer','Tenho pouco interesse','Não tenho interesse'];
+    const rShort=(r)=>(r||'').replace('Entre R$ ','').replace(' e R$ ','–').replace('Até R$ ','até ').replace('Acima de R$ ','+ ');
+    const iShort={'Vou aproveitar com certeza':'Com certeza','Tenho muito interesse':'Muito','Tenho interesse':'Interesse','Só quero conhecer':'Só conhecer','Tenho pouco interesse':'Pouco','Não tenho interesse':'Nenhum'};
+    const hiI=(r)=>/muito interesse|com certeza/i.test(r.int||''); const student=(r)=>/estudante/i.test(r.trab||''); const ri=(r)=>RO.indexOf(r.renda);
+    const tier=(r)=> (!student(r) && hiI(r) && ri(r)>=1)? 'A' : ((hiI(r) || (!student(r) && ri(r)>=1))? 'B' : 'C');
+    const tc={A:0,B:0,C:0}; A.forEach(r=>tc[tier(r)]++);
+    const capTiers=[
+      {k:'A', label:'Lead A · prioridade', rule:'Formada, renda acima de R$ 3 mil e muito interesse ou "com certeza".', bg:'var(--forest)', fg:'var(--bone)'},
+      {k:'B', label:'Lead B · morno', rule:'Tem alto interesse ou perfil financeiro, mas não os dois.', bg:'var(--forest-06)', fg:'var(--text-strong)'},
+      {k:'C', label:'Lead C · nutrir', rule:'Estudante ou renda até R$ 3 mil, sem alto interesse.', bg:'var(--bone)', fg:'var(--text-strong)'} ].map(t=>({...t, n:nf(tc[t.k]), pct:pctf(tc[t.k],A.length)}));
+    const cross=(title,note,rowK,rowOrder,rowLbl,colK,colOrder,colLbl)=>{ const extra=(ord,k)=>[...new Set(A.map(k).filter(v=>v && !ord.includes(v)))]; const rs=rowOrder.concat(extra(rowOrder,rowK)).filter(x=>A.some(r=>rowK(r)===x)); const cs=colOrder.concat(extra(colOrder,colK)).filter(x=>A.some(r=>colK(r)===x)); const mx=Math.max(1,...rs.flatMap(a=>cs.map(b=>A.filter(r=>rowK(r)===a&&colK(r)===b).length)));
+      const head=[{label:'',align:'left'}].concat(cs.map(c=>({label:colLbl(c),align:'center'}))).concat([{label:'Total',align:'right'}]);
+      const cells=[]; rs.forEach(a=>{ const row=A.filter(r=>rowK(r)===a); cells.push({v:rowLbl(a), bg:'transparent', fg:'var(--text-strong)', weight:500, justify:'flex-start'}); cs.forEach(b=>{ const n=row.filter(r=>colK(r)===b).length; const t=n/mx; cells.push({v:n||'', bg: n? 'color-mix(in oklab, var(--forest) '+Math.round(8+t*82)+'%, var(--bone))' : 'var(--forest-06)', fg: t>0.45? 'var(--bone)':'var(--text-strong)', weight:500, justify:'center'}); }); cells.push({v:row.length, bg:'transparent', fg:'var(--text-muted)', weight:400, justify:'flex-end'}); });
+      return { title, note, head, cells, cols:'minmax(140px,1.4fr) repeat('+cs.length+', minmax(0,1fr)) 52px' }; };
+    const trabs=[...new Set(A.map(r=>r.trab))].sort((a,b)=>A.filter(r=>r.trab===b).length-A.filter(r=>r.trab===a).length);
+    const CV={renda:['Renda',r=>r.renda,RO,rShort], trab:['Como trabalha',r=>r.trab,trabs,t=>(t||'').replace(/^Sou /,'').replace(/^./,c=>c.toUpperCase())], area:['Área de atuação',r=>r.area,[...new Set(A.map(r=>r.area))].sort(),a=>a]};
+    const cvK=CV[S.capVar]? S.capVar : 'renda'; const cvx=CV[cvK]; const cx=cross(cvx[0]+' × interesse','',cvx[1],cvx[2],cvx[3],r=>r.int,IO,c=>iShort[c]||c);
+    const crossOpts=Object.entries(CV).map(([k,v])=>({label:v[0], bg:k===cvK?'var(--forest)':'transparent', fg:k===cvK?'var(--bone)':'var(--text-strong)', onClick:()=>this.setState({capVar:k})}));
+    const capCross=[
+      cross('Renda × interesse','Quanto mais escuro, mais leads na combinação.', r=>r.renda, RO, rShort, r=>r.int, IO, c=>iShort[c]||c),
+      cross('Como trabalha × interesse','Quais perfis profissionais estão mais prontos para comprar.', r=>r.trab, trabs, t=>(t||'').replace(/^Sou /,'').replace(/^./,c=>c.toUpperCase()), r=>r.int, IO, c=>iShort[c]||c) ];
+    const TH=[['Avaliação e diagnóstico',/avalia|diagn|identific|audi[oô]metr|teste/i],['Estruturar a terapia',/estrutur|planej|conduz|terapia|interven|sess/i],['Atividades e materiais',/atividade|material|materiais|recurso|ferramenta|brincadeira|diversidade|variedade/i],['Insegurança e falta de conhecimento',/segur|conhec|não sei|nao sei|sei como|aprend|base|teoria|experi/i],['Comportamento e engajamento',/comport|aten[cç]|engaj|colabor|crise|aceita|adapta|sensorial/i],['Família e escola',/fam[ií]lia|pais|m[aã]e|escola|orienta/i]];
+    const themeOf=(t)=>{ for(const [n,re] of TH) if(re.test(t)) return n; return 'Outros'; };
+    const dl=A.filter(r=>r.dif);
+    const capThemes=[ group('Principais dificuldades por tema', dl, r=>themeOf(r.dif)), group('Dificuldades dos leads A', dl.filter(r=>tier(r)==='A'), r=>themeOf(r.dif)) ].map((g,i)=>({...g, note: i===0? ('Respostas abertas agrupadas por palavra-chave · '+nf(dl.length)+' respostas.') : 'O que trava quem tem mais chance de comprar.' }));
+    return { crossTitle:cx.title, crossHead:cx.head, crossCells:cx.cells, crossCols:cx.cols, crossOpts, capTiers, capTierNote:'Classificação automática a partir das respostas da pesquisa.', capCross, capThemes, capKpis, capHours, capPeak, capOrigin, capAds, capAdCols, capProfile, capProfileNote: 'Considera os '+nf(A.length)+' leads únicos que responderam a pesquisa.', capDifs, capDifCount: nf(difs.length)+' respostas',
+      capNote: !L.live, capNoteText: 'Mostrando uma amostra da planilha Leads - Black PAC 2026. Para ler todos os cadastros ao vivo, compartilhe a planilha como "qualquer pessoa com o link pode ver" e clique em Atualizar.' };
+  }
+
   trelloVals(){
     const T=this.state.trello; const MN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
     const base={ todoCols:[], todoWhoOpts:[], todoDayLabel:'Hoje', todoNotToday:false, isCal:true, isList:false, calCells:[], calWeekdays:['dom','seg','ter','qua','qui','sex','sáb'], calTitle:'', listOptions:[], canEdit:false, trelloMsg:'', newTaskName:'', newTaskDue:'', newTaskList:'', trelloBoard:'[2026] Black PAC', trelloSynced:'carregando…', trelloKpis:[], milestones:[], deadlines:[], deadlineCount:'0', areas:[], deadlineCols:[{label:'',align:'left'},{label:'Tarefa',align:'left'},{label:'Área',align:'left'},{label:'Responsável',align:'left'},{label:'Prazo',align:'left'},{label:'Horário',align:'left'},{label:'Etiqueta',align:'left'},{label:'Status',align:'right'}] };
@@ -1157,7 +1344,7 @@ class Component extends DCLogic {
     const WDs=['dom','seg','ter','qua','qui','sex','sáb'];
     const WD=['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
     const cap=(s)=>s.charAt(0)+s.slice(1).toLowerCase();
-    const all=[]; T.lists.filter(l=>!skip.includes(l.name)).forEach(l=>l.cards.forEach(c=>{ if(!c.milestone) all.push({...c, list:l.name}); }));
+    const TODO_FROM=new Date(2026,9,28).getTime(); const all=[]; T.lists.filter(l=>!skip.includes(l.name)).forEach(l=>l.cards.forEach(c=>{ if(c.milestone) return; if(c.due && !(c.labels||[]).includes('DIÁRIO') && loc(c.due).getTime()<TODO_FROM) return; all.push({...c, list:l.name}); }));
     const dref=(wk&&isToday)? today : tday; const dkey=dref.getFullYear()+'-'+(dref.getMonth()+1)+'-'+dref.getDate(); const dmap=(S0.dailyDone||{})[dkey]||{};
     const mk=(c0,kind)=>{ const c= kind==='daily'? {...c0, done:!!dmap[c0.id||c0.url]} : c0; const dx=c.due? new Date(c.due):null; const tm=dx? String(dx.getHours()).padStart(2,'0')+':'+String(dx.getMinutes()).padStart(2,'0') : ''; const lateBy=(kind==='late'&&dx)? Math.round((today-loc(c.due))/86400000) : 0; return { name:cap(c.name), url:c.url, done:!!c.done, meta: c.list.replace('FASE: ','Fase ').toLowerCase()+(kind==='late'? ' · venceu '+dd(loc(c.due))+' ('+lateBy+'d)' : (kind==='today'? (wk&&dx? ' · '+WDs[dx.getDay()]+' '+dd(loc(c.due))+(tm?' '+tm:'') : (tm?' · '+tm:'')) : '')), fg: c.done? 'var(--text-muted)' : (kind==='late'? '#8c2f2f':'var(--text-strong)'), deco: c.done? 'line-through':'none', boxBg: c.done? 'var(--forest)':'transparent', boxBd: c.done? 'var(--forest)' : (kind==='late'? '#8c2f2f':'var(--line-strong)'), tick: c.done? '✓':'', tip: kind==='daily'? 'Marcar só para este dia (não altera o Trello)' : (c.done? 'Reabrir no Trello':'Concluir no Trello'), onToggle:()=>{ if(kind==='daily'){ const k=c0.id||c0.url; this.setState(s=>{ const all=JSON.parse(JSON.stringify(s.dailyDone||{})); all[dkey]=all[dkey]||{}; if(all[dkey][k]) delete all[dkey][k]; else all[dkey][k]=true; try{ localStorage.setItem('mp_todo_daily', JSON.stringify(all)); }catch(e){} return {dailyDone:all}; }); return; } c.id&&this.trelloWrite('PUT','cards/'+c.id,{dueComplete: c.done? 'false':'true'}); } }; };
     const sameDay=(c)=>{ if(!c.due) return false; const x=loc(c.due).getTime(); return wk? (x>=wStart.getTime() && x<=wEnd.getTime()) : x===tday.getTime(); };
