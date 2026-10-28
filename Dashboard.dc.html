@@ -93,10 +93,6 @@
     <!-- page title strip -->
     <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:22px;">
       <h1 style="font-family:var(--font-display); font-weight:200; font-size:34px; line-height:1; margin:0; color:var(--text-strong); letter-spacing:var(--track-display);">{{ pageTitle }}</h1>
-      <sc-if value="{{ isAcomp }}" hint-placeholder-val="{{ false }}">
-        <div data-keepcase="1" style="font-size:13px; color:var(--text-muted); line-height:1.4;">Link do dashboard de tráfego oficial: <span style="color:var(--text-strong); font-weight:500;">[adicionar aqui após o envio pelo gestor]</span></div>
-        <div data-keepcase="1" style="font-size:13px; color:var(--text-muted); line-height:1.4;">Link do Trello oficial: <a data-keepcase="1" href="https://trello.com/b/g2bCSpU1/2026-black-pac" target="_blank" rel="noopener noreferrer" style="color:var(--text-strong); font-weight:500; text-decoration:underline; text-underline-offset:2px;" style-hover="color:var(--forest-70);">https://trello.com/b/g2bCSpU1/2026-black-pac</a></div>
-      </sc-if>
     </div>
 
     <!-- ============ PAGE: CONTA ============ -->
@@ -228,128 +224,33 @@
     </div>
     </sc-if>
 
-    <!-- ============ PAGE: ACOMPANHAMENTO ============ -->
-    <sc-if value="{{ isAcomp }}" hint-placeholder-val="{{ true }}">
-    <div>
-      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:12px;">Informações gerais</div>
-      <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:18px;">
-        <sc-for list="{{ acompKpis }}" as="k" hint-placeholder-count="8">
-          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px 14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px; border-top:3px solid {{ accent }};">
-            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-strong); font-weight:700; line-height:1.25;">{{ k.label }}</div>
-            <div data-keepcase="1" style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em; white-space:nowrap;">{{ k.value }}</div>
-          </div>
-        </sc-for>
-      </div>
-      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px;">
-        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted); margin-bottom:12px;">Indicadores por dia</div>
-        <div style="overflow-x:auto;">
-          <div style="min-width:860px;">
-            <div style="display:grid; grid-template-columns:70px repeat(9, minmax(0,1fr)); gap:8px; padding:0 0 10px; border-bottom:1px solid var(--line-strong);">
-              <sc-for list="{{ acompCols }}" as="h" hint-placeholder-count="10">
-                <div style="font-size:10.5px; font-weight:500; color:var(--text-muted); text-align:{{ h.align }};">{{ h.label }}</div>
-              </sc-for>
-            </div>
-            <sc-for list="{{ acompRows }}" as="r" hint-placeholder-count="4">
-              <div style="display:grid; grid-template-columns:70px repeat(9, minmax(0,1fr)); gap:8px; padding:9px 0; border-bottom:1px solid var(--line-hairline); align-items:center;">
-                <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="10">
-                  <div data-keepcase="1" style="font-size:12px; color:{{ c.color }}; font-weight:{{ c.weight }}; text-align:{{ c.align }}; white-space:nowrap;">{{ c.value }}</div>
-                </sc-for>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </div>
-
-      <!-- cadastros por dia -->
-      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; margin-top:16px;">
-        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Por dia</div>
-        <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Cadastros por dia</div>
-        <div style="height:280px; position:relative;"><canvas id="chart-acomp"></canvas></div>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(440px, 1fr)); gap:16px; margin-top:16px;">
-        <!-- funil -->
-        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px;">
-          <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ campaignName }}</div>
-          <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:16px;">Funil de captação</div>
-          <div style="display:flex; flex-direction:column; gap:8px;">
-            <sc-for list="{{ funnel }}" as="f" hint-placeholder-count="5">
-              <div style="display:flex; align-items:center; gap:10px;">
-                <div style="width:{{ f.width }}%; min-width:0; height:32px; background:{{ f.bg }}; border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:space-between; padding:0 12px; gap:8px;">
-                  <span style="font-size:12px; font-weight:500; color:var(--bone); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ f.label }}</span>
-                  <span style="font-size:13px; font-weight:500; color:var(--bone); white-space:nowrap;">{{ f.value }}</span>
-                </div>
-                <span data-keepcase="1" style="font-size:11.5px; font-weight:500; color:var(--text-body); white-space:nowrap;">{{ f.side }}</span>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-
-        <!-- conjuntos -->
-        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; min-width:0;">
-          <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ campaignName }}</div>
-          <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Conjuntos de anúncio</div>
-          <div style="max-height:244px; overflow-y:auto; overflow-x:hidden; padding-right:12px;">
-            <div style="display:grid; grid-template-columns:minmax(0,2fr) repeat(5, minmax(0,1fr)); gap:6px; padding-bottom:8px; border-bottom:1px solid var(--line-strong); position:sticky; top:0; background:var(--bone);">
-              <sc-for list="{{ setCols }}" as="h" hint-placeholder-count="6">
-                <div style="font-size:10.5px; font-weight:500; color:var(--text-muted); text-align:{{ h.align }};">{{ h.label }}</div>
-              </sc-for>
-            </div>
-            <sc-for list="{{ adSets }}" as="s" hint-placeholder-count="5">
-              <div style="display:grid; grid-template-columns:minmax(0,2fr) repeat(5, minmax(0,1fr)); gap:6px; padding:9px 0; border-bottom:1px solid var(--line-hairline); align-items:center;">
-                <div data-keepcase="1" style="font-size:12px; color:var(--text-strong); line-height:1.35;">{{ s.name }}</div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ s.impr }}</div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ s.clicks }}</div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ s.lpv }}</div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ s.connect }}</div>
-                <div style="font-size:12px; font-weight:500; color:var(--forest); text-align:right;">{{ s.cad }}</div>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </div>
-
-      <!-- anúncios -->
-      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; margin-top:16px;">
-        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ campaignName }}</div>
-        <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Anúncios</div>
-        <div style="overflow-x:auto;">
-          <div style="min-width:800px; padding-right:4px;">
-            <div style="display:grid; grid-template-columns:minmax(170px,2.4fr) repeat(8, minmax(0,1fr)); gap:8px; padding-bottom:8px; border-bottom:1px solid var(--line-strong);">
-              <sc-for list="{{ adCols }}" as="h" hint-placeholder-count="9">
-                <div style="font-size:10.5px; font-weight:500; color:var(--text-muted); text-align:{{ h.align }};">{{ h.label }}</div>
-              </sc-for>
-            </div>
-            <sc-for list="{{ ads }}" as="a" hint-placeholder-count="5">
-              <div style="display:grid; grid-template-columns:minmax(170px,2.4fr) repeat(8, minmax(0,1fr)); gap:8px; padding:10px 0; border-bottom:1px solid var(--line-hairline); align-items:center;">
-                <div style="display:flex; align-items:center; gap:10px; min-width:0;">
-                  <a href="{{ a.href }}" target="_blank" rel="noopener noreferrer" title="Abrir anúncio em nova aba" style="flex:none; width:40px; height:40px; border-radius:var(--radius-sm); background:{{ a.thumb }}; border:1px solid var(--line-hairline); display:block; cursor:pointer;" style-hover="box-shadow:0 0 0 2px var(--forest);"></a>
-                  <span data-keepcase="1" style="font-size:12px; color:var(--text-strong); line-height:1.35; min-width:0;">{{ a.name }}</span>
-                </div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.impr }}</div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.clicks }}</div>
-                <div data-keepcase="1" style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.cpc }}</div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.ctr }}</div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.lpv }}</div>
-                <div style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.connect }}</div>
-                <div data-keepcase="1" style="font-size:12px; color:var(--text-body); text-align:right;">{{ a.cpl }}</div>
-                <div style="font-size:12px; font-weight:500; color:var(--forest); text-align:right;">{{ a.cad }}</div>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    </sc-if>
-
     <!-- ============ PAGE: CAPTACAO ============ -->
     <sc-if value="{{ isCapt }}" hint-placeholder-val="{{ false }}">
     <div>
       <sc-if value="{{ capNote }}" hint-placeholder-val="{{ false }}">
         <div data-keepcase="1" style="font-size:12px; color:var(--text-muted); margin:-8px 0 16px; line-height:1.45;">{{ capNoteText }}</div>
       </sc-if>
-      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:12px;">Visão geral</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px;">
+        <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong);">Visão geral</div>
+        <div style="display:flex; align-items:flex-end; gap:10px; flex-wrap:wrap;">
+          <label style="display:flex; flex-direction:column; gap:4px;">
+            <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Origem</span>
+            <select style-focus="border-color:var(--forest);" value="{{ capSrc }}" onChange="{{ onCapSrc }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:190px;">
+              <sc-for list="{{ srcOpts }}" as="o" hint-placeholder-count="3">
+                <option value="{{ o.value }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+          </label>
+          <label style="display:flex; flex-direction:column; gap:4px;">
+            <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Criativo</span>
+            <select style-focus="border-color:var(--forest);" value="{{ capAd }}" onChange="{{ onCapAd }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:220px;">
+              <sc-for list="{{ adOpts }}" as="o" hint-placeholder-count="3">
+                <option value="{{ o.value }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+          </label>
+        </div>
+      </div>
       <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:18px;">
         <sc-for list="{{ capKpis }}" as="k" hint-placeholder-count="8">
           <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px; border-top:3px solid var(--forest);">
@@ -938,7 +839,7 @@ class Component extends DCLogic {
     const weekOptions=[{value:'all',label:'Todas as semanas'}].concat(M.weeks.map(w=>({value:w.iso,label:w.label})));
     const pages=[{key:'conta',label:'Dados da Conta'},{key:'conteudos',label:'Dados dos Conteúdos'},{key:'acomp',label:'Dados da campanha'},{key:'capt',label:'Dados da captação'},{key:'crono',label:'Área de gestão'}].map(p=>({
       label:p.label,
-      onClick:()=>this.setPage(p.key),
+      onClick:()=> p.key==='acomp'? window.open('https://dash-mayra.pages.dev/black-pac/?aba=geral','_blank','noopener') : this.setPage(p.key),
       style:`font-family:var(--font-text); font-size:13px; font-weight:${S.page===p.key?'600':'500'}; cursor:pointer; padding:8px 16px; border-radius:var(--radius-md) var(--radius-md) 0 0; border:1px solid ${S.page===p.key?'var(--line-hairline)':'transparent'}; border-bottom:2px solid ${S.page===p.key?accent:'transparent'}; background:${S.page===p.key?'var(--forest-06)':'transparent'}; color:${S.page===p.key?'var(--text-strong)':'var(--text-muted)'};`
     }));
 
@@ -1224,13 +1125,24 @@ class Component extends DCLogic {
   }
   capVals(S){
     const L=S.leads; const pctf=(a,b)=>b? (Math.round(a/b*1000)/10).toString().replace('.',',')+'%' : '0%';
-    const empty={ crossTitle:'', crossHead:[], crossCells:[], crossCols:'1fr', crossOpts:[], capTiers:[], capCross:[], capThemes:[], capTierNote:'', capKpis:[], capHours:[], capOrigin:[], capProfile:[], capAds:[], capDifs:[], capPeak:'', capDifCount:'', capProfileNote:'', capNote:false, capNoteText:'', capAdCols:[] };
+    const empty={ srcOpts:[], adOpts:[], capSrc:'all', capAd:'all', onCapSrc:()=>{}, onCapAd:()=>{}, crossTitle:'', crossHead:[], crossCells:[], crossCols:'1fr', crossOpts:[], capTiers:[], capCross:[], capThemes:[], capTierNote:'', capKpis:[], capHours:[], capOrigin:[], capProfile:[], capAds:[], capDifs:[], capPeak:'', capDifCount:'', capProfileNote:'', capNote:false, capNoteText:'', capAdCols:[] };
     if(!L) return empty;
     const pd=(s)=>{ const m=(s||'').match(/(\d{1,2})\/(\d{1,2})\/(\d{4})\s*(\d{1,2})?:?(\d{2})?/); return m? new Date(+m[3],+m[2]-1,+m[1],+(m[4]||0),+(m[5]||0)) : null; };
     const iso=(d)=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
     const nz=(v)=>typeof v==='string'? v.replace(/[\s\u00a0]+/g,' ').trim() : v; let rows=L.rows.map(r0=>{ const r=Object.fromEntries(Object.entries(r0).map(([k,v])=>[k,nz(v)])); return {...r, d:pd(r.dt)}; }).filter(r=>r.d);
     if(S.dateFrom) rows=rows.filter(r=>iso(r.d)>=S.dateFrom);
     if(S.dateTo) rows=rows.filter(r=>iso(r.d)<=S.dateTo);
+    const isPaid=(r)=>/^\d{10,}$/.test(r.term||'') || /SDM_/i.test(r.camp||'');
+    const srcOf=(r)=>{ const s=((r.src||'')+' '+(r.med||'')).toLowerCase(); if(isPaid(r)) return 'trafego'; if(/whats|wpp|zap/.test(s)) return 'whatsapp'; if(/e-?mail|leadlovers|newsletter/.test(s)) return 'email'; return 'organico'; };
+    const SRC=[['all','Todas'],['trafego','Tráfego'],['whatsapp','WhatsApp'],['email','E-mail'],['organico','Orgânico (Instagram)']];
+    const cs=SRC.some(x=>x[0]===S.capSrc)? S.capSrc : 'all';
+    const srcOpts=SRC.map(([k,l])=>({value:k, label:l+' ('+(k==='all'? rows.length : rows.filter(r=>srcOf(r)===k).length)+')'}));
+    if(cs!=='all') rows=rows.filter(r=>srcOf(r)===cs);
+    const adList=[...new Set(rows.map(r=>r.cont).filter(Boolean))].sort();
+    const ca=adList.includes(S.capAd)? S.capAd : 'all';
+    const adOpts=[{value:'all',label:'Todos os criativos'}].concat(adList.map(a=>({value:a, label:a+' ('+rows.filter(r=>r.cont===a).length+')'})));
+    if(ca!=='all') rows=rows.filter(r=>r.cont===ca);
+    const srcSel={ srcOpts, capSrc:cs, onCapSrc:(e)=>this.setState({capSrc:e.target.value, capAd:'all'}), adOpts, capAd:ca, onCapAd:(e)=>this.setState({capAd:e.target.value}) };
     if(S.month && /^\d{4}-\d{2}$/.test(S.month)) rows=rows.filter(r=>iso(r.d).slice(0,7)===S.month);
     const answered=(r)=>!!(r.area && r.trab);
     const byEmail={}; rows.forEach(r=>{ const k=(r.email||'').toLowerCase()||('_'+r.dt); const cur=byEmail[k]; if(!cur || (!answered(cur) && answered(r))) byEmail[k]=r; });
@@ -1301,7 +1213,7 @@ class Component extends DCLogic {
     const themeOf=(t)=>{ for(const [n,re] of TH) if(re.test(t)) return n; return 'Outros'; };
     const dl=A.filter(r=>r.dif);
     const capThemes=[ group('Principais dificuldades por tema', dl, r=>themeOf(r.dif)), group('Dificuldades dos leads A', dl.filter(r=>tier(r)==='A'), r=>themeOf(r.dif)) ].map((g,i)=>({...g, note: i===0? ('Respostas abertas agrupadas por palavra-chave · '+nf(dl.length)+' respostas.') : 'O que trava quem tem mais chance de comprar.' }));
-    return { crossTitle:cx.title, crossHead:cx.head, crossCells:cx.cells, crossCols:cx.cols, crossOpts, capTiers, capTierNote:'Classificação automática a partir das respostas da pesquisa.', capCross, capThemes, capKpis, capHours, capPeak, capOrigin, capAds, capAdCols, capProfile, capProfileNote: 'Considera os '+nf(A.length)+' leads únicos que responderam a pesquisa.', capDifs, capDifCount: nf(difs.length)+' respostas',
+    return { ...srcSel, crossTitle:cx.title, crossHead:cx.head, crossCells:cx.cells, crossCols:cx.cols, crossOpts, capTiers, capTierNote:'Classificação automática a partir das respostas da pesquisa.', capCross, capThemes, capKpis, capHours, capPeak, capOrigin, capAds, capAdCols, capProfile, capProfileNote: 'Considera os '+nf(A.length)+' leads únicos que responderam a pesquisa.', capDifs, capDifCount: nf(difs.length)+' respostas',
       capNote: !L.live, capNoteText: 'Mostrando uma amostra da planilha Leads - Black PAC 2026. Para ler todos os cadastros ao vivo, compartilhe a planilha como "qualquer pessoa com o link pode ver" e clique em Atualizar.' };
   }
 
