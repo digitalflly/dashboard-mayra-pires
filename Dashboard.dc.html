@@ -67,6 +67,7 @@
         </sc-for>
       </nav>
       <div style="display:flex; align-items:flex-end; gap:8px; margin-left:auto; flex-wrap:nowrap;">
+        <sc-if value="{{ showMonth }}" hint-placeholder-val="{{ true }}">
         <label style="display:flex; flex-direction:column; gap:4px;">
           <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Mês</span>
           <select style-focus="border-color:var(--forest);" value="{{ month }}" onChange="{{ onMonth }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:122px;">
@@ -75,6 +76,7 @@
             </sc-for>
           </select>
         </label>
+        </sc-if>
         <label style="display:flex; flex-direction:column; gap:4px;">
           <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Data inicial</span>
           <input style-focus="border-color:var(--forest);" type="date" value="{{ dateFrom }}" min="{{ dateMin }}" max="{{ dateMax }}" onChange="{{ onDateFrom }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; padding:0 6px; width:118px;"></input>
@@ -280,6 +282,22 @@
         </div>
       </div>
 
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">Leads por dia</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Quantidade de leads por dia em cada grupo da dimensão escolhida.</div>
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px; min-width:0;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <div id="capt-legend" style="display:flex; flex-wrap:wrap; gap:6px 16px;"></div>
+          </div>
+          <select style-focus="border-color:var(--forest);" value="{{ capLine }}" onChange="{{ onCapLine }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:180px;">
+            <sc-for list="{{ lineOpts }}" as="o" hint-placeholder-count="6">
+              <option value="{{ o.value }}">{{ o.label }}</option>
+            </sc-for>
+          </select>
+        </div>
+        <div style="position:relative; height:300px;"><canvas id="chart-capt"></canvas></div>
+      </div>
+
       <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">Perfil dos leads</div>
       <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">{{ capProfileNote }}</div>
       <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; margin-bottom:18px;">
@@ -303,12 +321,10 @@
         </sc-for>
       </div>
 
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">{{ crossTitle }}</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Quanto mais escuro, mais leads na combinação.</div>
       <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px; min-width:0;">
-        <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
-          <div style="display:flex; flex-direction:column; gap:4px;">
-            <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ crossTitle }}</div>
-            <div style="font-size:12px; color:var(--text-muted);">Quanto mais escuro, mais leads na combinação.</div>
-          </div>
+        <div style="display:flex; justify-content:flex-end; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
           <div style="display:flex; gap:4px; flex-wrap:wrap;">
             <sc-for list="{{ crossOpts }}" as="o" hint-placeholder-count="4">
               <button onClick="{{ o.onClick }}" style="font-family:var(--font-text); font-size:12px; height:30px; padding:0 12px; border-radius:var(--radius-xs); cursor:pointer; border:1px solid var(--line-strong); background:{{ o.bg }}; color:{{ o.fg }};">{{ o.label }}</button>
@@ -321,7 +337,29 @@
               <div style="font-size:10px; font-weight:500; color:var(--text-muted); text-align:{{ c.align }}; line-height:1.25; padding-bottom:4px; align-self:end;">{{ c.label }}</div>
             </sc-for>
             <sc-for list="{{ crossCells }}" as="c" hint-placeholder-count="24">
-              <div data-keepcase="1" style="font-size:12px; height:34px; display:flex; align-items:center; justify-content:{{ c.justify }}; padding:0 8px; border-radius:var(--radius-xs); background:{{ c.bg }}; color:{{ c.fg }}; font-weight:{{ c.weight }};">{{ c.v }}</div>
+              <div data-keepcase="1" title="{{ c.tip }}" style="font-size:12px; height:34px; display:flex; align-items:center; justify-content:{{ c.justify }}; padding:0 8px; border-radius:var(--radius-xs); background:{{ c.bg }}; color:{{ c.fg }}; font-weight:{{ c.weight }}; cursor:default;">{{ c.v }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">{{ srcCrossTitle }}</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Quanto mais escuro, mais leads na combinação.</div>
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px; min-width:0;">
+        <div style="display:flex; justify-content:flex-end; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+          <div style="display:flex; gap:4px; flex-wrap:wrap;">
+            <sc-for list="{{ utmOpts }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.onClick }}" style="font-family:var(--font-text); font-size:12px; height:30px; padding:0 12px; border-radius:var(--radius-xs); cursor:pointer; border:1px solid var(--line-strong); background:{{ o.bg }}; color:{{ o.fg }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <div style="display:grid; grid-template-columns:{{ srcCrossCols }}; gap:4px; min-width:520px;">
+            <sc-for list="{{ srcCrossHead }}" as="c" hint-placeholder-count="6">
+              <div title="{{ c.full }}" style="font-size:10px; font-weight:500; color:var(--text-muted); text-align:{{ c.align }}; line-height:1.25; padding-bottom:4px; align-self:end; min-width:0; overflow-wrap:anywhere;">{{ c.label }}</div>
+            </sc-for>
+            <sc-for list="{{ srcCrossCells }}" as="c" hint-placeholder-count="24">
+              <div data-keepcase="1" title="{{ c.tip }}" style="font-size:12px; height:34px; display:flex; align-items:center; justify-content:{{ c.justify }}; padding:0 8px; border-radius:var(--radius-xs); background:{{ c.bg }}; color:{{ c.fg }}; font-weight:{{ c.weight }}; cursor:default;">{{ c.v }}</div>
             </sc-for>
           </div>
         </div>
@@ -668,6 +706,32 @@ class Component extends DCLogic {
 
   /* ============ WINDOW + AGG ============ */
   defaultRange(){ const t=new Date(); const pm=new Date(t.getFullYear(), t.getMonth()-1, 1); const f=(d)=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); return { month:'all', dateFrom:f(pm), dateTo:f(t) }; }
+  capDateOverride(S){
+    if(S.page!=='capt') return {};
+    const cd=(this.capVals(S).capDates)||{};
+    return { dateFrom:cd.capFrom||'', dateTo:cd.capTo||'', dateMin:cd.capMin||'', dateMax:cd.capMax||'',
+      onDateFrom:(e)=>this.setState({capFrom:e.target.value, capMonth:'all', capWeek:'all'}), onDateTo:(e)=>this.setState({capTo:e.target.value, capMonth:'all', capWeek:'all'}),
+      onClearDates:()=>this.setState({capFrom:'', capTo:'', capMonth:'all', capWeek:'all'}),
+      ...this.capPeriodOpts(S, cd) };
+  }
+
+  capPeriodOpts(S, cd){
+    if(!cd.capMin) return { monthOptions:[{value:'all',label:'Todos os meses'}], weekOptions:[{value:'all',label:'Todas as semanas'}] };
+    const MN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    const p=(s)=>{ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); };
+    const f=(d)=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    const a=p(cd.capMin), b=p(cd.capMax);
+    const months=[]; for(let d=new Date(a.getFullYear(),a.getMonth(),1); d<=b; d=new Date(d.getFullYear(),d.getMonth()+1,1)) months.push({value:f(d).slice(0,7), label:MN[d.getMonth()]+' '+d.getFullYear()});
+    const isoWk=(d)=>{ const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())); const n=t.getUTCDay()||7; t.setUTCDate(t.getUTCDate()+4-n); const y0=new Date(Date.UTC(t.getUTCFullYear(),0,1)); return Math.ceil(((t-y0)/86400000+1)/7); };
+    const weeks=[]; let s=new Date(a); s.setDate(s.getDate()-((s.getDay()+6)%7));
+    for(; s<=b; s=new Date(s.getFullYear(),s.getMonth(),s.getDate()+7)){ const e=new Date(s.getFullYear(),s.getMonth(),s.getDate()+6); const from=f(s)<cd.capMin?cd.capMin:f(s), to=f(e)>cd.capMax?cd.capMax:f(e); weeks.push({value:from+'|'+to, label:String(isoWk(s))}); }
+    return { month:S.capMonth||'all', week:S.capWeek||'all',
+      monthOptions:[{value:'all',label:'Todos os meses'}].concat(months),
+      weekOptions:[{value:'all',label:'Todas as semanas'}].concat(weeks),
+      onMonth:(e)=>{ const v=e.target.value; if(v==='all') this.setState({capMonth:'all', capWeek:'all', capFrom:'', capTo:''}); else { const bb=this.monthBounds(v); this.setState({capMonth:v, capWeek:'all', capFrom:bb.from<cd.capMin?cd.capMin:bb.from, capTo:bb.to>cd.capMax?cd.capMax:bb.to}); } },
+      onWeek:(e)=>{ const v=e.target.value; if(v==='all') this.setState({capWeek:'all', capFrom:'', capTo:''}); else { const [x,y]=v.split('|'); this.setState({capWeek:v, capMonth:'all', capFrom:x, capTo:y}); } } };
+  }
+
   monthBounds(ym){ const y=+ym.slice(0,4), m=+ym.slice(5,7); const last=new Date(Date.UTC(y,m,0)).getUTCDate(); return { from: ym+'-01', to: ym+'-'+String(last).padStart(2,'0') }; }
   windowOf(){
     const M=this.model;
@@ -819,8 +883,9 @@ class Component extends DCLogic {
     if(!window.Chart){ if(!this._cw){ this._cw=setInterval(()=>{ if(window.Chart){ clearInterval(this._cw); this._cw=null; this.drawCharts(); } },120);} return; }
     if(window.Chart.defaults){ window.Chart.defaults.font.family='Neue Montreal'; }
     Object.values(this.charts).forEach(c=>{ try{c.destroy();}catch(e){} }); this.charts={};
-    const cfgs=Object.assign({}, this.state.page==='conta'?this._chartCfgs:{}, this.state.page==='acomp'?{'chart-acomp':this._acompChart}:{}); if(!cfgs) return;
+    const cfgs=Object.assign({}, this.state.page==='conta'?this._chartCfgs:{}, this.state.page==='acomp'?{'chart-acomp':this._acompChart}:{}, (this.state.page==='capt'&&this._capChart)?{'chart-capt':this._capChart}:{}); if(!cfgs) return;
     Object.keys(cfgs).forEach(id=>{ const el=document.getElementById(id); if(!el) return; this.charts[id]=new window.Chart(el.getContext('2d'), cfgs[id]); });
+    const lg=document.getElementById('capt-legend'); if(lg && this.charts['chart-capt']){ const ch=this.charts['chart-capt']; lg.innerHTML=''; ch.data.datasets.forEach((d,i)=>{ const b=document.createElement('button'); b.type='button'; const on=ch.isDatasetVisible(i); b.style.cssText='display:flex; align-items:center; gap:6px; background:none; border:0; padding:0; cursor:pointer; font-family:var(--font-text); font-size:11.5px; color:var(--text-strong); opacity:'+(on?1:0.4); const sw=document.createElement('span'); sw.style.cssText='width:18px; height:0; border-top:2px '+((d.borderDash&&d.borderDash.length)?'dashed':'solid')+' '+d.borderColor; b.appendChild(sw); b.appendChild(document.createTextNode(d.label)); b.onclick=()=>{ ch.setDatasetVisibility(i,!ch.isDatasetVisible(i)); ch.update(); b.style.opacity=ch.isDatasetVisible(i)?1:0.4; }; lg.appendChild(b); }); }
   }
 
   weekdayDatasets(win, valueFn){
@@ -856,7 +921,7 @@ class Component extends DCLogic {
       onDateTo:(e)=>this.setState({dateTo:e.target.value, month:'all', week:'all'}),
       onClearDates:()=>this.setState({dateFrom:'', dateTo:'', month:'all', week:'all'}),
       accent, periodLabel: win.label,
-      isConta:S.page==='conta', isConteudos:S.page==='conteudos', isAcomp:S.page==='acomp', isCrono:S.page==='crono', isCapt:S.page==='capt', ...this.capVals(S),
+      isConta:S.page==='conta', isConteudos:S.page==='conteudos', isAcomp:S.page==='acomp', isCrono:S.page==='crono', isCapt:S.page==='capt', showMonth:S.page!=='capt', ...this.capVals(S), ...this.capDateOverride(S),
       pageTitle: S.page==='conta'?'Dados da Conta': S.page==='conteudos'?'Dados dos Conteúdos': S.page==='crono'?'Área de gestão': S.page==='capt'?'Dados da captação':'Dados da campanha',
     };
 
@@ -1125,13 +1190,15 @@ class Component extends DCLogic {
   }
   capVals(S){
     const L=S.leads; const pctf=(a,b)=>b? (Math.round(a/b*1000)/10).toString().replace('.',',')+'%' : '0%';
-    const empty={ srcOpts:[], adOpts:[], capSrc:'all', capAd:'all', onCapSrc:()=>{}, onCapAd:()=>{}, crossTitle:'', crossHead:[], crossCells:[], crossCols:'1fr', crossOpts:[], capTiers:[], capCross:[], capThemes:[], capTierNote:'', capKpis:[], capHours:[], capOrigin:[], capProfile:[], capAds:[], capDifs:[], capPeak:'', capDifCount:'', capProfileNote:'', capNote:false, capNoteText:'', capAdCols:[] };
+    const empty={ lineOpts:[], capLine:'origem', onCapLine:()=>{}, srcCrossTitle:'', utmOpts:[], srcCrossHead:[], srcCrossCells:[], srcCrossCols:'1fr', srcOpts:[], adOpts:[], capSrc:'all', capAd:'all', onCapSrc:()=>{}, onCapAd:()=>{}, crossTitle:'', crossHead:[], crossCells:[], crossCols:'1fr', crossOpts:[], capTiers:[], capCross:[], capThemes:[], capTierNote:'', capKpis:[], capHours:[], capOrigin:[], capProfile:[], capAds:[], capDifs:[], capPeak:'', capDifCount:'', capProfileNote:'', capNote:false, capNoteText:'', capAdCols:[] };
     if(!L) return empty;
     const pd=(s)=>{ const m=(s||'').match(/(\d{1,2})\/(\d{1,2})\/(\d{4})\s*(\d{1,2})?:?(\d{2})?/); return m? new Date(+m[3],+m[2]-1,+m[1],+(m[4]||0),+(m[5]||0)) : null; };
     const iso=(d)=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
     const nz=(v)=>typeof v==='string'? v.replace(/[\s\u00a0]+/g,' ').trim() : v; let rows=L.rows.map(r0=>{ const r=Object.fromEntries(Object.entries(r0).map(([k,v])=>[k,nz(v)])); return {...r, d:pd(r.dt)}; }).filter(r=>r.d);
-    if(S.dateFrom) rows=rows.filter(r=>iso(r.d)>=S.dateFrom);
-    if(S.dateTo) rows=rows.filter(r=>iso(r.d)<=S.dateTo);
+    const ds=rows.map(r=>iso(r.d)).sort(); const capMin=ds[0]||'', capMax=ds[ds.length-1]||''; const cf=S.capFrom||capMin, ct=S.capTo||capMax;
+    if(cf) rows=rows.filter(r=>iso(r.d)>=cf);
+    if(ct) rows=rows.filter(r=>iso(r.d)<=ct);
+    const capDates={ capMin, capMax, capFrom:cf, capTo:ct };
     const isPaid=(r)=>/^\d{10,}$/.test(r.term||'') || /SDM_/i.test(r.camp||'');
     const srcOf=(r)=>{ const s=((r.src||'')+' '+(r.med||'')).toLowerCase(); if(isPaid(r)) return 'trafego'; if(/whats|wpp|zap/.test(s)) return 'whatsapp'; if(/e-?mail|leadlovers|newsletter/.test(s)) return 'email'; return 'organico'; };
     const SRC=[['all','Todas'],['trafego','Tráfego'],['whatsapp','WhatsApp'],['email','E-mail'],['organico','Orgânico (Instagram)']];
@@ -1200,11 +1267,23 @@ class Component extends DCLogic {
       {k:'C', label:'Lead C · nutrir', rule:'Estudante ou renda até R$ 3 mil, sem alto interesse.', bg:'var(--bone)', fg:'var(--text-strong)'} ].map(t=>({...t, n:nf(tc[t.k]), pct:pctf(tc[t.k],A.length)}));
     const cross=(title,note,rowK,rowOrder,rowLbl,colK,colOrder,colLbl)=>{ const extra=(ord,k)=>[...new Set(A.map(k).filter(v=>v && !ord.includes(v)))]; const rs=rowOrder.concat(extra(rowOrder,rowK)).filter(x=>A.some(r=>rowK(r)===x)); const cs=colOrder.concat(extra(colOrder,colK)).filter(x=>A.some(r=>colK(r)===x)); const mx=Math.max(1,...rs.flatMap(a=>cs.map(b=>A.filter(r=>rowK(r)===a&&colK(r)===b).length)));
       const head=[{label:'',align:'left'}].concat(cs.map(c=>({label:colLbl(c),align:'center'}))).concat([{label:'Total',align:'right'}]);
-      const cells=[]; rs.forEach(a=>{ const row=A.filter(r=>rowK(r)===a); cells.push({v:rowLbl(a), bg:'transparent', fg:'var(--text-strong)', weight:500, justify:'flex-start'}); cs.forEach(b=>{ const n=row.filter(r=>colK(r)===b).length; const t=n/mx; cells.push({v:n||'', bg: n? 'color-mix(in oklab, var(--forest) '+Math.round(8+t*82)+'%, var(--bone))' : 'var(--forest-06)', fg: t>0.45? 'var(--bone)':'var(--text-strong)', weight:500, justify:'center'}); }); cells.push({v:row.length, bg:'transparent', fg:'var(--text-muted)', weight:400, justify:'flex-end'}); });
+      const cells=[]; rs.forEach(a=>{ const row=A.filter(r=>rowK(r)===a); cells.push({tip:'', v:rowLbl(a), bg:'transparent', fg:'var(--text-strong)', weight:500, justify:'flex-start'}); cs.forEach(b=>{ const n=row.filter(r=>colK(r)===b).length; const t=n/mx; const colT=A.filter(r=>colK(r)===b).length; cells.push({tip: n+' de '+colT+' leads de '+colLbl(b)+' são '+rowLbl(a)+' · '+(colT? (n/colT*100).toFixed(1).replace('.',',') : '0')+'%', v:n||'', bg: n? 'color-mix(in oklab, var(--forest) '+Math.round(8+t*82)+'%, var(--bone))' : 'var(--forest-06)', fg: t>0.45? 'var(--bone)':'var(--text-strong)', weight:500, justify:'center'}); }); cells.push({tip: rowLbl(a)+': '+row.length+' leads · '+(A.length? (row.length/A.length*100).toFixed(1).replace('.',',') : '0')+'% do total', v:row.length, bg:'transparent', fg:'var(--text-muted)', weight:400, justify:'flex-end'}); });
       return { title, note, head, cells, cols:'minmax(140px,1.4fr) repeat('+cs.length+', minmax(0,1fr)) 52px' }; };
     const trabs=[...new Set(A.map(r=>r.trab))].sort((a,b)=>A.filter(r=>r.trab===b).length-A.filter(r=>r.trab===a).length);
     const CV={renda:['Renda',r=>r.renda,RO,rShort], trab:['Como trabalha',r=>r.trab,trabs,t=>(t||'').replace(/^Sou /,'').replace(/^./,c=>c.toUpperCase())], area:['Área de atuação',r=>r.area,[...new Set(A.map(r=>r.area))].sort(),a=>a]};
     const cvK=CV[S.capVar]? S.capVar : 'renda'; const cvx=CV[cvK]; const cx=cross(cvx[0]+' × interesse','',cvx[1],cvx[2],cvx[3],r=>r.int,IO,c=>iShort[c]||c);
+    const SL={trafego:'Tráfego',whatsapp:'WhatsApp',email:'E-mail',organico:'Orgânico (Instagram)'}; const normSrc=(s)=>/^instagram_/i.test(s||'')? 'instagram' : /^facebook_/i.test(s||'')? 'facebook' : s;
+    const UT={origem:['Origem',r=>srcOf(r)],src:['utm_source',r=>normSrc(r.src)],med:['utm_medium',r=>/^envolvimento/i.test(r.med||'')? 'envolvimento' : r.med],camp:['utm_campaign',r=>r.camp],cont:['utm_content',r=>r.cont],term:['utm_term',r=>r.term]}; const uk=UT[S.capUtm]? S.capUtm : 'origem'; const ug=UT[uk][1]; let uCol, uOrd, uLbl;
+    if(uk==='origem'){ uCol=ug; uOrd=Object.keys(SL); uLbl=c=>SL[c]||c; } else { const cnt={}; A.forEach(r=>{ const v=ug(r)||'(sem utm)'; cnt[v]=(cnt[v]||0)+1; }); const top=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]); const keep=top.slice(0,8); uOrd=top.length>8? keep.concat(['Outros']) : keep; uCol=r=>{ const v=ug(r)||'(sem utm)'; return keep.includes(v)? v : 'Outros'; }; uLbl=c=> /^\d{10,}$/.test(c)? '…'+c.slice(-6) : (c.length>16? c.slice(0,15)+'…' : c); }
+    const sx=cross('Como trabalha × '+UT[uk][0],'',r=>r.trab,trabs,CV.trab[3],uCol,uOrd,uLbl); sx.head=sx.head.map((x,i)=>({...x, full: i>0 && i<=uOrd.length? uOrd[i-1] : x.label})); const utmOpts=Object.entries(UT).map(([k,v])=>({label:v[0], bg:k===uk?'var(--forest)':'transparent', fg:k===uk?'var(--bone)':'var(--text-strong)', onClick:()=>this.setState({capUtm:k})})); const LD={area:['Área de atuação',r=>r.area],trab:['Como trabalha',r=>CV.trab[3](r.trab)],renda:['Renda',r=>r.renda],int:['Interesse',r=>r.int],origem:['Origem',r=>SL[srcOf(r)]],src:['utm_source',r=>normSrc(r.src)]};
+    const lk=LD[S.capLine]? S.capLine : 'origem'; const lg=LD[lk][1];
+    const lDays=[]; if(cf&&ct){ const p=(s)=>{ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); }; for(let d=p(cf); iso(d)<=ct; d=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1)) lDays.push(iso(d)); }
+    const LA=A.filter(r=>{ const v=lg(r); return v && !/^\s*$/.test(v); }); const lc={}; LA.forEach(r=>{ const v=lg(r); lc[v]=(lc[v]||0)+1; }); const ltop=Object.keys(lc).sort((a,b)=>lc[b]-lc[a]); const lkeep=ltop.slice(0,6); const lser=ltop.length>6? lkeep.concat(['Outros']) : lkeep;
+    const LC=['#172219','rgba(23,34,25,0.62)','rgba(23,34,25,0.34)','#1D1D1E','rgba(29,29,30,0.55)','rgba(23,34,25,0.8)','rgba(29,29,30,0.28)']; const LDASH=[[],[],[],[6,4],[6,4],[2,3],[2,3]];
+    const lds=lser.map((s,i)=>({ label:s.length>34? s.slice(0,33)+'…' : s, data:lDays.map(d=>LA.filter(r=>iso(r.d)===d && (s==='Outros'? !lkeep.includes(lg(r)) : lg(r)===s)).length), borderColor:LC[i%LC.length], backgroundColor:LC[i%LC.length], borderDash:LDASH[i%LDASH.length], borderWidth:2, tension:0.3, pointRadius:3, pointHoverRadius:5 }));
+    this._capChart={ type:'line', data:{ labels:lDays.map(d=>d.slice(8,10)+'/'+d.slice(5,7)), datasets:lds }, options:{ responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false}, plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ footer:(it)=>'Total do dia: '+it.reduce((s,x)=>s+x.parsed.y,0) } } }, scales:{ x:{ grid:{display:false}, ticks:{color:'rgba(29,29,30,0.6)', font:{size:11}} }, y:{ beginAtZero:true, ticks:{precision:0, color:'rgba(29,29,30,0.6)', font:{size:11}}, grid:{color:'rgba(23,34,25,0.08)'} } } } };
+    const capLine={ lineOpts:Object.entries(LD).map(([k,v])=>({value:k,label:v[0]})), capLine:lk, onCapLine:(e)=>this.setState({capLine:e.target.value}) };
+    const srcCross={...capLine, srcCrossTitle:sx.title, utmOpts, srcCrossHead:sx.head, srcCrossCells:sx.cells, srcCrossCols:sx.cols};
     const crossOpts=Object.entries(CV).map(([k,v])=>({label:v[0], bg:k===cvK?'var(--forest)':'transparent', fg:k===cvK?'var(--bone)':'var(--text-strong)', onClick:()=>this.setState({capVar:k})}));
     const capCross=[
       cross('Renda × interesse','Quanto mais escuro, mais leads na combinação.', r=>r.renda, RO, rShort, r=>r.int, IO, c=>iShort[c]||c),
@@ -1213,7 +1292,7 @@ class Component extends DCLogic {
     const themeOf=(t)=>{ for(const [n,re] of TH) if(re.test(t)) return n; return 'Outros'; };
     const dl=A.filter(r=>r.dif);
     const capThemes=[ group('Principais dificuldades por tema', dl, r=>themeOf(r.dif)), group('Dificuldades dos leads A', dl.filter(r=>tier(r)==='A'), r=>themeOf(r.dif)) ].map((g,i)=>({...g, note: i===0? ('Respostas abertas agrupadas por palavra-chave · '+nf(dl.length)+' respostas.') : 'O que trava quem tem mais chance de comprar.' }));
-    return { ...srcSel, crossTitle:cx.title, crossHead:cx.head, crossCells:cx.cells, crossCols:cx.cols, crossOpts, capTiers, capTierNote:'Classificação automática a partir das respostas da pesquisa.', capCross, capThemes, capKpis, capHours, capPeak, capOrigin, capAds, capAdCols, capProfile, capProfileNote: 'Considera os '+nf(A.length)+' leads únicos que responderam a pesquisa.', capDifs, capDifCount: nf(difs.length)+' respostas',
+    return { capDates, ...srcSel, ...srcCross, crossTitle:cx.title, crossHead:cx.head, crossCells:cx.cells, crossCols:cx.cols, crossOpts, capTiers, capTierNote:'Classificação automática a partir das respostas da pesquisa.', capCross, capThemes, capKpis, capHours, capPeak, capOrigin, capAds, capAdCols, capProfile, capProfileNote: 'Considera os '+nf(A.length)+' leads únicos que responderam a pesquisa.', capDifs, capDifCount: nf(difs.length)+' respostas',
       capNote: !L.live, capNoteText: 'Mostrando uma amostra da planilha Leads - Black PAC 2026. Para ler todos os cadastros ao vivo, compartilhe a planilha como "qualquer pessoa com o link pode ver" e clique em Atualizar.' };
   }
 
