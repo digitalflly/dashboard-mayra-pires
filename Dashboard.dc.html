@@ -365,6 +365,80 @@
         </div>
       </div>
 
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin:34px 0 4px;">Perfil das compradoras</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">{{ buyNote }}</div>
+      <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:16px;">
+        <sc-for list="{{ buyKpis }}" as="k" hint-placeholder-count="4">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px; border-top:3px solid var(--forest);">
+            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-strong); font-weight:700; line-height:1.25;">{{ k.label }}</div>
+            <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+              <div data-keepcase="1" style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em; white-space:nowrap;">{{ k.value }}</div>
+              <span style="font-size:11.5px; color:var(--text-muted);">{{ k.sub }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:var(--ink); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:16px;">
+        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:rgba(255,253,247,0.78); margin-bottom:14px;">Perfil que mais converte</div>
+        <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px;">
+          <sc-for list="{{ buyBest }}" as="b" hint-placeholder-count="4">
+            <div style="display:flex; flex-direction:column; gap:6px; border-top:1px solid rgba(255,253,247,0.25); padding-top:12px; min-width:0;">
+              <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,253,247,0.78);">{{ b.dim }}</span>
+              <span data-keepcase="1" style="font-size:15px; font-weight:500; color:var(--bone); line-height:1.3;">{{ b.label }}</span>
+              <span style="font-size:12px; color:rgba(255,253,247,0.78);">{{ b.sub }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; margin-bottom:18px;">
+        <sc-for list="{{ buyProfile }}" as="g" hint-placeholder-count="4">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; min-width:0;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:14px;">
+              <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ g.title }}</div>
+              <div style="font-size:10.5px; color:var(--text-muted);">compradoras · conversão</div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:11px;">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
+                <div title="{{ r.tip }}" style="display:flex; flex-direction:column; gap:5px;">
+                  <div style="display:flex; justify-content:space-between; gap:10px; font-size:12px;">
+                    <span data-keepcase="1" style="color:var(--text-strong); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ r.label }}</span>
+                    <span style="color:var(--text-muted); white-space:nowrap;"><span style="color:var(--text-strong); font-weight:500;">{{ r.n }}</span> · {{ r.pct }} · <span style="color:var(--text-strong); font-weight:{{ r.cw }};">{{ r.conv }}</span></span>
+                  </div>
+                  <div style="height:6px; background:var(--forest-06); border-radius:999px; overflow:hidden;">
+                    <div style="height:100%; width:{{ r.w }}%; background:var(--forest); border-radius:999px;"></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">Campanhas das compradoras</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">{{ buyUtmNote }}</div>
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px; min-width:0;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+          <div data-keepcase="1" style="font-size:12px; color:var(--text-strong);"><span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; font-weight:700; margin-right:6px;">Melhor conversão</span>{{ buyUtmBest }}</div>
+          <div style="display:flex; gap:4px; flex-wrap:wrap;">
+            <sc-for list="{{ buyUtmOpts }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.onClick }}" style="font-family:var(--font-text); font-size:12px; height:30px; padding:0 12px; border-radius:var(--radius-xs); cursor:pointer; border:1px solid var(--line-strong); background:{{ o.bg }}; color:{{ o.fg }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:minmax(0,3fr) minmax(0,1.6fr) 90px 70px 80px; gap:10px; padding-bottom:8px; border-bottom:1px solid var(--line-strong); font-size:10.5px; font-weight:500; color:var(--text-muted);">
+          <span>Valor</span><span></span><span style="text-align:right;">Compradoras</span><span style="text-align:right;">Leads</span><span style="text-align:right;">Conversão</span>
+        </div>
+        <sc-for list="{{ buyUtmRows }}" as="r" hint-placeholder-count="5">
+          <div style="display:grid; grid-template-columns:minmax(0,3fr) minmax(0,1.6fr) 90px 70px 80px; gap:10px; padding:9px 0; border-bottom:1px solid var(--line-hairline); align-items:center; font-size:12px;">
+            <span data-keepcase="1" style="color:var(--text-strong); overflow-wrap:anywhere; line-height:1.35;">{{ r.label }}</span>
+            <div style="height:6px; background:var(--forest-06); border-radius:999px; overflow:hidden;"><div style="height:100%; width:{{ r.w }}%; background:var(--forest); border-radius:999px;"></div></div>
+            <span style="text-align:right; color:var(--text-strong);">{{ r.n }} <span style="color:var(--text-muted);">· {{ r.pct }}</span></span>
+            <span style="text-align:right; color:var(--text-body);">{{ r.nl }}</span>
+            <span style="text-align:right; color:var(--text-strong); font-weight:{{ r.cw }};">{{ r.conv }}</span>
+          </div>
+        </sc-for>
+      </div>
+
     </div>
     </sc-if>
 
@@ -393,6 +467,448 @@
           </div>
         </sc-for>
       </div>
+harset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/styles.css">
+  <script src="_ds/l-marques-design-system-e6e391ed-f071-43a0-beee-b7d06c91b728/_ds_bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    *{ box-sizing:border-box; }
+    body{ margin:0; }
+    ::-webkit-scrollbar{ width:10px; height:10px; }
+    ::-webkit-scrollbar-thumb{ background:var(--forest-25); border-radius:999px; border:3px solid var(--forest-06); }
+    .dash, .dash *:not([data-keepcase]){ text-transform: lowercase !important; }
+    .dash [data-keepcase]{ text-transform: none !important; }
+  </style>
+</helmet>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+    <rect width="100" height="100" fill="#172219"></rect>
+    <rect x="30" y="54" width="9" height="16" rx="1.5" fill="#fffdf7"></rect>
+    <rect x="45.5" y="44" width="9" height="26" rx="1.5" fill="#fffdf7" fill-opacity="0.55"></rect>
+    <rect x="61" y="34" width="9" height="36" rx="1.5" fill="#fffdf7"></rect>
+    <path d="M30 40 L45 36 L61 28 L70 24" fill="none" stroke="#fffdf7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+</template>
+
+<div class="dash" style="min-height:100vh; background:#f1f1ec; font-family:var(--font-text); color:var(--text-body); padding-bottom:64px;">
+
+  <!-- ===== HEADER ===== -->
+  <header style="background:var(--bone); border-bottom:1px solid var(--line-hairline); position:sticky; top:0; z-index:20;">
+    <div style="max-width:1280px; margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div style="width:48px; height:48px; flex:none; border-radius:999px; display:flex; align-items:center; justify-content:center; overflow:hidden; background:var(--forest) center/128% no-repeat url('assets/mayra-pires.png'); box-shadow:0 0 0 2px var(--bone), 0 0 0 3px var(--line-hairline); overflow:hidden;" role="img" aria-label="Foto de Mayra Pires"></div>
+        <div>
+          <div style="font-family:var(--font-display); font-weight:200; font-size:26px; line-height:1; color:var(--text-strong); letter-spacing:var(--track-display);">{{ brand.name }}</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:3px;">@{{ brand.handle }} · marketing</div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="text-align:right; line-height:1.3;">
+          <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Atualizado</div>
+          <div style="font-size:13px; font-weight:500; color:var(--text-strong); white-space:nowrap;">{{ lastSync }}</div>
+          <div style="display:flex; align-items:center; gap:5px; justify-content:flex-end; margin-top:3px;">
+            <span style="width:7px; height:7px; border-radius:999px; background:{{ sourceColor }};"></span>
+            <span style="font-size:10.5px; color:{{ sourceColor }};">{{ sourceLabel }}</span>
+          </div>
+        </div>
+        <button style-hover="background:var(--forest-90);" style-active="transform:translateY(1px);" onClick="{{ onRefresh }}" disabled="{{ refreshing }}" style="font-family:var(--font-text); font-size:13px; font-weight:500; letter-spacing:var(--track-text); height:38px; padding:0 18px; border-radius:var(--radius-xs); cursor:pointer; transition:background var(--dur-fast) var(--ease-out); background:var(--forest); color:var(--bone); border:1px solid var(--forest); min-width:128px;">{{ refreshLabel }}</button>
+      </div>
+    </div>
+
+    <div style="max-width:1280px; margin:0 auto; padding:0 32px 12px; display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+      <nav style="display:flex; gap:4px; flex:none;">
+        <sc-for list="{{ pages }}" as="p" hint-placeholder-count="4">
+          <button onClick="{{ p.onClick }}" style="{{ p.style }}">{{ p.label }}</button>
+        </sc-for>
+      </nav>
+      <div style="display:flex; align-items:flex-end; gap:8px; margin-left:auto; flex-wrap:nowrap;">
+        <sc-if value="{{ showMonth }}" hint-placeholder-val="{{ true }}">
+        <label style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Mês</span>
+          <select style-focus="border-color:var(--forest);" value="{{ month }}" onChange="{{ onMonth }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:122px;">
+            <sc-for list="{{ monthOptions }}" as="o" hint-placeholder-count="3">
+              <option value="{{ o.value }}">{{ o.label }}</option>
+            </sc-for>
+          </select>
+        </label>
+        </sc-if>
+        <label style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Data inicial</span>
+          <input style-focus="border-color:var(--forest);" type="date" value="{{ dateFrom }}" min="{{ dateMin }}" max="{{ dateMax }}" onChange="{{ onDateFrom }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; padding:0 6px; width:118px;"></input>
+        </label>
+        <label style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Data final</span>
+          <input style-focus="border-color:var(--forest);" type="date" value="{{ dateTo }}" min="{{ dateMin }}" max="{{ dateMax }}" onChange="{{ onDateTo }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; padding:0 6px; width:118px;"></input>
+        </label>
+        <button style-hover="background:var(--forest-06); border-color:var(--forest);" style-active="transform:translateY(1px);" onClick="{{ onClearDates }}" style="font-family:var(--font-text); font-size:13px; font-weight:500; letter-spacing:var(--track-text); height:38px; padding:0 18px; border-radius:var(--radius-xs); cursor:pointer; transition:background var(--dur-fast) var(--ease-out); background:transparent; color:var(--text-muted); border:1px solid var(--line-strong); height:32px; padding:0 12px; font-size:12px;">Limpar</button>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1280px; margin:0 auto; padding:28px 32px 0;">
+
+    <!-- page title strip -->
+    <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:22px;">
+      <h1 style="font-family:var(--font-display); font-weight:200; font-size:34px; line-height:1; margin:0; color:var(--text-strong); letter-spacing:var(--track-display);">{{ pageTitle }}</h1>
+    </div>
+
+    <!-- ============ PAGE: CONTA ============ -->
+    <sc-if value="{{ isConta }}" hint-placeholder-val="{{ true }}">
+    <div>
+      <sc-if value="{{ partialLive }}" hint-placeholder-val="{{ false }}">
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px 18px; margin-bottom:16px; display:flex; gap:11px; align-items:flex-start; background:var(--forest-06); border-color:transparent;">
+          <span style="flex:none; width:8px; height:8px; border-radius:999px; background:var(--forest); margin-top:6px;"></span>
+          <span data-keepcase="1" style="font-size:13px; color:var(--text-strong); line-height:1.55;">{{ syncNotice }}</span>
+        </div>
+      </sc-if>
+      <!-- KPI grid -->
+      <div style="display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:10px; margin-bottom:18px;">
+        <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="7">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:12px 12px; min-height:104px; display:flex; flex-direction:column; justify-content:space-between; border-top:3px solid {{ k.accent }};">
+            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); line-height:1.25;">{{ k.label }}</div>
+            <div>
+              <div style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em;">{{ k.value }}</div>
+              <div style="display:flex; align-items:baseline; gap:6px; margin-top:4px; min-height:16px; flex-wrap:wrap;">
+                <span style="font-size:11px; font-weight:500; color:{{ k.deltaColor }};">{{ k.deltaText }}</span>
+                <span style="font-size:11px; color:var(--text-muted);">{{ k.sub }}</span>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- charts 1 & 2 -->
+      <sc-if value="{{ fullLive }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px;">
+          <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Crescimento</div>
+          <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:12px;">Seguidores no período</div>
+          <div style="height:300px; position:relative;"><canvas id="chart-followers"></canvas></div>
+        </div>
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px;">
+          <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:12px; gap:12px; flex-wrap:wrap;">
+            <div>
+              <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Por dia</div>
+              <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1;">Métrica por dia</div>
+            </div>
+            <select style-focus="border-bottom-color:var(--forest);" value="{{ metric2 }}" onChange="{{ onMetric2 }}" style="font-family:var(--font-text); font-size:14px; letter-spacing:var(--track-text); color:var(--forest); background:transparent; border:0; border-bottom:1px solid var(--line-strong); border-radius:0; outline:none; cursor:pointer; height:38px; padding:0 12px; min-width:200px;">
+              <sc-for list="{{ metric2Options }}" as="o" hint-placeholder-count="5">
+                <option value="{{ o.value }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+          </div>
+          <div style="height:300px; position:relative;"><canvas id="chart-metric2"></canvas></div>
+        </div>
+      </div>
+      </sc-if>
+      <sc-if value="{{ partialLive }}" hint-placeholder-val="{{ false }}">
+        <div style="background:transparent; border:1px dashed var(--line-strong); border-radius:var(--radius-md); text-align:center; padding:44px; color:var(--text-muted);">
+          <div style="font-family:var(--font-text); font-weight:500; font-size:16px; color:var(--text-strong); margin-bottom:6px;">Gráficos diários em sincronização</div>
+          <div data-keepcase="1" style="font-size:13px; line-height:1.5; max-width:520px; margin:0 auto;">A série diária de @{{ brand.handle }} (alcance, visualizações, engajamento por dia) ainda está sendo ingerida pelo Windsor. Os gráficos aparecem automaticamente assim que os dados chegarem.</div>
+        </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <!-- ============ PAGE: CONTEUDOS ============ -->
+    <sc-if value="{{ isConteudos }}" hint-placeholder-val="{{ true }}">
+    <div>
+      <sc-if value="{{ partialLive }}" hint-placeholder-val="{{ false }}">
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px 18px; margin-bottom:18px; display:flex; gap:11px; align-items:flex-start; background:var(--forest-06); border-color:transparent;">
+          <span style="flex:none; width:8px; height:8px; border-radius:999px; background:var(--forest); margin-top:6px;"></span>
+          <span data-keepcase="1" style="font-size:13px; color:var(--text-strong); line-height:1.55;">As publicações de @{{ brand.handle }} (desde abril/2026, com imagens e métricas por post) ainda estão sendo sincronizadas pelo Windsor. Aparecem aqui automaticamente assim que prontas — clique em atualizar para verificar.</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ noMetrics }}" hint-placeholder-val="{{ false }}">
+        <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:13px 16px; margin-bottom:18px; display:flex; gap:10px; align-items:flex-start; background:var(--forest-06); border-color:transparent;">
+          <span style="flex:none; width:7px; height:7px; border-radius:999px; background:var(--forest); margin-top:6px;"></span>
+          <span data-keepcase="1" style="font-size:12px; color:var(--text-strong); line-height:1.5;">{{ metricsNote }}</span>
+        </div>
+      </sc-if>
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong);">Conteúdos postados</div>
+          <span style="display:inline-flex; align-items:center; height:22px; padding:0 10px; border-radius:var(--radius-pill); border:1px solid var(--line-hairline); font-family:var(--font-text); font-size:11px; font-weight:500; color:var(--forest); background:var(--forest-06); ">{{ postedCount }}</span>
+        </div>
+        <div style="display:flex; align-items:flex-end; gap:8px;">
+          <label style="display:flex; flex-direction:column; gap:4px;">
+            <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Ordenar por</span>
+            <select style-focus="border-bottom-color:var(--forest);" value="{{ sortKey }}" onChange="{{ onSortKey }}" style="font-family:var(--font-text); font-size:14px; letter-spacing:var(--track-text); color:var(--forest); background:transparent; border:0; border-bottom:1px solid var(--line-strong); border-radius:0; outline:none; cursor:pointer; height:38px; padding:0 12px; min-width:190px;">
+              <sc-for list="{{ sortOptions }}" as="o" hint-placeholder-count="6">
+                <option value="{{ o.value }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+          </label>
+          <button style-hover="background:var(--forest-06); border-color:var(--forest);" style-active="transform:translateY(1px);" onClick="{{ onSortDir }}" style="font-family:var(--font-text); font-size:13px; font-weight:500; letter-spacing:var(--track-text); height:38px; padding:0 18px; border-radius:var(--radius-xs); cursor:pointer; transition:background var(--dur-fast) var(--ease-out); background:transparent; color:var(--forest); border:1px solid var(--line-strong); height:38px; min-width:128px;">{{ sortDirLabel }}</button>
+        </div>
+      </div>
+      <sc-if value="{{ hasPosted }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:16px; margin-bottom:34px;">
+          <sc-for list="{{ posted }}" as="c" hint-placeholder-count="6">
+            <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:0; overflow:hidden;">
+              <div style="{{ c.coverStyle }}">
+                <span style="font-family:var(--font-display); font-weight:200; font-size:80px; color:rgba(255,253,247,0.16); line-height:1; user-select:none;">{{ brand.initial }}</span>
+                <span style="display:inline-flex; align-items:center; height:22px; padding:0 10px; border-radius:var(--radius-pill); border:1px solid var(--line-hairline); font-family:var(--font-text); font-size:11px; font-weight:500; color:var(--forest); background:var(--forest-06); position:absolute; top:10px; left:10px; background:rgba(23,34,25,0.62); color:var(--bone); border:0; backdrop-filter:blur(2px);">{{ c.typeLabel }}</span>
+                <span style="position:absolute; bottom:10px; right:12px; font-size:12px; color:var(--bone); font-weight:500; text-shadow:0 1px 4px rgba(0,0,0,0.5);">{{ c.date }}</span>
+              </div>
+              <div style="padding:12px 12px; min-width:0;">
+                <div data-keepcase="1" style="font-size:12.5px; color:var(--text-strong); font-weight:500; line-height:1.35; height:34px; overflow:hidden;">{{ c.caption }}</div>
+                <div style="display:flex; gap:10px; margin:10px 0 10px; font-size:11.5px; color:var(--text-body); white-space:nowrap;">
+                  <span>♥ {{ c.likes }}</span>
+                  <span>◷ {{ c.comments }}</span>
+                  <span>↗ {{ c.shares }}</span>
+                  <span>⤓ {{ c.saves }}</span>
+                </div>
+                <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:7px 12px; border-top:1px solid var(--line-hairline); padding-top:10px;">
+                  <sc-for list="{{ c.metrics }}" as="m" hint-placeholder-count="8">
+                    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:4px; min-width:0;">
+                      <span style="font-size:10.5px; color:var(--text-muted); line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0;">{{ m.label }}</span>
+                      <span style="font-size:11.5px; font-weight:500; color:var(--text-strong); white-space:nowrap; flex:none;">{{ m.value }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ contentEmpty }}" hint-placeholder-val="{{ false }}">
+        <sc-if value="{{ fullLive }}" hint-placeholder-val="{{ true }}">
+          <div style="background:transparent; border:1px dashed var(--line-strong); border-radius:var(--radius-md); text-align:center; padding:48px; color:var(--text-muted);">Nenhum conteúdo publicado neste período.</div>
+        </sc-if>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <!-- ============ PAGE: CAPTACAO ============ -->
+    <sc-if value="{{ isCapt }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <sc-if value="{{ capNote }}" hint-placeholder-val="{{ false }}">
+        <div data-keepcase="1" style="font-size:12px; color:var(--text-muted); margin:-8px 0 16px; line-height:1.45;">{{ capNoteText }}</div>
+      </sc-if>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px;">
+        <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong);">Visão geral</div>
+        <div style="display:flex; align-items:flex-end; gap:10px; flex-wrap:wrap;">
+          <label style="display:flex; flex-direction:column; gap:4px;">
+            <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Origem</span>
+            <select style-focus="border-color:var(--forest);" value="{{ capSrc }}" onChange="{{ onCapSrc }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:190px;">
+              <sc-for list="{{ srcOpts }}" as="o" hint-placeholder-count="3">
+                <option value="{{ o.value }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+          </label>
+          <label style="display:flex; flex-direction:column; gap:4px;">
+            <span style="font-size:10px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">Criativo</span>
+            <select style-focus="border-color:var(--forest);" value="{{ capAd }}" onChange="{{ onCapAd }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:220px;">
+              <sc-for list="{{ adOpts }}" as="o" hint-placeholder-count="3">
+                <option value="{{ o.value }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:18px;">
+        <sc-for list="{{ capKpis }}" as="k" hint-placeholder-count="8">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px; border-top:3px solid var(--forest);">
+            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-strong); font-weight:700; line-height:1.25;">{{ k.label }}</div>
+            <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+              <div data-keepcase="1" style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em; white-space:nowrap;">{{ k.value }}</div>
+              <span style="font-size:11.5px; color:var(--text-muted);">{{ k.sub }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px;">
+        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Qualificação dos leads</div>
+        <div style="font-size:12px; color:var(--text-muted); margin-bottom:14px;">{{ capTierNote }}</div>
+        <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px;">
+          <sc-for list="{{ capTiers }}" as="t" hint-placeholder-count="3">
+            <div style="border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px 16px; display:flex; flex-direction:column; gap:8px; background:{{ t.bg }};">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;">
+                <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; font-weight:700; color:{{ t.fg }};">{{ t.label }}</span>
+                <span style="font-size:12px; color:{{ t.fg }};">{{ t.pct }}</span>
+              </div>
+              <div style="font-family:var(--font-display); font-size:30px; font-weight:200; line-height:1; letter-spacing:-0.04em; color:{{ t.fg }};">{{ t.n }}</div>
+              <div style="font-size:11.5px; line-height:1.4; color:{{ t.fg }};">{{ t.rule }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">Leads por dia</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Quantidade de leads por dia em cada grupo da dimensão escolhida.</div>
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px; min-width:0;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <div id="capt-legend" style="display:flex; flex-wrap:wrap; gap:6px 16px;"></div>
+          </div>
+          <select style-focus="border-color:var(--forest);" value="{{ capLine }}" onChange="{{ onCapLine }}" style="font-family:var(--font-text); font-size:12px; letter-spacing:var(--track-text); color:var(--forest); background:var(--bone); border:1px solid var(--line-strong); border-radius:var(--radius-xs); outline:none; height:32px; cursor:pointer; padding:0 6px; width:180px;">
+            <sc-for list="{{ lineOpts }}" as="o" hint-placeholder-count="6">
+              <option value="{{ o.value }}">{{ o.label }}</option>
+            </sc-for>
+          </select>
+        </div>
+        <div style="position:relative; height:300px;"><canvas id="chart-capt"></canvas></div>
+      </div>
+
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">Perfil dos leads</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">{{ capProfileNote }}</div>
+      <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; margin-bottom:18px;">
+        <sc-for list="{{ capProfile }}" as="g" hint-placeholder-count="2">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; min-width:0;">
+            <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted); margin-bottom:14px;">{{ g.title }}</div>
+            <div style="display:flex; flex-direction:column; gap:11px;">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
+                <div style="display:flex; flex-direction:column; gap:5px;">
+                  <div style="display:flex; justify-content:space-between; gap:10px; font-size:12px;">
+                    <span data-keepcase="1" style="color:var(--text-strong); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ r.label }}</span>
+                    <span style="color:var(--text-muted); white-space:nowrap;"><span style="color:var(--text-strong); font-weight:500;">{{ r.n }}</span> · {{ r.pct }}</span>
+                  </div>
+                  <div style="height:6px; background:var(--forest-06); border-radius:999px; overflow:hidden;">
+                    <div style="height:100%; width:{{ r.w }}%; background:var(--forest); border-radius:999px;"></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">{{ crossTitle }}</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Quanto mais escuro, mais leads na combinação.</div>
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px; min-width:0;">
+        <div style="display:flex; justify-content:flex-end; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+          <div style="display:flex; gap:4px; flex-wrap:wrap;">
+            <sc-for list="{{ crossOpts }}" as="o" hint-placeholder-count="4">
+              <button onClick="{{ o.onClick }}" style="font-family:var(--font-text); font-size:12px; height:30px; padding:0 12px; border-radius:var(--radius-xs); cursor:pointer; border:1px solid var(--line-strong); background:{{ o.bg }}; color:{{ o.fg }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <div style="display:grid; grid-template-columns:{{ crossCols }}; gap:4px; min-width:520px;">
+            <sc-for list="{{ crossHead }}" as="c" hint-placeholder-count="6">
+              <div style="font-size:10px; font-weight:500; color:var(--text-muted); text-align:{{ c.align }}; line-height:1.25; padding-bottom:4px; align-self:end;">{{ c.label }}</div>
+            </sc-for>
+            <sc-for list="{{ crossCells }}" as="c" hint-placeholder-count="24">
+              <div data-keepcase="1" title="{{ c.tip }}" style="font-size:12px; height:34px; display:flex; align-items:center; justify-content:{{ c.justify }}; padding:0 8px; border-radius:var(--radius-xs); background:{{ c.bg }}; color:{{ c.fg }}; font-weight:{{ c.weight }}; cursor:default;">{{ c.v }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin-bottom:4px;">{{ srcCrossTitle }}</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Quanto mais escuro, mais leads na combinação.</div>
+      <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:18px; min-width:0;">
+        <div style="display:flex; justify-content:flex-end; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+          <div style="display:flex; gap:4px; flex-wrap:wrap;">
+            <sc-for list="{{ utmOpts }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.onClick }}" style="font-family:var(--font-text); font-size:12px; height:30px; padding:0 12px; border-radius:var(--radius-xs); cursor:pointer; border:1px solid var(--line-strong); background:{{ o.bg }}; color:{{ o.fg }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <div style="display:grid; grid-template-columns:{{ srcCrossCols }}; gap:4px; min-width:520px;">
+            <sc-for list="{{ srcCrossHead }}" as="c" hint-placeholder-count="6">
+              <div title="{{ c.full }}" style="font-size:10px; font-weight:500; color:var(--text-muted); text-align:{{ c.align }}; line-height:1.25; padding-bottom:4px; align-self:end; min-width:0; overflow-wrap:anywhere;">{{ c.label }}</div>
+            </sc-for>
+            <sc-for list="{{ srcCrossCells }}" as="c" hint-placeholder-count="24">
+              <div data-keepcase="1" title="{{ c.tip }}" style="font-size:12px; height:34px; display:flex; align-items:center; justify-content:{{ c.justify }}; padding:0 8px; border-radius:var(--radius-xs); background:{{ c.bg }}; color:{{ c.fg }}; font-weight:{{ c.weight }}; cursor:default;">{{ c.v }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); margin:34px 0 4px;">Perfil das compradoras</div>
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">{{ buyNote }}</div>
+      <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:16px;">
+        <sc-for list="{{ buyKpis }}" as="k" hint-placeholder-count="4">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px; border-top:3px solid var(--forest);">
+            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-strong); font-weight:700; line-height:1.25;">{{ k.label }}</div>
+            <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+              <div data-keepcase="1" style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em; white-space:nowrap;">{{ k.value }}</div>
+              <span style="font-size:11.5px; color:var(--text-muted);">{{ k.sub }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:var(--ink); border-radius:var(--radius-md); padding:18px 20px; margin-bottom:16px;">
+        <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:rgba(255,253,247,0.78); margin-bottom:14px;">Perfil que mais converte</div>
+        <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px;">
+          <sc-for list="{{ buyBest }}" as="b" hint-placeholder-count="4">
+            <div style="display:flex; flex-direction:column; gap:6px; border-top:1px solid rgba(255,253,247,0.25); padding-top:12px; min-width:0;">
+              <span style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,253,247,0.78);">{{ b.dim }}</span>
+              <span data-keepcase="1" style="font-size:15px; font-weight:500; color:var(--bone); line-height:1.3;">{{ b.label }}</span>
+              <span style="font-size:12px; color:rgba(255,253,247,0.78);">{{ b.sub }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; margin-bottom:18px;">
+        <sc-for list="{{ buyProfile }}" as="g" hint-placeholder-count="4">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:18px 20px; min-width:0;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:14px;">
+              <div style="font-size:11px; letter-spacing:var(--track-overline); text-transform:uppercase; color:var(--text-muted);">{{ g.title }}</div>
+              <div style="font-size:10.5px; color:var(--text-muted);">compradoras · conversão</div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:11px;">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
+                <div title="{{ r.tip }}" style="display:flex; flex-direction:column; gap:5px;">
+                  <div style="display:flex; justify-content:space-between; gap:10px; font-size:12px;">
+                    <span data-keepcase="1" style="color:var(--text-strong); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ r.label }}</span>
+                    <span style="color:var(--text-muted); white-space:nowrap;"><span style="color:var(--text-strong); font-weight:500;">{{ r.n }}</span> · {{ r.pct }} · <span style="color:var(--text-strong); font-weight:{{ r.cw }};">{{ r.conv }}</span></span>
+                  </div>
+                  <div style="height:6px; background:var(--forest-06); border-radius:999px; overflow:hidden;">
+                    <div style="height:100%; width:{{ r.w }}%; background:var(--forest); border-radius:999px;"></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+    </div>
+    </sc-if>
+
+    <!-- ============ PAGE: CRONOGRAMA ============ -->
+    <sc-if value="{{ isCrono }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <!-- cronograma trello -->
+      <div style="background:var(--ink); border:1px solid var(--ink); border-radius:var(--radius-md); padding:20px 22px; margin-bottom:16px;">
+        <div style="font-family:var(--font-text); font-weight:500; letter-spacing:-0.01em; font-size:20px; color:var(--text-strong); line-height:1.1; margin-bottom:16px; color:var(--bone);">Datas importantes</div>
+        <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; position:relative;">
+          <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="3">
+            <div style="display:flex; flex-direction:column; gap:8px; padding-right:16px;">
+              <div style="font-family:var(--font-display); font-weight:200; font-size:28px; line-height:1; color:var(--text-strong); letter-spacing:-0.03em; color:var(--bone);">{{ m.date }}</div>
+              <a data-keepcase="1" href="{{ m.url }}" target="_blank" rel="noopener noreferrer" style="font-size:13px; color:var(--bone); font-weight:500; text-decoration:none; line-height:1.35;" style-hover="text-decoration:underline;">{{ m.name }}</a>
+              <span style="font-size:12px; color:rgba(255,253,247,0.78);">{{ m.when }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:12px; margin-bottom:16px;">
+        <sc-for list="{{ trelloKpis }}" as="k" hint-placeholder-count="5">
+          <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:14px; min-height:84px; display:flex; flex-direction:column; justify-content:space-between; gap:10px;">
+            <div style="font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-strong); font-weight:700; line-height:1.25;">{{ k.label }}</div>
+            <div style="font-family:var(--font-display); font-size:30px; font-weight:200; color:var(--text-strong); line-height:1; letter-spacing:-0.04em; color:{{ k.color }};">{{ k.value }}</div>
+          </div>
+        </sc-for>
+      </div>
+
 
       <div style="background:var(--bone); border:1px solid var(--line-hairline); border-radius:var(--radius-md); padding:20px 22px; margin-bottom:16px;">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
@@ -859,7 +1375,7 @@ class Component extends DCLogic {
   }
 
   /* ============ CHARTS ============ */
-  componentDidMount(){ try{ const dd=JSON.parse(localStorage.getItem('mp_todo_daily')||'{}'); this.setState({dailyDone:dd}); }catch(e){} this.drawCharts(); this.fetchLive(); this.fetchTrello(); this.fetchLeads(); }
+  componentDidMount(){ fetch('compradoras-black-pac.json').then(r=>r.json()).then(j=>this.setState({buyers:j})).catch(()=>{}); try{ const dd=JSON.parse(localStorage.getItem('mp_todo_daily')||'{}'); this.setState({dailyDone:dd}); }catch(e){} this.drawCharts(); this.fetchLive(); this.fetchTrello(); this.fetchLeads(); }
   componentDidUpdate(){ this.drawCharts(); }
   lineCfg(labels, datasets, opts){
     opts=opts||{};
@@ -921,7 +1437,7 @@ class Component extends DCLogic {
       onDateTo:(e)=>this.setState({dateTo:e.target.value, month:'all', week:'all'}),
       onClearDates:()=>this.setState({dateFrom:'', dateTo:'', month:'all', week:'all'}),
       accent, periodLabel: win.label,
-      isConta:S.page==='conta', isConteudos:S.page==='conteudos', isAcomp:S.page==='acomp', isCrono:S.page==='crono', isCapt:S.page==='capt', showMonth:S.page!=='capt', ...this.capVals(S), ...this.capDateOverride(S),
+      isConta:S.page==='conta', isConteudos:S.page==='conteudos', isAcomp:S.page==='acomp', isCrono:S.page==='crono', isCapt:S.page==='capt', showMonth:S.page!=='capt', ...this.buyVals(S), ...this.capVals(S), ...this.capDateOverride(S),
       pageTitle: S.page==='conta'?'Dados da Conta': S.page==='conteudos'?'Dados dos Conteúdos': S.page==='crono'?'Área de gestão': S.page==='capt'?'Dados da captação':'Dados da campanha',
     };
 
@@ -1188,6 +1704,34 @@ class Component extends DCLogic {
       try{ const j=await (await fetch('leads-black-pac.json')).json(); this.setState({leads:{rows:j.rows, live:false, partial:j.partial}}); }catch(_){}
     }
   }
+  buyVals(S){
+    const J=S.buyers; const E={ buyNote:'', buyKpis:[], buyBest:[], buyProfile:[] }; if(!J) return E;
+    const B=J.buyers, L=J.leads; const nf=n=>n.toLocaleString('pt-BR'); const pc=(a,b)=>b? (a/b*100).toFixed(1).replace('.',',')+'%' : '0%';
+    const brl=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+    const paid=B.filter(b=>b.st==='Paga'); const fat=paid.reduce((a,b)=>a+b.v,0); const paidLead=paid.filter(b=>b.lead==='Sim').length;
+    const LB=L.filter(l=>l.c);
+    const buyKpis=[
+      {label:'Compradoras', value:nf(B.length), sub:paid.length+' pagas'},
+      {label:'Faturamento pago', value:brl(fat), sub:''},
+      {label:'Ticket médio', value:brl(paid.length? fat/paid.length : 0), sub:''},
+      {label:'Conversão do formulário', value:pc(paidLead,L.length), sub:paidLead+' de '+nf(L.length)+' leads'} ];
+    const RO=['Até R$ 3.000','Entre R$ 3.001 e R$ 5.000','Entre R$ 5.001 e R$ 10.000','Entre R$ 10.001 e R$ 15.000','Entre R$ 15.001 e R$ 20.000','Acima de R$ 20.000'];
+    const rS=r=>r.replace('Entre ','').replace(' e ',' a ');
+    const IO=['Vou aproveitar com certeza','Tenho muito interesse','Tenho interesse','Só quero conhecer'];
+    const tS=t=>t.replace(/^Sou /,'').replace(/^./,c=>c.toUpperCase());
+    const D=[['Como trabalha','trab',null,tS],['Renda','renda',RO,rS],['Interesse','int',IO,x=>x],['Área','area',null,x=>x]];
+    const buyBest=[]; const buyProfile=D.map(([title,k,ord,lb])=>{
+      const cats=ord || [...new Set(L.map(l=>l[k]).filter(Boolean))];
+      let rows=cats.map(c=>{ const nl=L.filter(l=>l[k]===c).length, nb=LB.filter(l=>l[k]===c).length; return {c,nl,nb,cr:nl? nb/nl:0}; }).filter(r=>r.nl>0);
+      if(!ord) rows.sort((a,b)=>b.nb-a.nb||b.nl-a.nl);
+      const known=LB.filter(l=>l[k]).length; const mx=Math.max(1,...rows.map(r=>r.nb));
+      const elig=rows.filter(r=>r.nl>=10 && r.nb>0).sort((a,b)=>b.cr-a.cr)[0];
+      if(elig) buyBest.push({dim:title, label:lb(elig.c), sub:'conversão de '+pc(elig.nb,elig.nl)+' · '+elig.nb+' de '+elig.nl+' leads'});
+      return { title, rows: rows.map(r=>({ label:lb(r.c), n:String(r.nb), pct:pc(r.nb,known), conv:pc(r.nb,r.nl), cw: elig&&r.c===elig.c? 700:400, w:Math.round(r.nb/mx*100), tip:r.nb+' compradoras de '+r.nl+' leads com esse perfil' })) };
+    });
+    const out=B.filter(b=>b.lead!=='Sim').length;
+    return { buyNote: LB.length+' das '+B.length+' compradoras preencheram o formulário de captação; '+out+' compraram sem passar por ele. % = parte das compradoras com o campo preenchido · conversão = compradoras ÷ leads daquele perfil. Destaque considera perfis com 10+ leads.', buyKpis, buyBest, buyProfile };
+  }
   capVals(S){
     const L=S.leads; const pctf=(a,b)=>b? (Math.round(a/b*1000)/10).toString().replace('.',',')+'%' : '0%';
     const empty={ lineOpts:[], capLine:'origem', onCapLine:()=>{}, srcCrossTitle:'', utmOpts:[], srcCrossHead:[], srcCrossCells:[], srcCrossCols:'1fr', srcOpts:[], adOpts:[], capSrc:'all', capAd:'all', onCapSrc:()=>{}, onCapAd:()=>{}, crossTitle:'', crossHead:[], crossCells:[], crossCols:'1fr', crossOpts:[], capTiers:[], capCross:[], capThemes:[], capTierNote:'', capKpis:[], capHours:[], capOrigin:[], capProfile:[], capAds:[], capDifs:[], capPeak:'', capDifCount:'', capProfileNote:'', capNote:false, capNoteText:'', capAdCols:[] };
@@ -1283,7 +1827,20 @@ class Component extends DCLogic {
     const lds=lser.map((s,i)=>({ label:s.length>34? s.slice(0,33)+'…' : s, data:lDays.map(d=>LA.filter(r=>iso(r.d)===d && (s==='Outros'? !lkeep.includes(lg(r)) : lg(r)===s)).length), borderColor:LC[i%LC.length], backgroundColor:LC[i%LC.length], borderDash:LDASH[i%LDASH.length], borderWidth:2, tension:0.3, pointRadius:3, pointHoverRadius:5 }));
     this._capChart={ type:'line', data:{ labels:lDays.map(d=>d.slice(8,10)+'/'+d.slice(5,7)), datasets:lds }, options:{ responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false}, plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ footer:(it)=>'Total do dia: '+it.reduce((s,x)=>s+x.parsed.y,0) } } }, scales:{ x:{ grid:{display:false}, ticks:{color:'rgba(29,29,30,0.6)', font:{size:11}} }, y:{ beginAtZero:true, ticks:{precision:0, color:'rgba(29,29,30,0.6)', font:{size:11}}, grid:{color:'rgba(23,34,25,0.08)'} } } } };
     const capLine={ lineOpts:Object.entries(LD).map(([k,v])=>({value:k,label:v[0]})), capLine:lk, onCapLine:(e)=>this.setState({capLine:e.target.value}) };
-    const srcCross={...capLine, srcCrossTitle:sx.title, utmOpts, srcCrossHead:sx.head, srcCrossCells:sx.cells, srcCrossCols:sx.cols};
+    const BJ=S.buyers; let buyUtm={ buyUtmOpts:[], buyUtmRows:[], buyUtmNote:'', buyUtmBest:'' };
+    if(BJ && L && L.rows){
+      const first={}; [...L.rows].sort((a,b)=>(pd(a.dt)||0)-(pd(b.dt)||0)).forEach(r=>{ const e=(r.email||'').toLowerCase(); if(e && !first[e]) first[e]=r; });
+      const U=Object.values(first); const bset=new Set(BJ.buyers.map(b=>b.email)); const UB=U.filter(r=>bset.has((r.email||'').toLowerCase()));
+      const bk=UT[S.buyUtm]? S.buyUtm : 'origem'; const g=UT[bk][1]; const lbl= bk==='origem'? (c=>SL[c]||c) : (c=>c);
+      const agg={}; U.forEach(r=>{ const v=g(r)||'(sem utm)'; agg[v]=agg[v]||{nl:0,nb:0}; agg[v].nl++; if(bset.has((r.email||'').toLowerCase())) agg[v].nb++; });
+      const rowsU=Object.entries(agg).filter(([,a])=>a.nb>0).sort((a,b)=>b[1].nb-a[1].nb||b[1].nb/b[1].nl-a[1].nb/a[1].nl);
+      const mx=Math.max(1,...rowsU.map(([,a])=>a.nb)); const best=rowsU.filter(([,a])=>a.nl>=10).sort((a,b)=>b[1].nb/b[1].nl-a[1].nb/a[1].nl)[0];
+      buyUtm={ buyUtmOpts:Object.entries(UT).map(([k,v])=>({label:v[0], bg:k===bk?'var(--forest)':'transparent', fg:k===bk?'var(--bone)':'var(--text-strong)', onClick:()=>this.setState({buyUtm:k})})),
+        buyUtmRows: rowsU.map(([c,a])=>({ label:lbl(c), n:String(a.nb), pct:pctf(a.nb,UB.length), nl:String(a.nl), conv:pctf(a.nb,a.nl), w:Math.round(a.nb/mx*100), cw: best&&best[0]===c? 700:400 })),
+        buyUtmBest: best? lbl(best[0])+' — conversão de '+pctf(best[1].nb,best[1].nl)+' ('+best[1].nb+' de '+best[1].nl+' leads)' : '',
+        buyUtmNote: UB.length+' compradoras encontradas na planilha de leads, atribuídas pela utm do primeiro cadastro. Sem filtros de período e origem. Destaque considera grupos com 10+ leads.' };
+    }
+    const srcCross={...buyUtm, ...capLine, srcCrossTitle:sx.title, utmOpts, srcCrossHead:sx.head, srcCrossCells:sx.cells, srcCrossCols:sx.cols};
     const crossOpts=Object.entries(CV).map(([k,v])=>({label:v[0], bg:k===cvK?'var(--forest)':'transparent', fg:k===cvK?'var(--bone)':'var(--text-strong)', onClick:()=>this.setState({capVar:k})}));
     const capCross=[
       cross('Renda × interesse','Quanto mais escuro, mais leads na combinação.', r=>r.renda, RO, rShort, r=>r.int, IO, c=>iShort[c]||c),
