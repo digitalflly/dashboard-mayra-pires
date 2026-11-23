@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 </head>
@@ -1085,7 +1086,7 @@ class Component extends DCLogic {
     this.model = this.buildModel();
     this.charts = {};
     this.state = {
-      page: 'conta',
+      page: this.pageFromPath(),
       month: 'all',
       week: 'all',
       ...this.defaultRange(),
@@ -1291,7 +1292,10 @@ class Component extends DCLogic {
   delta(cur,prev){ if(prev==null||prev===0) return {text:'—', color:'var(--text-muted)', sub:''}; const v=(cur-prev)/prev*100; const up=v>=0; return { text:(up?'▲ ':'▼ ')+this.fmtPct(Math.abs(v)), color: up?'#2f6b3a':'#8c2f2f', sub:'' }; }
 
   /* ============ HANDLERS ============ */
-  setPage(p){ this.setState({page:p}); }
+  // Cada aba tem sua própria URL (/conta, /conteudos, /captacao, /gestao).
+  pageRoutes(){ return {conta:'/conta', conteudos:'/conteudos', acomp:'/campanha', capt:'/captacao', crono:'/gestao'}; }
+  pageFromPath(){ const path=(location.pathname||'/').replace(/\/+$/,'')||'/'; const r=this.pageRoutes(); return Object.keys(r).find(k=>r[k]===path)||'conta'; }
+  setPage(p){ const url=this.pageRoutes()[p]; if(url && location.pathname!==url) history.pushState({page:p},'',url); this.setState({page:p}); }
   onRefresh(){ this.fetchLive(); this.fetchTrello(); this.fetchLeads(); }
   // Trello: com TRELLO_KEY + TRELLO_TOKEN preenchidos, busca ao vivo na API; senão, lê o snapshot do projeto.
   async fetchTrello(){
@@ -1375,7 +1379,7 @@ class Component extends DCLogic {
   }
 
   /* ============ CHARTS ============ */
-  componentDidMount(){ fetch('compradoras-black-pac.json').then(r=>r.json()).then(j=>this.setState({buyers:j})).catch(()=>{}); try{ const dd=JSON.parse(localStorage.getItem('mp_todo_daily')||'{}'); this.setState({dailyDone:dd}); }catch(e){} this.drawCharts(); this.fetchLive(); this.fetchTrello(); this.fetchLeads(); }
+  componentDidMount(){ { const url=this.pageRoutes()[this.state.page]; if(location.pathname!==url) history.replaceState({page:this.state.page},'',url); window.addEventListener('popstate',()=>this.setState({page:this.pageFromPath()})); } fetch('compradoras-black-pac.json').then(r=>r.json()).then(j=>this.setState({buyers:j})).catch(()=>{}); try{ const dd=JSON.parse(localStorage.getItem('mp_todo_daily')||'{}'); this.setState({dailyDone:dd}); }catch(e){} this.drawCharts(); this.fetchLive(); this.fetchTrello(); this.fetchLeads(); }
   componentDidUpdate(){ this.drawCharts(); }
   lineCfg(labels, datasets, opts){
     opts=opts||{};
